@@ -24,7 +24,6 @@ interface Country {
   flag_url: string;
   flag_alt: string;
 
-  // People & Demographics (World Bank)
   population: Metric;
   population_growth: Metric;
   urban_population_percent: Metric;
@@ -34,21 +33,17 @@ interface Country {
   infant_mortality: Metric;
   population_density_per_km2: number | null;
 
-  // Economy (World Bank)
   gdp_usd: Metric;
   gdp_per_capita_usd: Metric;
   gdp_growth_percent: Metric;
 
-  // Government (Wikidata)
   government_forms: string[];
   head_of_state: string | null;
   head_of_government: string | null;
   legislature: string | null;
 
-  // Summary (Wikipedia)
   summary: string;
 
-  // Metadata
   edition: string;
   last_built: string;
   sources: Array<{ label: string; url: string }>;
@@ -82,45 +77,22 @@ async function fetchWikipediaSummary(name: string): Promise<string> {
 async function main() {
   await mkdir(countriesDir, { recursive: true });
 
-  console.log('🚀 Starting data build for 193 UN Member States...');
+  console.log('🚀 Starting full 193-country build...');
 
-  // 1. REST Countries (with required ?fields=)
-  console.log('📡 Fetching from REST Countries...');
-  const restRes = await fetch(
-    'https://restcountries.com/v3.1/all?fields=cca3,name,capital,region,subregion,area,landlocked,timezones,currencies,languages,flags,unMember'
-  );
-
-  if (!restRes.ok) {
-    throw new Error(`REST Countries failed: ${restRes.status} ${restRes.statusText}`);
-  }
-
+  // REST Countries with required fields
+  const restRes = await fetch('https://restcountries.com/v3.1/all?fields=cca3,name,capital,region,subregion,area,landlocked,timezones,currencies,languages,flags,unMember,population');
+  if (!restRes.ok) throw new Error(`REST Countries HTTP ${restRes.status}`);
   const allRest: any[] = await restRes.json();
-
-  if (!Array.isArray(allRest)) {
-    console.error('❌ Unexpected REST response:', allRest);
-    throw new Error('REST Countries did not return an array (missing ?fields=?)');
-  }
-
-  console.log(`✓ Received ${allRest.length} countries from REST`);
+  if (!Array.isArray(allRest)) throw new Error('REST Countries did not return array');
 
   const unCountries = allRest.filter((c: any) => c.unMember === true);
-  console.log(`✓ Filtered to ${unCountries.length} UN member states`);
+  console.log(`✓ ${unCountries.length} UN member states`);
 
-  // 2. World Bank
-  console.log('📡 Fetching World Bank data...');
+  // World Bank
   const wbMaps: Record<string, Map<string, Metric>> = {};
-  const years = '2020:2025';
-
   for (const [key, indicator] of Object.entries(WORLD_BANK_INDICATORS)) {
-    console.log(`  → ${key}...`);
-    const res = await fetch(
-      `https://api.worldbank.org/v2/country/all/indicator/${indicator}?date=${years}&format=json&per_page=300`
-    );
-    if (!res.ok) {
-      console.warn(`⚠️ World Bank ${key} skipped`);
-      wbMaps[key] = new Map();
-      continue;
-    }
+    const res = await fetch(`https://api.worldbank.org/v2/country/all/indicator/${indicator}?date=2020:2025&format=json&per_page=300`);
+    if (!res.ok) { wbMaps[key] = new Map(); continue; }
     const [, data] = await res.json() as [any, any[]];
     const m = new Map<string, Metric>();
     for (const item of data || []) {
@@ -131,8 +103,7 @@ async function main() {
     wbMaps[key] = m;
   }
 
-  // 3. Wikidata
-  console.log('📡 Fetching government data from Wikidata...');
+  // Wikidata Government
   const sparql = `SELECT ?iso3 ?govFormLabel ?headStateLabel ?headGovLabel ?legislatureLabel WHERE {
     ?country wdt:P31 wd:Q6256; wdt:P298 ?iso3.
     OPTIONAL { ?country wdt:P122 ?govForm. ?govForm rdfs:label ?govFormLabel. FILTER(LANG(?govFormLabel)="en") }
@@ -152,7 +123,6 @@ async function main() {
     });
   }
 
-  // 4. Build everything
   const index: string[] = [];
   const lightweight: any[] = [];
 
@@ -177,9 +147,7 @@ async function main() {
       area_km2: area || null,
       landlocked: rest.landlocked || false,
       timezones: rest.timezones || [],
-      currency: Object.values(rest.currencies || {})
-        .map((c: any) => `${c.name} (${c.symbol || ''})`.trim())
-        .join(', ') || 'N/A',
+      currency: Object.values(rest.currencies || {}).map((c: any) => `${c.name} (${c.symbol || ''})`.trim()).join(', ') || 'N/A',
       languages: Object.values(rest.languages || {}),
       flag_url: rest.flags?.svg || rest.flags?.png || '',
       flag_alt: rest.flags?.alt || `Flag of ${rest.name.common}`,
@@ -217,23 +185,15 @@ async function main() {
     await writeFile(path.join(countriesDir, `${code}.json`), JSON.stringify(country, null, 2));
 
     index.push(code);
-    lightweight.push({
-      code,
-      name_common: country.name_common,
-      flag_url: country.flag_url,
-      region: country.region,
-    });
+    lightweight.push({ code, name_common: country.name_common, flag_url: country.flag_url, region: country.region });
 
-    console.log(`✓ Built ${code} — ${country.name_common}`);
+    console.log(`✓ ${code} — ${country.name_common}`);
   }
 
   await writeFile(path.join(outDir, 'index.json'), JSON.stringify(index, null, 2));
   await writeFile(path.join(outDir, 'all-countries.json'), JSON.stringify(lightweight, null, 2));
 
-  console.log(`\n🎉 SUCCESS! Built ${unCountries.length} UN member states.`);
+  console.log(`\n🎉 Built ${unCountries.length} countries successfully!`);
 }
 
-main().catch(err => {
-  console.error('❌ BUILD FAILED:', err.message);
-  process.exit(1);
-});
+main().catch(err => { console.error('❌', err); process.exit(1); });
