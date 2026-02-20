@@ -5,14 +5,25 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import index from '@/data/index.json';
 
-interface Metric { value: number | null; year: number | null; }
+interface Metric {
+  value: number | null;
+  year: number | null;
+}
 
 function formatMetric(m: Metric | number | null | undefined, digits = 0): string {
-  let value = typeof m === 'number' ? m : m?.value;
-  if (value === null || value === undefined || Number.isNaN(value)) return '—';
+  let value = typeof m === 'number' ? m : (m?.value ?? null);
+  if (value === null || Number.isNaN(value)) return '—';
   const num = value.toLocaleString(undefined, { maximumFractionDigits: digits });
   const year = typeof m === 'object' && m?.year ? ` (${m.year})` : '';
   return num + year;
+}
+
+function cleanSummary(text: string): string {
+  return text
+    .replace(/\\n/g, ' ')
+    .replace(/\n/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 export function generateStaticParams() {
@@ -35,83 +46,93 @@ export default async function CountryPage({ params }: { params: Promise<{ code: 
   if (!country) notFound();
 
   return (
-    <main className="max-w-5xl mx-auto px-6 py-8 font-serif">
-      <p className="mb-6"><Link href="/" className="text-blue-600 hover:underline">← Back to all countries</Link></p>
+    <main className="max-w-5xl mx-auto px-6 py-10 font-serif">
+      <p className="mb-8"><Link href="/" className="text-blue-600 hover:underline">← Back to all countries</Link></p>
 
       {/* Header */}
-      <div className="flex gap-8 items-start border-b pb-8 mb-10">
-        <Image src={country.flag_url} alt={country.flag_alt} width={160} height={110} className="rounded shadow" />
+      <div className="flex flex-col md:flex-row gap-8 items-start border-b pb-10 mb-12">
+        <Image 
+          src={country.flag_url} 
+          alt={country.flag_alt} 
+          width={180} 
+          height={120} 
+          className="rounded shadow-md" 
+        />
         <div>
-          <h1 className="text-5xl font-bold">{country.name_common}</h1>
-          <p className="text-2xl text-gray-600 mt-1">{country.name_official}</p>
-          <p className="text-lg mt-3 text-gray-500">The World Factbook • 2026 Edition</p>
+          <h1 className="text-6xl font-bold tracking-tight">{country.name_common}</h1>
+          <p className="text-3xl text-gray-600 mt-2">{country.name_official}</p>
+          <p className="text-xl text-gray-500 mt-4">The World Factbook • 2026 Edition</p>
         </div>
       </div>
 
       {/* Introduction */}
-      <section className="mb-12">
-        <h2 className="uppercase tracking-widest text-sm font-bold mb-3 text-gray-500">Introduction</h2>
-        <p className="text-lg leading-relaxed max-w-3xl">{country.summary}</p>
+      <section className="mb-14 max-w-3xl">
+        <h2 className="uppercase text-sm font-bold tracking-widest mb-4 text-gray-500">Introduction</h2>
+        <p className="text-[17px] leading-relaxed text-gray-800">
+          {cleanSummary(country.summary)}
+        </p>
       </section>
 
-      <div className="grid md:grid-cols-2 gap-12">
+      <div className="grid md:grid-cols-2 gap-x-16 gap-y-12">
         {/* Geography */}
         <section>
-          <h2 className="uppercase tracking-widest text-sm font-bold mb-4 text-gray-500">Geography</h2>
-          <dl className="space-y-3">
-            <div><dt className="inline font-medium">Capital</dt><dd className="inline ml-2">{country.capital}</dd></div>
-            <div><dt className="inline font-medium">Region</dt><dd className="inline ml-2">{country.region} — {country.subregion || '—'}</dd></div>
-            <div><dt className="inline font-medium">Area</dt><dd className="inline ml-2">{formatMetric(country.area_km2)} km²</dd></div>
-            <div><dt className="inline font-medium">Landlocked</dt><dd className="inline ml-2">{country.landlocked ? 'Yes' : 'No'}</dd></div>
-            <div><dt className="inline font-medium">Time zones</dt><dd className="inline ml-2">{country.timezones.join(', ') || '—'}</dd></div>
+          <h2 className="uppercase text-sm font-bold tracking-widest mb-5 text-gray-500">Geography</h2>
+          <dl className="space-y-4 text-[15px]">
+            <div><dt className="font-medium inline">Capital</dt><dd className="ml-3 inline">{country.capital}</dd></div>
+            <div><dt className="font-medium inline">Region</dt><dd className="ml-3 inline">{country.region} — {country.subregion || '—'}</dd></div>
+            <div><dt className="font-medium inline">Area</dt><dd className="ml-3 inline">{formatMetric(country.area_km2)} km²</dd></div>
+            <div><dt className="font-medium inline">Landlocked</dt><dd className="ml-3 inline">{country.landlocked ? 'Yes' : 'No'}</dd></div>
+            <div><dt className="font-medium inline">Time zones</dt><dd className="ml-3 inline">{country.timezones.join(', ') || '—'}</dd></div>
           </dl>
         </section>
 
-        {/* People & Society */}
+        {/* People and Society */}
         <section>
-          <h2 className="uppercase tracking-widest text-sm font-bold mb-4 text-gray-500">People and Society</h2>
-          <dl className="space-y-3">
-            <div><dt className="inline font-medium">Population</dt><dd className="inline ml-2">{formatMetric(country.population)}</dd></div>
-            <div><dt className="inline font-medium">Population density</dt><dd className="inline ml-2">{formatMetric(country.population_density_per_km2, 1)} per km²</dd></div>
-            <div><dt className="inline font-medium">Life expectancy</dt><dd className="inline ml-2">{formatMetric(country.life_expectancy, 1)} years</dd></div>
-            <div><dt className="inline font-medium">Fertility rate</dt><dd className="inline ml-2">{formatMetric(country.fertility_rate, 2)} births per woman</dd></div>
-            <div><dt className="inline font-medium">Urban population</dt><dd className="inline ml-2">{formatMetric(country.urban_population_percent, 1)}%</dd></div>
-            <div><dt className="inline font-medium">Languages</dt><dd className="inline ml-2">{country.languages.join(', ') || '—'}</dd></div>
+          <h2 className="uppercase text-sm font-bold tracking-widest mb-5 text-gray-500">People and Society</h2>
+          <dl className="space-y-4 text-[15px]">
+            <div><dt className="font-medium inline">Population</dt><dd className="ml-3 inline">{formatMetric(country.population)}</dd></div>
+            <div><dt className="font-medium inline">Population density</dt><dd className="ml-3 inline">{formatMetric(country.population_density_per_km2, 1)} per km²</dd></div>
+            <div><dt className="font-medium inline">Life expectancy</dt><dd className="ml-3 inline">{formatMetric(country.life_expectancy, 1)} years</dd></div>
+            <div><dt className="font-medium inline">Fertility rate</dt><dd className="ml-3 inline">{formatMetric(country.fertility_rate, 2)} births per woman</dd></div>
+            <div><dt className="font-medium inline">Urban population</dt><dd className="ml-3 inline">{formatMetric(country.urban_population_percent, 1)}%</dd></div>
+            <div><dt className="font-medium inline">Languages</dt><dd className="ml-3 inline">{country.languages.join(', ') || '—'}</dd></div>
           </dl>
         </section>
 
         {/* Economy */}
         <section>
-          <h2 className="uppercase tracking-widest text-sm font-bold mb-4 text-gray-500">Economy</h2>
-          <dl className="space-y-3">
-            <div><dt className="inline font-medium">GDP (current US$)</dt><dd className="inline ml-2">{formatMetric(country.gdp_usd)}</dd></div>
-            <div><dt className="inline font-medium">GDP per capita</dt><dd className="inline ml-2">{formatMetric(country.gdp_per_capita_usd)}</dd></div>
-            <div><dt className="inline font-medium">GDP growth</dt><dd className="inline ml-2">{formatMetric(country.gdp_growth_percent, 1)}%</dd></div>
-            <div><dt className="inline font-medium">Currency</dt><dd className="inline ml-2">{country.currency}</dd></div>
+          <h2 className="uppercase text-sm font-bold tracking-widest mb-5 text-gray-500">Economy</h2>
+          <dl className="space-y-4 text-[15px]">
+            <div><dt className="font-medium inline">GDP (current US$)</dt><dd className="ml-3 inline">{formatMetric(country.gdp_usd)}</dd></div>
+            <div><dt className="font-medium inline">GDP per capita</dt><dd className="ml-3 inline">{formatMetric(country.gdp_per_capita_usd)}</dd></div>
+            <div><dt className="font-medium inline">GDP growth</dt><dd className="ml-3 inline">{formatMetric(country.gdp_growth_percent, 1)}%</dd></div>
+            <div><dt className="font-medium inline">Currency</dt><dd className="ml-3 inline">{country.currency}</dd></div>
           </dl>
         </section>
 
         {/* Government */}
         <section>
-          <h2 className="uppercase tracking-widest text-sm font-bold mb-4 text-gray-500">Government</h2>
-          <dl className="space-y-3">
-            <div><dt className="inline font-medium">Type</dt><dd className="inline ml-2">{country.government_forms.join(', ') || '—'}</dd></div>
-            <div><dt className="inline font-medium">Head of State</dt><dd className="inline ml-2">{country.head_of_state || '—'}</dd></div>
-            <div><dt className="inline font-medium">Head of Government</dt><dd className="inline ml-2">{country.head_of_government || '—'}</dd></div>
-            <div><dt className="inline font-medium">Legislature</dt><dd className="inline ml-2">{country.legislature || '—'}</dd></div>
+          <h2 className="uppercase text-sm font-bold tracking-widest mb-5 text-gray-500">Government</h2>
+          <dl className="space-y-4 text-[15px]">
+            <div><dt className="font-medium inline">Type</dt><dd className="ml-3 inline">{country.government_forms.join(', ') || '—'}</dd></div>
+            <div><dt className="font-medium inline">Head of State</dt><dd className="ml-3 inline">{country.head_of_state || '—'}</dd></div>
+            <div><dt className="font-medium inline">Head of Government</dt><dd className="ml-3 inline">{country.head_of_government || '—'}</dd></div>
+            <div><dt className="font-medium inline">Legislature</dt><dd className="ml-3 inline">{country.legislature || '—'}</dd></div>
           </dl>
         </section>
       </div>
 
       {/* Sources */}
-      <section className="mt-16 pt-8 border-t text-sm text-gray-500">
-        <h2 className="uppercase tracking-widest text-xs font-bold mb-3">Sources</h2>
-        <ul className="space-y-1">
+      <section className="mt-16 pt-10 border-t text-sm text-gray-500">
+        <h2 className="uppercase text-xs font-bold tracking-widest mb-4">Sources</h2>
+        <ul className="grid grid-cols-2 gap-x-8 gap-y-1">
           {country.sources.map((s: any, i: number) => (
-            <li key={i}><a href={s.url} target="_blank" className="hover:underline">{s.label}</a></li>
+            <li key={i}>
+              <a href={s.url} target="_blank" className="hover:underline">{s.label}</a>
+            </li>
           ))}
         </ul>
-        <p className="mt-6 text-xs">Last built: {new Date(country.last_built).toLocaleDateString()}</p>
+        <p className="mt-8 text-xs">Last built: {new Date(country.last_built).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
       </section>
     </main>
   );
