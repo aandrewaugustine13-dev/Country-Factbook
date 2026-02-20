@@ -40,19 +40,19 @@ interface Country {
   gdp_usd: Metric;
   gdp_per_capita_usd: Metric;
   gdp_growth_percent: Metric;
-  real_gdp: Metric;           // ← NEW
-  real_gdp_rank: number | null; // ← NEW
+  real_gdp: Metric;
+  real_gdp_rank: number | null;
 
   government_forms: string[];
   head_of_state: string | null;
   head_of_government: string | null;
   legislature: string | null;
 
-  independence_year: number | null;     // ← NEW
-  independence_from: string | null;     // ← NEW
+  independence_year: number | null;
+  independence_from: string | null;
 
-  agriculture_products: string[];       // ← NEW
-  natural_resources: string[];          // ← NEW
+  agriculture_products: string[];
+  natural_resources: string[];
 
   summary: string;
 
@@ -72,7 +72,7 @@ const WORLD_BANK_INDICATORS = {
   gdp: 'NY.GDP.MKTP.CD',
   gdp_per_capita: 'NY.GDP.PCAP.CD',
   gdp_growth: 'NY.GDP.MKTP.KD.ZG',
-  real_gdp: 'NY.GDP.MKTP.KD',   // ← NEW (constant prices)
+  real_gdp: 'NY.GDP.MKTP.KD',
 };
 
 async function fetchWikipediaSummary(name: string): Promise<string> {
@@ -119,7 +119,7 @@ async function main() {
     wbMaps[key] = m;
   }
 
-  // Wikidata (government + independence + agriculture)
+  // Wikidata (government, independence, agriculture)
   const govMap = new Map();
   try {
     const sparql = `SELECT ?iso3 ?govFormLabel ?headStateLabel ?headGovLabel ?legislatureLabel ?indepYear ?indepFromLabel ?agriProductLabel WHERE {
@@ -151,7 +151,7 @@ async function main() {
 
   const index: string[] = [];
   const lightweight: any[] = [];
-  let countriesWithGdp = [];
+  let gdpList: any[] = [];
 
   for (const rest of unCountries) {
     const code = rest.cca3.toUpperCase();
@@ -194,7 +194,7 @@ async function main() {
       independence_from: gov.independence_from,
 
       agriculture_products: gov.agriculture_products,
-      natural_resources: [], // can expand later
+      natural_resources: [],
 
       summary: summary.length > 600 ? summary.substring(0, 597) + '...' : summary || 'Summary unavailable.',
 
@@ -208,8 +208,7 @@ async function main() {
       ],
     };
 
-    countriesWithGdp.push({ code, real_gdp: country.real_gdp.value });
-
+    gdpList.push({ code, real_gdp: country.real_gdp.value });
     await writeFile(path.join(countriesDir, `${code}.json`), JSON.stringify(country, null, 2));
 
     index.push(code);
@@ -218,24 +217,21 @@ async function main() {
     console.log(`✓ ${code} — ${country.name_common}`);
   }
 
-  // Calculate Real GDP ranks
-  countriesWithGdp.sort((a, b) => (b.real_gdp || 0) - (a.real_gdp || 0));
-  const rankMap = new Map();
-  countriesWithGdp.forEach((c, i) => rankMap.set(c.code, i + 1));
-
-  // Update files with ranks
-  for (const code of index) {
-    const filePath = path.join(countriesDir, `${code}.json`);
-    const raw = await readFile(filePath, 'utf-8');
-    const country = JSON.parse(raw);
-    country.real_gdp_rank = rankMap.get(code);
-    await writeFile(filePath, JSON.stringify(country, null, 2));
-  }
+  // Calculate real GDP ranks
+  gdpList.sort((a, b) => (b.real_gdp || 0) - (a.real_gdp || 0));
+  gdpList.forEach((c, i) => {
+    const filePath = path.join(countriesDir, `${c.code}.json`);
+    readFile(filePath, 'utf-8').then(raw => {
+      const country = JSON.parse(raw);
+      country.real_gdp_rank = i + 1;
+      writeFile(filePath, JSON.stringify(country, null, 2));
+    });
+  });
 
   await writeFile(path.join(outDir, 'index.json'), JSON.stringify(index, null, 2));
   await writeFile(path.join(outDir, 'all-countries.json'), JSON.stringify(lightweight, null, 2));
 
-  console.log(`\n🎉 FULL TEACHER-READY FACTBOOK BUILT WITH ${unCountries.length} COUNTRIES!`);
+  console.log(`\n🎉 FULL TEACHER-READY FACTBOOK BUILT!`);
 }
 
 main().catch(err => { console.error('❌', err.message); process.exit(1); });
