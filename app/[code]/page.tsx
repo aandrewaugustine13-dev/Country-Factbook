@@ -4,27 +4,26 @@ import { notFound } from 'next/navigation';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import index from '@/data/index.json';
-import type { CountryProfile } from '@/src/types';
-import { SectionHeader } from '@/components/SectionHeader';
-import { StatRow } from '@/components/StatRow';
+
+function formatMetric(metric: number | { value: number | null } | null | undefined, digits = 0): string {
+  let value = metric;
+  if (typeof metric === 'object' && metric !== null) value = metric.value;
+  if (value === null || value === undefined || Number.isNaN(value)) return 'Not available';
+  return (value as number).toLocaleString(undefined, { maximumFractionDigits: digits });
+}
 
 export function generateStaticParams() {
   return (index as string[]).map((code) => ({ code }));
 }
 
-async function getCountry(code: string): Promise<CountryProfile | null> {
+async function getCountry(code: string) {
   try {
     const filePath = path.join(process.cwd(), 'data', 'countries', `${code}.json`);
     const raw = await readFile(filePath, 'utf-8');
-    return JSON.parse(raw) as CountryProfile;
+    return JSON.parse(raw);
   } catch {
     return null;
   }
-}
-
-function format(value: number | null, digits = 0) {
-  if (value === null || Number.isNaN(value)) return 'Not available';
-  return value.toLocaleString(undefined, { maximumFractionDigits: digits });
 }
 
 export default async function CountryPage({ params }: { params: Promise<{ code: string }> }) {
@@ -35,6 +34,7 @@ export default async function CountryPage({ params }: { params: Promise<{ code: 
   return (
     <main className="container country-page">
       <p className="back-link"><Link href="/">← Back to index</Link></p>
+
       <header className="country-header">
         <Image src={country.flag_url} alt={country.flag_alt} width={96} height={68} />
         <div>
@@ -45,57 +45,37 @@ export default async function CountryPage({ params }: { params: Promise<{ code: 
 
       <div className="two-column">
         <section>
-          <SectionHeader title="BASICS" />
+          <h2 className="section-header">BASICS</h2>
           <dl>
-            <StatRow label="Code" value={country.code} />
-            <StatRow label="Region" value={`${country.region} — ${country.subregion}`} />
-            <StatRow label="Capital" value={country.capital} />
-            <StatRow label="Area (km²)" value={format(country.area_km2)} />
-            <StatRow label="Population" value={format(country.population)} />
-            <StatRow label="Density (per km²)" value={format(country.population_density_per_km2, 2)} />
+            <div className="stat-row"><dt>Code</dt><dd>{country.code}</dd></div>
+            <div className="stat-row"><dt>Region</dt><dd>{country.region} — {country.subregion || '—'}</dd></div>
+            <div className="stat-row"><dt>Capital</dt><dd>{country.capital}</dd></div>
+            <div className="stat-row"><dt>Area (km²)</dt><dd>{formatMetric(country.area_km2)}</dd></div>
+            <div className="stat-row"><dt>Population</dt><dd>{formatMetric(country.population)}</dd></div>
+            <div className="stat-row"><dt>Density (per km²)</dt><dd>{formatMetric(country.population_density_per_km2, 1)}</dd></div>
           </dl>
 
-          <SectionHeader title="PEOPLE" />
+          <h2 className="section-header">PEOPLE</h2>
           <dl>
-            <StatRow label="Languages" value={country.languages.join(', ')} />
-            <StatRow label="Demonym" value={country.demonym} />
-            <StatRow label="Life expectancy" value={`${format(country.life_expectancy_years, 1)} years`} />
-            <StatRow label="Median age" value={`${format(country.median_age_years, 1)} years`} />
-            <StatRow label="Urban population" value={`${format(country.urban_population_percent, 1)}%`} />
+            <div className="stat-row"><dt>Languages</dt><dd>{country.languages?.join(', ') || '—'}</dd></div>
+            <div className="stat-row"><dt>Currency</dt><dd>{country.currency}</dd></div>
           </dl>
         </section>
 
         <section>
-          <SectionHeader title="ECONOMY" />
+          <h2 className="section-header">GOVERNMENT</h2>
           <dl>
-            <StatRow label="Currency" value={country.currency} />
-            <StatRow label="GDP (USD billions)" value={format(country.gdp_usd_billions, 1)} />
-            <StatRow label="GDP per capita (USD)" value={format(country.gdp_per_capita_usd)} />
-            <StatRow label="Inflation (CPI %)" value={format(country.inflation_cpi_percent, 1)} />
-            <StatRow label="Unemployment (%)" value={format(country.unemployment_percent, 1)} />
-          </dl>
-
-          <SectionHeader title="GOVERNMENT" />
-          <dl>
-            <StatRow label="Type" value={country.government_type} />
-            <StatRow label="Head of state" value={country.head_of_state} />
-            <StatRow label="Head of government" value={country.head_of_government} />
-            <StatRow label="Legislature" value={country.legislature} />
-            <StatRow label="Internet TLD" value={country.internet_tld.join(', ')} />
-            <StatRow label="Calling code" value={country.calling_code} />
-            <StatRow label="Time zones" value={country.timezones.join(', ')} />
+            <div className="stat-row"><dt>Type</dt><dd>—</dd></div>
+            <div className="stat-row"><dt>Head of State</dt><dd>—</dd></div>
+            <div className="stat-row"><dt>Time zones</dt><dd>{country.timezones?.join(', ') || '—'}</dd></div>
           </dl>
         </section>
       </div>
 
       <section>
-        <SectionHeader title="SOURCES" />
+        <h2 className="section-header">SOURCES</h2>
         <ul className="sources">
-          {country.sources.map((source) => (
-            <li key={source.url}>
-              <a href={source.url}>{source.label}</a>
-            </li>
-          ))}
+          <li><a href="https://restcountries.com/" target="_blank">REST Countries</a></li>
         </ul>
       </section>
     </main>
