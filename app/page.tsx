@@ -25,10 +25,17 @@ export default function Home() {
   const [view, setView] = useState<'grid' | 'list'>('grid');
   const [selected, setSelected] = useState<Country | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
+  const loadCountries = () => {
+    setLoading(true);
+    setError(null);
+
     fetch('https://restcountries.com/v3.1/all')
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+        return res.json();
+      })
       .then((raw: any[]) => {
         const transformed = raw.map((c: any) => {
           const area = Number(c.area ?? 0);
@@ -56,7 +63,15 @@ export default function Home() {
         setCountries(transformed);
         setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch(err => {
+        console.error(err);
+        setError(err.message || 'Failed to load countries. Check your internet or try again.');
+        setLoading(false);
+      });
+  };
+
+  useEffect(() => {
+    loadCountries();
   }, []);
 
   const filtered = countries.filter(c => {
@@ -105,7 +120,7 @@ export default function Home() {
                   region === r ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border hover:bg-gray-100'
                 }`}
               >
-                {r === 'all' ? 'All Regions' : r.charAt(0).toUpperCase() + r.slice(1)}
+                {r === 'all' ? '🌍 All Regions' : r.charAt(0).toUpperCase() + r.slice(1)}
               </button>
             ))}
           </div>
@@ -116,28 +131,58 @@ export default function Home() {
           </div>
         </div>
 
-        {loading ? (
-          <div className="text-center py-20 text-2xl">Loading 250 countries from the internet... (no CIA needed 😎)</div>
-        ) : filtered.length === 0 ? (
-          <div className="text-center py-12 text-6xl">🤔</div>
-        ) : (
-          <div className={view === 'grid' ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6' : 'space-y-3'}>
-            {filtered.map(country => (
-              <div
-                key={country.code}
-                onClick={() => setSelected(country)}
-                className="bg-white rounded-lg shadow hover:shadow-lg cursor-pointer transition-all p-4 flex items-center gap-4"
-              >
-                <div className="text-5xl flex-shrink-0">
-                  {country.flag_url ? <img src={country.flag_url} alt="" className="w-12 h-8 object-cover rounded" /> : '🌍'}
-                </div>
-                <div className="flex-grow">
-                  <h3 className="font-bold text-lg">{country.name_common}</h3>
-                  <p className="text-sm text-gray-600 capitalize">{country.region}</p>
-                </div>
-              </div>
-            ))}
+        {loading && (
+          <div className="text-center py-20">
+            <div className="text-6xl mb-4">🌍</div>
+            <div className="text-2xl">Loading 250 countries from the internet... (no CIA needed 😎)</div>
           </div>
+        )}
+
+        {error && !loading && (
+          <div className="text-center py-20">
+            <div className="text-6xl mb-4">😩</div>
+            <div className="text-2xl text-red-600 mb-4">{error}</div>
+            <button
+              onClick={loadCountries}
+              className="bg-red-600 text-white px-8 py-3 rounded-xl text-xl font-medium hover:bg-red-700"
+            >
+              Retry Load
+            </button>
+          </div>
+        )}
+
+        {!loading && !error && (
+          <>
+            <div className="text-center mb-4 text-sm text-gray-500">
+              Loaded {countries.length} countries • Showing {filtered.length}
+            </div>
+
+            {filtered.length === 0 ? (
+              <div className="text-center py-20">
+                <div className="text-6xl mb-4">🤔</div>
+                <div className="text-2xl">No countries found</div>
+                <div className="text-gray-600">Try clearing the search or picking a different region</div>
+              </div>
+            ) : (
+              <div className={view === 'grid' ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6' : 'space-y-3'}>
+                {filtered.map(country => (
+                  <div
+                    key={country.code}
+                    onClick={() => setSelected(country)}
+                    className="bg-white rounded-lg shadow hover:shadow-lg cursor-pointer transition-all p-4 flex items-center gap-4"
+                  >
+                    <div className="text-5xl flex-shrink-0">
+                      {country.flag_url ? <img src={country.flag_url} alt="" className="w-12 h-8 object-cover rounded" /> : '🌍'}
+                    </div>
+                    <div className="flex-grow">
+                      <h3 className="font-bold text-lg">{country.name_common}</h3>
+                      <p className="text-sm text-gray-600 capitalize">{country.region}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </>
         )}
       </main>
 
@@ -165,7 +210,7 @@ export default function Home() {
               <div><strong>Currency:</strong> {selected.currency}</div>
             </div>
 
-            <button className="mt-8 bg-blue-600 text-white px-8 py-4 rounded-xl w-full text-xl font-medium" onClick={() => alert('Full profile coming soon — you just built the new CIA World Factbook, king!')}>
+            <button className="mt-8 bg-blue-600 text-white px-8 py-4 rounded-xl w-full text-xl font-medium" onClick={() => alert('Full profile coming soon — your dad just built the new CIA World Factbook while being too lazy for Linux 😂')}>
               View Full Profile (coming soon)
             </button>
           </div>
