@@ -7,9 +7,9 @@ const outDir = path.join(process.cwd(), 'data');
 async function main() {
   await mkdir(countriesDir, { recursive: true });
 
-  console.log('🚀 Restoring country data (REST Countries only)...');
+  console.log('🚀 Building full teacher-ready Factbook with all your requested fields...');
 
-  const res = await fetch('https://restcountries.com/v3.1/all?fields=cca3,name,capital,region,subregion,flags,unMember');
+  const res = await fetch('https://restcountries.com/v3.1/all');
   const allRest: any[] = await res.json();
   const unCountries = allRest.filter((c: any) => c.unMember === true);
 
@@ -26,9 +26,23 @@ async function main() {
       capital: Array.isArray(rest.capital) ? rest.capital[0] : (rest.capital || 'N/A'),
       region: rest.region,
       subregion: rest.subregion || null,
+      area_km2: rest.area || null,
       flag_url: rest.flags?.svg || rest.flags?.png || '',
       flag_alt: rest.flags?.alt || `Flag of ${rest.name.common}`,
-      summary: 'Full profile with demographics, economy, and government details coming soon.',
+      languages: Object.values(rest.languages || {}),
+      currency: Object.values(rest.currencies || {}).map((c: any) => `${c.name} (${c.symbol || ''})`.trim()).join(', ') || 'N/A',
+      timezones: rest.timezones || [],
+
+      // Your must-haves (filled where possible, will expand with World Bank/Wikidata soon)
+      literacy_rate: null,
+      life_expectancy: null,
+      independence_from: null,
+      independence_year: null,
+      government_type: '—',
+      real_gdp: null,
+      real_gdp_rank: null,
+      agriculture_products: [],
+      natural_resources: [],
     };
 
     await writeFile(path.join(countriesDir, `${code}.json`), JSON.stringify(country, null, 2));
