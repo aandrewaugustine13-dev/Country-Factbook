@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import rawCountries from '../data/all-countries.json';
+import rawCountries from '../../data/all-countries.json';
 
 interface Country {
   code: string;
