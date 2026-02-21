@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import rawCountries from '../../data/all-countries.json';
+import rawCountries from './data/all-countries.json';
 
 interface Country {
   code: string;
@@ -66,11 +66,20 @@ export default function Home() {
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <button onClick={() => setKidMode(!kidMode)} className={`px-5 py-2 rounded-full font-medium transition-all ${kidMode ? 'bg-purple-600 text-white' : 'bg-white border border-gray-300 text-gray-700 hover:bg-gray-100'}`}>
+              <button
+                onClick={() => setKidMode(!kidMode)}
+                className={`px-5 py-2 rounded-full font-medium transition-all ${kidMode ? 'bg-purple-600 text-white' : 'bg-white border border-gray-300 text-gray-700 hover:bg-gray-100'}`}
+              >
                 {kidMode ? '👦 Kid Mode ON' : '👦 Kid Mode'}
               </button>
               <div className="relative w-64">
-                <input type="text" placeholder="Search countries..." value={search} onChange={e => setSearch(e.target.value)} className="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                <input
+                  type="text"
+                  placeholder="Search countries..."
+                  value={search}
+                  onChange={e => setSearch(e.target.value)}
+                  className="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">🔍</span>
               </div>
             </div>
@@ -82,7 +91,13 @@ export default function Home() {
         <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
           <div className="flex flex-wrap gap-2">
             {['all', 'africa', 'americas', 'asia', 'europe', 'oceania'].map(r => (
-              <button key={r} onClick={() => setRegion(r)} className={`px-4 py-2 rounded-full font-medium transition-all ${region === r ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border hover:bg-gray-100'}`}>
+              <button
+                key={r}
+                onClick={() => setRegion(r)}
+                className={`px-4 py-2 rounded-full font-medium transition-all ${
+                  region === r ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border hover:bg-gray-100'
+                }`}
+              >
                 {r === 'all' ? '🌍 All Regions' : r.charAt(0).toUpperCase() + r.slice(1)}
               </button>
             ))}
@@ -93,16 +108,30 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="text-center mb-4 text-sm text-gray-500">Showing {filtered.length} of {countries.length} countries</div>
+        <div className="text-center mb-4 text-sm text-gray-500">
+          Showing {filtered.length} of {countries.length} countries
+        </div>
 
         {filtered.length === 0 ? (
-          <div className="text-center py-20"><div className="text-6xl mb-4">🤔</div><div className="text-2xl">No matches</div></div>
+          <div className="text-center py-20">
+            <div className="text-6xl mb-4">🤔</div>
+            <div className="text-2xl">No matches</div>
+          </div>
         ) : (
           <div className={view === 'grid' ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6' : 'space-y-3'}>
             {filtered.map(country => (
-              <div key={country.code} onClick={() => setSelected(country)} className="bg-white rounded-lg shadow hover:shadow-lg cursor-pointer transition-all p-4 flex items-center gap-4">
-                <div className="text-5xl flex-shrink-0"><img src={country.flag_url} alt="" className="w-12 h-8 object-cover rounded" /></div>
-                <div className="flex-grow"><h3 className="font-bold text-lg">{country.name_common}</h3><p className="text-sm text-gray-600 capitalize">{country.region}</p></div>
+              <div
+                key={country.code}
+                onClick={() => setSelected(country)}
+                className="bg-white rounded-lg shadow hover:shadow-lg cursor-pointer transition-all p-4 flex items-center gap-4"
+              >
+                <div className="text-5xl flex-shrink-0">
+                  <img src={country.flag_url} alt="" className="w-12 h-8 object-cover rounded" />
+                </div>
+                <div className="flex-grow">
+                  <h3 className="font-bold text-lg">{country.name_common}</h3>
+                  <p className="text-sm text-gray-600 capitalize">{country.region}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -115,10 +144,14 @@ export default function Home() {
             <div className="flex justify-between items-start mb-6">
               <div className="flex items-center gap-4">
                 <img src={selected.flag_url} alt="" className="w-20 h-14 object-cover rounded" />
-                <div><h2 className="text-4xl font-bold">{selected.name_common}</h2><p className="text-xl text-gray-600 capitalize">{selected.region}</p></div>
+                <div>
+                  <h2 className="text-4xl font-bold">{selected.name_common}</h2>
+                  <p className="text-xl text-gray-600 capitalize">{selected.region}</p>
+                </div>
               </div>
               <button onClick={() => setSelected(null)} className="text-5xl leading-none hover:text-red-500">&times;</button>
             </div>
+
             <div className="grid grid-cols-2 gap-6 text-lg">
               <div><strong>Capital:</strong> {selected.capital}</div>
               <div><strong>Population:</strong> {selected.population.toLocaleString()}</div>
@@ -127,8 +160,12 @@ export default function Home() {
               <div><strong>Languages:</strong> {selected.languages.join(', ') || 'N/A'}</div>
               <div><strong>Currency:</strong> {selected.currency}</div>
             </div>
+
             {kidMode && <div className="mt-6 text-purple-600 text-xl">Kid Mode: This country is super cool! 🌍</div>}
-            <div className="mt-8 text-center text-sm text-gray-500">Full profile coming soon — your dad built the new CIA Factbook while being too lazy for Linux 😂</div>
+
+            <div className="mt-8 text-center text-sm text-gray-500">
+              Full profile coming soon — your dad built the new CIA Factbook while being too lazy for Linux 😂
+            </div>
           </div>
         </div>
       )}
