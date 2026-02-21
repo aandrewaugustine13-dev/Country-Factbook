@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import rawCountries from '@/data/all-countries.json';
+import rawCountries from '../data/all-countries.json';
 
 interface Country {
   code: string;
@@ -19,7 +19,7 @@ interface Country {
   currency: string;
 }
 
-// Transform raw REST data once at load
+// Transform once at build time
 const countries: Country[] = (rawCountries as any[]).map((c: any) => {
   const area = Number(c.area ?? 0);
   const pop = Number(c.population ?? 0);
