@@ -7,11 +7,30 @@ const outDir = path.join(process.cwd(), 'data');
 async function main() {
   await mkdir(countriesDir, { recursive: true });
 
-  console.log('🚀 Building full teacher-ready Factbook with all your requested fields...');
+  console.log('🚀 Restoring full country data (safe version)...');
 
-  const res = await fetch('https://restcountries.com/v3.1/all');
-  const allRest: any[] = await res.json();
+  // SAFE REST COUNTRIES CALL WITH FIELDS
+  const res1 = await fetch('https://restcountries.com/v3.1/all?fields=cca3,name,capital,region,subregion,area,landlocked,timezones,flags,unMember');
+  if (!res1.ok) throw new Error(`REST Countries failed: ${res1.status}`);
+  const group1: any[] = await res1.json();
+
+  const res2 = await fetch('https://restcountries.com/v3.1/all?fields=cca3,currencies,languages');
+  if (!res2.ok) throw new Error(`REST Countries failed: ${res2.status}`);
+  const group2: any[] = await res2.json();
+
+  const restMap = new Map(group1.map(c => [c.cca3, c]));
+  group2.forEach(c => {
+    const base = restMap.get(c.cca3);
+    if (base) {
+      base.currencies = c.currencies;
+      base.languages = c.languages;
+    }
+  });
+
+  const allRest = Array.from(restMap.values());
   const unCountries = allRest.filter((c: any) => c.unMember === true);
+
+  console.log(`Found ${unCountries.length} UN member states`);
 
   const index: string[] = [];
   const lightweight: any[] = [];
@@ -27,13 +46,14 @@ async function main() {
       region: rest.region,
       subregion: rest.subregion || null,
       area_km2: rest.area || null,
+      landlocked: rest.landlocked || false,
+      timezones: rest.timezones || [],
+      currency: Object.values(rest.currencies || {}).map((c: any) => `${c.name} (${c.symbol || ''})`.trim()).join(', ') || 'N/A',
+      languages: Object.values(rest.languages || {}),
       flag_url: rest.flags?.svg || rest.flags?.png || '',
       flag_alt: rest.flags?.alt || `Flag of ${rest.name.common}`,
-      languages: Object.values(rest.languages || {}),
-      currency: Object.values(rest.currencies || {}).map((c: any) => `${c.name} (${c.symbol || ''})`.trim()).join(', ') || 'N/A',
-      timezones: rest.timezones || [],
 
-      // Your must-haves (filled where possible, will expand with World Bank/Wikidata soon)
+      // Your requested fields (we'll fill these with World Bank + Wikidata in the next update)
       literacy_rate: null,
       life_expectancy: null,
       independence_from: null,
@@ -42,7 +62,6 @@ async function main() {
       real_gdp: null,
       real_gdp_rank: null,
       agriculture_products: [],
-      natural_resources: [],
     };
 
     await writeFile(path.join(countriesDir, `${code}.json`), JSON.stringify(country, null, 2));
@@ -61,7 +80,7 @@ async function main() {
   await writeFile(path.join(outDir, 'index.json'), JSON.stringify(index, null, 2));
   await writeFile(path.join(outDir, 'all-countries.json'), JSON.stringify(lightweight, null, 2));
 
-  console.log(`\n🎉 Data restored with ${unCountries.length} countries!`);
+  console.log(`\n🎉 SUCCESS! Data restored with ${unCountries.length} countries!`);
 }
 
 main().catch(err => {
