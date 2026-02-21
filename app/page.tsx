@@ -30,9 +30,10 @@ export default function Home() {
     fetch('https://restcountries.com/v3.1/all')
       .then(res => res.json())
       .then((raw: any[]) => {
-        const transformed = raw.map((c) => {
+        const transformed = raw.map((c: any) => {
           const area = Number(c.area ?? 0);
           const pop = Number(c.population ?? 0);
+
           return {
             code: c.cca3,
             name_common: c.name.common,
@@ -44,8 +45,8 @@ export default function Home() {
             population: pop,
             area_km2: area,
             population_density_per_km2: area > 0 ? Number((pop / area).toFixed(2)) : 0,
-            languages: Object.values(c.languages || {}),
-            demonym: c.demonyms?.eng?.m || c.demonyms?.eng?.f || 'Citizen',
+            languages: Object.values(c.languages || {}) as string[],
+            demonym: (c.demonyms?.eng?.m || c.demonyms?.eng?.f || 'Citizen') as string,
             currency: Object.values(c.currencies || {})
               .map((cur: any) => `${cur.name} (${cur.symbol || ''})`.trim())
               .join(', ') || 'Unknown',
