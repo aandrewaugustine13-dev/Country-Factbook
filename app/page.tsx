@@ -28,15 +28,11 @@ const FALLBACK_COUNTRIES: Country[] = [
   { code: "FRA", name_common: "France", name_official: "French Republic", flag_url: "https://flagcdn.com/w320/fr.png", region: "europe", subregion: "Western Europe", capital: "Paris", population: 67800000, area_km2: 551695, population_density_per_km2: 122.9, languages: ["French"], demonym: "French", currency: "Euro (EUR)" },
   { code: "DEU", name_common: "Germany", name_official: "Federal Republic of Germany", flag_url: "https://flagcdn.com/w320/de.png", region: "europe", subregion: "Western Europe", capital: "Berlin", population: 83200000, area_km2: 357022, population_density_per_km2: 233.0, languages: ["German"], demonym: "German", currency: "Euro (EUR)" },
   { code: "ITA", name_common: "Italy", name_official: "Italian Republic", flag_url: "https://flagcdn.com/w320/it.png", region: "europe", subregion: "Southern Europe", capital: "Rome", population: 59100000, area_km2: 301340, population_density_per_km2: 196.1, languages: ["Italian"], demonym: "Italian", currency: "Euro (EUR)" },
-  { code: "ESP", name_common: "Spain", name_official: "Kingdom of Spain", flag_url: "https://flagcdn.com/w320/es.png", region: "europe", subregion: "Southern Europe", capital: "Madrid", population: 47400000, area_km2: 505990, population_density_per_km2: 93.7, languages: ["Spanish"], demonym: "Spanish", currency: "Euro (EUR)" },
   { code: "JPN", name_common: "Japan", name_official: "Japan", flag_url: "https://flagcdn.com/w320/jp.png", region: "asia", subregion: "Eastern Asia", capital: "Tokyo", population: 125800000, area_km2: 377975, population_density_per_km2: 333.0, languages: ["Japanese"], demonym: "Japanese", currency: "Japanese Yen (JPY)" },
   { code: "CHN", name_common: "China", name_official: "People's Republic of China", flag_url: "https://flagcdn.com/w320/cn.png", region: "asia", subregion: "Eastern Asia", capital: "Beijing", population: 1412000000, area_km2: 9706961, population_density_per_km2: 145.5, languages: ["Chinese"], demonym: "Chinese", currency: "Chinese Yuan (CNY)" },
   { code: "IND", name_common: "India", name_official: "Republic of India", flag_url: "https://flagcdn.com/w320/in.png", region: "asia", subregion: "Southern Asia", capital: "New Delhi", population: 1380000000, area_km2: 3287590, population_density_per_km2: 419.7, languages: ["Hindi", "English"], demonym: "Indian", currency: "Indian Rupee (INR)" },
   { code: "AUS", name_common: "Australia", name_official: "Commonwealth of Australia", flag_url: "https://flagcdn.com/w320/au.png", region: "oceania", subregion: "Australia and New Zealand", capital: "Canberra", population: 25900000, area_km2: 7692024, population_density_per_km2: 3.4, languages: ["English"], demonym: "Australian", currency: "Australian Dollar (AUD)" },
   { code: "ZAF", name_common: "South Africa", name_official: "Republic of South Africa", flag_url: "https://flagcdn.com/w320/za.png", region: "africa", subregion: "Southern Africa", capital: "Pretoria", population: 60000000, area_km2: 1221037, population_density_per_km2: 49.1, languages: ["English", "Afrikaans", "Zulu"], demonym: "South African", currency: "South African Rand (ZAR)" },
-  { code: "RUS", name_common: "Russia", name_official: "Russian Federation", flag_url: "https://flagcdn.com/w320/ru.png", region: "europe", subregion: "Eastern Europe", capital: "Moscow", population: 144000000, area_km2: 17098242, population_density_per_km2: 8.4, languages: ["Russian"], demonym: "Russian", currency: "Russian Ruble (RUB)" },
-  { code: "EGY", name_common: "Egypt", name_official: "Arab Republic of Egypt", flag_url: "https://flagcdn.com/w320/eg.png", region: "africa", subregion: "Northern Africa", capital: "Cairo", population: 109000000, area_km2: 1001450, population_density_per_km2: 108.9, languages: ["Arabic"], demonym: "Egyptian", currency: "Egyptian Pound (EGP)" },
-  { code: "NGA", name_common: "Nigeria", name_official: "Federal Republic of Nigeria", flag_url: "https://flagcdn.com/w320/ng.png", region: "africa", subregion: "Western Africa", capital: "Abuja", population: 218500000, area_km2: 923769, population_density_per_km2: 236.6, languages: ["English"], demonym: "Nigerian", currency: "Nigerian Naira (NGN)" },
 ];
 
 export default function Home() {
@@ -52,52 +48,40 @@ export default function Home() {
   const loadCountries = async () => {
     setLoading(true);
     setError(null);
-
     try {
       const res = await fetch('https://restcountries.com/v3.1/all');
-      if (!res.ok) throw new Error('Live map is taking a nap');
+      if (!res.ok) throw new Error('Live map is napping');
       const raw: any[] = await res.json();
-
-      const transformed = raw.map((c: any) => {
-        const area = Number(c.area ?? 0);
-        const pop = Number(c.population ?? 0);
-        return {
-          code: c.cca3,
-          name_common: c.name.common,
-          name_official: c.name.official,
-          flag_url: c.flags.svg || c.flags.png || '',
-          region: (c.region || 'Unknown').toLowerCase(),
-          subregion: c.subregion || 'Unknown',
-          capital: Array.isArray(c.capital) ? c.capital[0] : 'Unknown',
-          population: pop,
-          area_km2: area,
-          population_density_per_km2: area > 0 ? Number((pop / area).toFixed(2)) : 0,
-          languages: Object.values(c.languages || {}) as string[],
-          demonym: (c.demonyms?.eng?.m || c.demonyms?.eng?.f || 'Citizen') as string,
-          currency: Object.values(c.currencies || {})
-            .map((cur: any) => `${cur.name} (${cur.symbol || ''})`.trim())
-            .join(', ') || 'Unknown',
-        };
-      }).sort((a, b) => a.name_common.localeCompare(b.name_common));
-
+      const transformed = raw.map((c: any) => ({
+        code: c.cca3,
+        name_common: c.name.common,
+        name_official: c.name.official,
+        flag_url: c.flags.svg || c.flags.png || '',
+        region: (c.region || 'Unknown').toLowerCase(),
+        subregion: c.subregion || 'Unknown',
+        capital: Array.isArray(c.capital) ? c.capital[0] : 'Unknown',
+        population: Number(c.population ?? 0),
+        area_km2: Number(c.area ?? 0),
+        population_density_per_km2: Number(c.area) > 0 ? Number((Number(c.population) / Number(c.area)).toFixed(2)) : 0,
+        languages: Object.values(c.languages || {}) as string[],
+        demonym: (c.demonyms?.eng?.m || c.demonyms?.eng?.f || 'Citizen') as string,
+        currency: Object.values(c.currencies || {}).map((cur: any) => `${cur.name} (${cur.symbol || ''})`.trim()).join(', ') || 'Unknown',
+      })).sort((a, b) => a.name_common.localeCompare(b.name_common));
       setCountries(transformed);
     } catch (err: any) {
-      setError('Live data is napping — using backup countries for now 😎 (still works for class!)');
+      setError('Live data is napping — using backup countries for now 😎');
       setCountries(FALLBACK_COUNTRIES);
     } finally {
       setLoading(false);
     }
   };
 
-  useEffect(() => {
-    loadCountries();
-  }, []);
+  useEffect(() => { loadCountries(); }, []);
 
-  const filtered = countries.filter(c => {
-    const regionMatch = region === 'all' || c.region === region;
-    const searchMatch = c.name_common.toLowerCase().includes(search.toLowerCase());
-    return regionMatch && searchMatch;
-  });
+  const filtered = countries.filter(c => 
+    (region === 'all' || c.region === region) && 
+    c.name_common.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -112,20 +96,11 @@ export default function Home() {
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <button
-                onClick={() => setKidMode(!kidMode)}
-                className={`px-5 py-2 rounded-full font-medium transition-all ${kidMode ? 'bg-purple-600 text-white' : 'bg-white border border-gray-300 text-gray-700 hover:bg-gray-100'}`}
-              >
+              <button onClick={() => setKidMode(!kidMode)} className={`px-5 py-2 rounded-full font-medium ${kidMode ? 'bg-purple-600 text-white' : 'bg-white border'}`}>
                 {kidMode ? '👦 Kid Mode ON' : '👦 Kid Mode'}
               </button>
               <div className="relative w-64">
-                <input
-                  type="text"
-                  placeholder="Search countries..."
-                  value={search}
-                  onChange={e => setSearch(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
+                <input type="text" placeholder="Search countries..." value={search} onChange={e => setSearch(e.target.value)} className="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">🔍</span>
               </div>
             </div>
@@ -134,53 +109,22 @@ export default function Home() {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 py-6">
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-          <div className="flex flex-wrap gap-2">
-            {['all', 'africa', 'americas', 'asia', 'europe', 'oceania'].map(r => (
-              <button
-                key={r}
-                onClick={() => setRegion(r)}
-                className={`px-4 py-2 rounded-full font-medium transition-all ${region === r ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border hover:bg-gray-100'}`}
-              >
-                {r === 'all' ? '🌍 All Regions' : r.charAt(0).toUpperCase() + r.slice(1)}
-              </button>
-            ))}
-          </div>
-          <div className="flex gap-2">
-            <button onClick={() => setView('grid')} className={`p-2 rounded-lg ${view === 'grid' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border'}`}>Grid</button>
-            <button onClick={() => setView('list')} className={`p-2 rounded-lg ${view === 'list' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border'}`}>List</button>
-          </div>
-        </div>
-
-        {loading && <div className="text-center py-20"><div className="text-6xl mb-4">🌍</div><div className="text-2xl">Loading countries...</div></div>}
-
-        {error && <div className="bg-yellow-50 border border-yellow-200 p-4 rounded-xl mb-6 text-center text-yellow-800">{error}</div>}
-
-        <div className="text-center mb-4 text-sm text-gray-500">
-          Showing {filtered.length} countries {error && '(backup mode)'}
-        </div>
-
-        {filtered.length === 0 ? (
-          <div className="text-center py-20"><div className="text-6xl mb-4">🤔</div><div>No matches — try different search or region</div></div>
-        ) : (
-          <div className={view === 'grid' ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6' : 'space-y-3'}>
-            {filtered.map(country => (
-              <div
-                key={country.code}
-                onClick={() => setSelected(country)}
-                className="bg-white rounded-lg shadow hover:shadow-lg cursor-pointer transition-all p-4 flex items-center gap-4"
-              >
-                <div className="text-5xl flex-shrink-0">
-                  {country.flag_url ? <img src={country.flag_url} alt="" className="w-12 h-8 object-cover rounded" /> : '🌍'}
-                </div>
-                <div className="flex-grow">
-                  <h3 className="font-bold text-lg">{country.name_common}</h3>
-                  <p className="text-sm text-gray-600 capitalize">{country.region}</p>
-                </div>
+        {loading && <div className="text-center py-20 text-2xl">🌍 Loading countries...</div>}
+        {error && <div className="bg-yellow-50 border border-yellow-200 p-4 rounded-xl mb-6 text-center">{error}</div>}
+        
+        <div className={view === 'grid' ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6' : 'space-y-3'}>
+          {filtered.map(country => (
+            <div key={country.code} onClick={() => setSelected(country)} className="bg-white rounded-lg shadow hover:shadow-lg cursor-pointer transition-all p-4 flex items-center gap-4">
+              <div className="text-5xl flex-shrink-0">
+                <img src={country.flag_url} alt="" className="w-12 h-8 object-cover rounded" />
               </div>
-            ))}
-          </div>
-        )}
+              <div className="flex-grow">
+                <h3 className="font-bold text-lg">{country.name_common}</h3>
+                <p className="text-sm text-gray-600 capitalize">{country.region}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </main>
 
       {selected && (
@@ -196,7 +140,6 @@ export default function Home() {
               </div>
               <button onClick={() => setSelected(null)} className="text-5xl leading-none hover:text-red-500">&times;</button>
             </div>
-
             <div className="grid grid-cols-2 gap-6 text-lg">
               <div><strong>Capital:</strong> {selected.capital}</div>
               <div><strong>Population:</strong> {selected.population.toLocaleString()}</div>
@@ -205,10 +148,9 @@ export default function Home() {
               <div><strong>Languages:</strong> {selected.languages.join(', ') || 'N/A'}</div>
               <div><strong>Currency:</strong> {selected.currency}</div>
             </div>
-
-            <button className="mt-8 bg-blue-600 text-white px-8 py-4 rounded-xl w-full text-xl font-medium" onClick={() => alert(kidMode ? 'Fun fact time! This country has super cool animals 🦒' : 'Full profile coming soon — your dad built the new CIA Factbook while being too lazy for Linux 😂')}>
-              {kidMode ? 'Show Kid Fun Fact!' : 'View Full Profile (coming soon)'}
-            </button>
+            <div className="mt-8 text-center text-sm text-gray-500">
+              Full profile coming soon — your dad built the new CIA Factbook while being too lazy for Linux 😂
+            </div>
           </div>
         </div>
       )}
