@@ -18,7 +18,7 @@ interface Country {
   languages: string[];
   demonym: string;
   currency: string;
-  gdp_usd_billions: null;        // placeholder - we can add World Bank later
+  gdp_usd_billions: null;
   life_expectancy_years: null;
   updated_at: string;
 }
@@ -57,14 +57,12 @@ async function main() {
     };
   });
 
-  // Sort by name for nice UX
   transformed.sort((a, b) => a.name_common.localeCompare(b.name_common));
 
   const filePath = path.join(outDir, 'all-countries.json');
   writeFileSync(filePath, JSON.stringify(transformed, null, 2));
 
   console.log(`✅ SUCCESS! Added ${transformed.length} countries to data/all-countries.json`);
-  console.log('   Ready for npm run build');
 }
 
 main().catch((err) => {
