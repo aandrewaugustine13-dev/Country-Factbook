@@ -29,7 +29,7 @@ export default function WorldFactbook() {
     fetch('https://restcountries.com/v3.1/all?fields=cca3,name,flags,region,capital,population,area,languages,currencies')
       .then(res => res.json())
       .then((data: any[]) => {
-        const transformed = data.map(c => ({
+        const transformed: Country[] = data.map(c => ({
           code: c.cca3,
           name_common: c.name.common,
           name_official: c.name.official,
@@ -38,7 +38,7 @@ export default function WorldFactbook() {
           capital: Array.isArray(c.capital) ? c.capital[0] : c.capital || '—',
           population: c.population || 0,
           area_km2: c.area || 0,
-          languages: Object.values(c.languages || {}),
+          languages: Object.values(c.languages || {}) as string[],
           currency: Object.values(c.currencies || {})
             .map((cur: any) => `${cur.name} (${cur.symbol || ''})`.trim())
             .join(', ') || '—',
@@ -154,7 +154,7 @@ export default function WorldFactbook() {
                 <div><strong>Currency:</strong> {selectedCountry.currency}</div>
               </div>
               <p className="mt-12 text-xs text-gray-500 border-t pt-8">
-                Professional replica of the original CIA World Factbook. Full detailed pages coming next.
+                Professional replica of the original CIA World Factbook (shut down Feb 2026). Full detailed pages coming next.
               </p>
             </div>
           </div>
