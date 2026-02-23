@@ -8,11 +8,13 @@ interface Country {
   name_official: string;
   flag_url: string;
   region: string;
+  subregion: string;
   capital: string;
   population: number;
   area_km2: number;
   languages: string[];
   currency: string;
+  demonym: string;
 }
 
 const REGIONS = ['All Regions', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
@@ -26,7 +28,7 @@ export default function WorldFactbook() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('https://restcountries.com/v3.1/all?fields=cca3,name,flags,region,capital,population,area,languages,currencies')
+    fetch('https://restcountries.com/v3.1/all?fields=cca3,name,flags,region,subregion,capital,population,area,languages,currencies,demonyms')
       .then(res => res.json())
       .then((data: any[]) => {
         const transformed: Country[] = data.map(c => ({
@@ -35,6 +37,7 @@ export default function WorldFactbook() {
           name_official: c.name.official,
           flag_url: c.flags.svg || c.flags.png || '',
           region: c.region,
+          subregion: c.subregion || '—',
           capital: Array.isArray(c.capital) ? c.capital[0] : c.capital || '—',
           population: c.population || 0,
           area_km2: c.area || 0,
@@ -42,6 +45,7 @@ export default function WorldFactbook() {
           currency: Object.values(c.currencies || {})
             .map((cur: any) => `${cur.name} (${cur.symbol || ''})`.trim())
             .join(', ') || '—',
+          demonym: c.demonyms?.eng?.m || c.demonyms?.eng?.f || c.name.common + ' people',
         })).sort((a, b) => a.name_common.localeCompare(b.name_common));
 
         setCountries(transformed);
@@ -67,6 +71,7 @@ export default function WorldFactbook() {
   }, [searchTerm, selectedRegion, countries]);
 
   const formatNumber = (num: number) => num.toLocaleString();
+  const density = (pop: number, area: number) => area ? (pop / area).toFixed(1) : '—';
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900">
@@ -134,28 +139,71 @@ export default function WorldFactbook() {
 
       {selectedCountry && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-[100] p-4" onClick={() => setSelectedCountry(null)}>
-          <div className="bg-white max-w-3xl w-full max-h-[90vh] overflow-auto rounded-3xl shadow-2xl" onClick={e => e.stopPropagation()}>
-            <div className="sticky top-0 bg-white border-b px-8 py-6 flex items-center justify-between">
+          <div className="bg-white max-w-4xl w-full max-h-[90vh] overflow-auto rounded-3xl shadow-2xl" onClick={e => e.stopPropagation()}>
+            
+            {/* Header */}
+            <div className="sticky top-0 bg-white border-b px-8 py-6 flex items-center justify-between z-10">
               <div className="flex items-center gap-6">
-                <img src={selectedCountry.flag_url} alt="flag" className="w-24 rounded-xl" />
+                <img src={selectedCountry.flag_url} alt="flag" className="w-28 rounded-2xl shadow" />
                 <div>
-                  <h2 className="text-4xl font-bold">{selectedCountry.name_common}</h2>
-                  <p className="text-xl text-gray-600">{selectedCountry.name_official}</p>
+                  <h2 className="text-5xl font-bold tracking-tight">{selectedCountry.name_common}</h2>
+                  <p className="text-2xl text-gray-600">{selectedCountry.name_official}</p>
                 </div>
               </div>
-              <button onClick={() => setSelectedCountry(null)} className="text-4xl text-gray-400 hover:text-gray-900">×</button>
+              <button onClick={() => setSelectedCountry(null)} className="text-5xl text-gray-400 hover:text-gray-900 leading-none">×</button>
             </div>
-            <div className="p-8 text-lg">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div><strong>Capital:</strong> {selectedCountry.capital}</div>
-                <div><strong>Population:</strong> {formatNumber(selectedCountry.population)}</div>
-                <div><strong>Area:</strong> {formatNumber(selectedCountry.area_km2)} km²</div>
-                <div><strong>Languages:</strong> {selectedCountry.languages.join(', ')}</div>
-                <div><strong>Currency:</strong> {selectedCountry.currency}</div>
-              </div>
-              <p className="mt-12 text-xs text-gray-500 border-t pt-8">
-                Professional replica of the original CIA World Factbook (shut down Feb 2026). Full detailed pages coming next.
-              </p>
+
+            {/* Factbook-style sections */}
+            <div className="p-8 prose prose-lg max-w-none">
+              {/* Introduction */}
+              <section className="mb-12">
+                <h3 className="text-3xl font-bold text-[#0A2540] border-b pb-3 mb-6">Introduction</h3>
+                <p><strong>Official name:</strong> {selectedCountry.name_official}</p>
+                <p><strong>Capital:</strong> {selectedCountry.capital}</p>
+              </section>
+
+              {/* Geography */}
+              <section className="mb-12">
+                <h3 className="text-3xl font-bold text-[#0A2540] border-b pb-3 mb-6">Geography</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg">
+                  <div><strong>Location:</strong> {selectedCountry.region}, {selectedCountry.subregion}</div>
+                  <div><strong>Total area:</strong> {formatNumber(selectedCountry.area_km2)} km²</div>
+                  <div><strong>Population density:</strong> {density(selectedCountry.population, selectedCountry.area_km2)} per km²</div>
+                </div>
+              </section>
+
+              {/* People and Society */}
+              <section className="mb-12">
+                <h3 className="text-3xl font-bold text-[#0A2540] border-b pb-3 mb-6">People and Society</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg">
+                  <div><strong>Population:</strong> {formatNumber(selectedCountry.population)}</div>
+                  <div><strong>Demonym:</strong> {selectedCountry.demonym}</div>
+                  <div><strong>Official languages:</strong> {selectedCountry.languages.join(', ') || '—'}</div>
+                </div>
+              </section>
+
+              {/* Government */}
+              <section className="mb-12">
+                <h3 className="text-3xl font-bold text-[#0A2540] border-b pb-3 mb-6">Government</h3>
+                <div className="text-lg">
+                  <p><strong>Capital:</strong> {selectedCountry.capital}</p>
+                  <p className="text-sm text-gray-500 mt-6">Full government type, leaders, and constitution details coming in the next update from the complete Factbook archive.</p>
+                </div>
+              </section>
+
+              {/* Economy */}
+              <section className="mb-12">
+                <h3 className="text-3xl font-bold text-[#0A2540] border-b pb-3 mb-6">Economy</h3>
+                <div className="text-lg">
+                  <p><strong>Currency:</strong> {selectedCountry.currency}</p>
+                  <p className="text-sm text-gray-500 mt-6">Full GDP, industries, exports, and economic overview coming in the next update from the complete Factbook archive.</p>
+                </div>
+              </section>
+            </div>
+
+            <div className="px-8 py-6 border-t text-xs text-gray-500">
+              Professional open-source replica of the original CIA World Factbook (shut down February 2026). 
+              Full narrative text and additional sections (Energy, Military, Transnational Issues, etc.) will be added next using the public Factbook archive.
             </div>
           </div>
         </div>
