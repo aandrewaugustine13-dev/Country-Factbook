@@ -7,18 +7,12 @@ interface Country {
   name_common: string;
   name_official: string;
   flag_url: string;
-  coat_of_arms?: string;
   region: string;
   capital: string;
   population: number;
   area_km2: number;
   languages: string[];
   currency: string;
-  borders: string[];
-  timezones: string[];
-  independent: boolean;
-  unMember: boolean;
-  google_maps: string;
 }
 
 const REGIONS = ['All Regions', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
@@ -33,15 +27,17 @@ export default function WorldFactbook() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch('https://restcountries.com/v3.1/all?fields=cca3,name,flags,region,capital,population,area,languages,currencies,borders,timezones,independent,unMember,maps,coatOfArms')
-      .then(res => res.json())
+    fetch('https://restcountries.com/v3.1/all?fields=cca3,name,flags,region,capital,population,area,languages,currencies')
+      .then(res => {
+        if (!res.ok) throw new Error('Network error');
+        return res.json();
+      })
       .then((data: any[]) => {
         const transformed: Country[] = data.map(c => ({
           code: c.cca3,
           name_common: c.name.common,
           name_official: c.name.official,
           flag_url: c.flags.svg || c.flags.png || '',
-          coat_of_arms: c.coatOfArms?.svg || c.coatOfArms?.png || '',
           region: c.region,
           capital: Array.isArray(c.capital) ? c.capital[0] : c.capital || '—',
           population: c.population || 0,
@@ -50,11 +46,6 @@ export default function WorldFactbook() {
           currency: Object.values(c.currencies || {})
             .map((cur: any) => `${cur.name} (${cur.symbol || ''})`.trim())
             .join(', ') || '—',
-          borders: c.borders || [],
-          timezones: c.timezones || [],
-          independent: !!c.independent,
-          unMember: !!c.unMember,
-          google_maps: c.maps?.googleMaps || '',
         })).sort((a, b) => a.name_common.localeCompare(b.name_common));
 
         setCountries(transformed);
@@ -62,7 +53,7 @@ export default function WorldFactbook() {
         setLoading(false);
       })
       .catch(() => {
-        setError('Unable to load data. Please refresh.');
+        setError('Could not load data – please refresh the page.');
         setLoading(false);
       });
   }, []);
@@ -126,8 +117,18 @@ export default function WorldFactbook() {
           </div>
         </div>
 
-        {loading && <div className="text-center py-20 text-xl text-gray-500">Loading 250 countries with full profiles...</div>}
-        {error && <div className="text-center py-20 text-red-600">{error}</div>}
+        {loading && <div className="text-center py-20 text-xl text-gray-500">Loading 250 countries...</div>}
+        {error && (
+          <div className="text-center py-20">
+            <div className="text-red-600 text-xl mb-4">{error}</div>
+            <button 
+              onClick={() => window.location.reload()} 
+              className="bg-[#0A2540] text-white px-8 py-3 rounded-xl hover:bg-[#0A2540]/90"
+            >
+              Refresh page
+            </button>
+          </div>
+        )}
 
         {!loading && !error && (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -156,9 +157,6 @@ export default function WorldFactbook() {
             <div className="sticky top-0 bg-white border-b px-8 py-6 flex items-center justify-between z-10">
               <div className="flex items-center gap-6">
                 <img src={selectedCountry.flag_url} alt="flag" className="w-28 rounded-2xl shadow" />
-                {selectedCountry.coat_of_arms && (
-                  <img src={selectedCountry.coat_of_arms} alt="coat of arms" className="w-20 h-auto rounded-xl shadow" />
-                )}
                 <div>
                   <h2 className="text-5xl font-bold tracking-tight">{selectedCountry.name_common}</h2>
                   <p className="text-2xl text-gray-600">{selectedCountry.name_official}</p>
@@ -171,17 +169,14 @@ export default function WorldFactbook() {
               <section className="mb-12">
                 <h3 className="text-3xl font-bold text-[#0A2540] border-b pb-3 mb-6">Introduction</h3>
                 <p><strong>Capital:</strong> {selectedCountry.capital}</p>
-                <p><strong>Independent:</strong> {selectedCountry.independent ? 'Yes' : 'No'}</p>
-                <p><strong>UN Member:</strong> {selectedCountry.unMember ? 'Yes' : 'No'}</p>
               </section>
 
               <section className="mb-12">
                 <h3 className="text-3xl font-bold text-[#0A2540] border-b pb-3 mb-6">Geography</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg">
                   <div><strong>Region:</strong> {selectedCountry.region}</div>
-                  <div><strong>Area:</strong> {formatNumber(selectedCountry.area_km2)} km²</div>
+                  <div><strong>Total area:</strong> {formatNumber(selectedCountry.area_km2)} km²</div>
                   <div><strong>Population density:</strong> {density(selectedCountry.population, selectedCountry.area_km2)} per km²</div>
-                  <div><strong>Borders:</strong> {selectedCountry.borders.length ? selectedCountry.borders.join(', ') : 'None'}</div>
                 </div>
               </section>
 
@@ -189,35 +184,19 @@ export default function WorldFactbook() {
                 <h3 className="text-3xl font-bold text-[#0A2540] border-b pb-3 mb-6">People and Society</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg">
                   <div><strong>Population:</strong> {formatNumber(selectedCountry.population)}</div>
-                  <div><strong>Official languages:</strong> {selectedCountry.languages.join(', ') || '—'}</div>
+                  <div><strong>Languages:</strong> {selectedCountry.languages.join(', ') || '—'}</div>
                 </div>
-              </section>
-
-              <section className="mb-12">
-                <h3 className="text-3xl font-bold text-[#0A2540] border-b pb-3 mb-6">Government</h3>
-                <p className="text-lg"><strong>Capital:</strong> {selectedCountry.capital}</p>
               </section>
 
               <section className="mb-12">
                 <h3 className="text-3xl font-bold text-[#0A2540] border-b pb-3 mb-6">Economy</h3>
                 <p className="text-lg"><strong>Currency:</strong> {selectedCountry.currency}</p>
               </section>
-
-              <section className="mb-12">
-                <h3 className="text-3xl font-bold text-[#0A2540] border-b pb-3 mb-6">Transportation &amp; Communications</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg">
-                  <div><strong>Time zones:</strong> {selectedCountry.timezones.join(', ')}</div>
-                </div>
-                {selectedCountry.google_maps && (
-                  <a href={selectedCountry.google_maps} target="_blank" rel="noopener noreferrer" className="mt-6 inline-block bg-[#0A2540] text-white px-6 py-3 rounded-xl hover:bg-[#0A2540]/90">
-                    View on Google Maps →
-                  </a>
-                )}
-              </section>
             </div>
 
             <div className="px-8 py-6 border-t text-xs text-gray-500">
-              Professional open-source replica of the original CIA World Factbook (Reference Edition 2026). Full narrative text, maps, and additional sections (Military, Energy, Transnational Issues) coming in the next major update using the official archived dataset.
+              Professional replica of the original CIA World Factbook (Reference Edition 2026). 
+              More detailed narrative sections (Government, Military, Energy, Transnational Issues) coming in the next update.
             </div>
           </div>
         </div>
