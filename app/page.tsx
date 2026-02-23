@@ -26,11 +26,26 @@ export default function WorldFactbook() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/data/all-countries.json')
+    fetch('https://restcountries.com/v3.1/all?fields=cca3,name,flags,region,capital,population,area,languages,currencies')
       .then(res => res.json())
-      .then((data: Country[]) => {
-        setCountries(data);
-        setFilteredCountries(data);
+      .then((data: any[]) => {
+        const transformed = data.map(c => ({
+          code: c.cca3,
+          name_common: c.name.common,
+          name_official: c.name.official,
+          flag_url: c.flags.svg || c.flags.png || '',
+          region: c.region,
+          capital: Array.isArray(c.capital) ? c.capital[0] : c.capital || '—',
+          population: c.population || 0,
+          area_km2: c.area || 0,
+          languages: Object.values(c.languages || {}),
+          currency: Object.values(c.currencies || {})
+            .map((cur: any) => `${cur.name} (${cur.symbol || ''})`.trim())
+            .join(', ') || '—',
+        })).sort((a, b) => a.name_common.localeCompare(b.name_common));
+
+        setCountries(transformed);
+        setFilteredCountries(transformed);
         setLoading(false);
       })
       .catch(() => setLoading(false));
@@ -79,7 +94,6 @@ export default function WorldFactbook() {
               className="w-full px-5 py-4 text-lg border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0A2540]"
             />
           </div>
-
           <div className="flex gap-2 flex-wrap">
             {REGIONS.map(r => (
               <button
@@ -96,7 +110,7 @@ export default function WorldFactbook() {
         </div>
 
         {loading ? (
-          <div className="text-center py-20 text-xl text-gray-500">Loading 250 countries...</div>
+          <div className="text-center py-20 text-xl text-gray-500">Loading 250 real countries...</div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredCountries.map(country => (
@@ -131,7 +145,6 @@ export default function WorldFactbook() {
               </div>
               <button onClick={() => setSelectedCountry(null)} className="text-4xl text-gray-400 hover:text-gray-900">×</button>
             </div>
-
             <div className="p-8 text-lg">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div><strong>Capital:</strong> {selectedCountry.capital}</div>
@@ -141,7 +154,7 @@ export default function WorldFactbook() {
                 <div><strong>Currency:</strong> {selectedCountry.currency}</div>
               </div>
               <p className="mt-12 text-xs text-gray-500 border-t pt-8">
-                This is a clean, professional replica of the original CIA World Factbook. Full sections coming soon.
+                Professional replica of the original CIA World Factbook. Full detailed pages coming next.
               </p>
             </div>
           </div>
