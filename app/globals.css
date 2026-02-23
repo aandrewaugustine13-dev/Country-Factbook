@@ -89,6 +89,66 @@ a { color: inherit; }
 
 .sources { margin: 0.25rem 0 0; padding-left: 1.1rem; }
 
+.controls { margin-bottom: 1rem; }
+
+.region-tabs {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.region-tab {
+  background: #132B4C;
+  border: 1px solid #2A4A73;
+  color: #B7C7DA;
+  padding: 0.35rem 0.75rem;
+  border-radius: 0.3rem;
+  font-size: 0.82rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.region-tab:hover { border-color: #C7A55B; color: #E6EDF5; }
+.region-tab.active {
+  background: #C7A55B;
+  color: #0B1F3A;
+  border-color: #C7A55B;
+  font-weight: 600;
+}
+
+.result-count {
+  color: #B7C7DA;
+  font-size: 0.85rem;
+  margin: 0 0 0.75rem;
+}
+
+.no-results {
+  text-align: center;
+  padding: 3rem 0;
+  color: #B7C7DA;
+  font-style: italic;
+}
+
+.country-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #2A4A73;
+  font-size: 0.8rem;
+  color: #B7C7DA;
+}
+
+.map-embed { margin-top: 0.5rem; }
+
+.country-card img {
+  width: 56px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid #2A4A73;
+  flex-shrink: 0;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
