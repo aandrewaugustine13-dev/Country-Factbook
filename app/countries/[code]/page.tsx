@@ -1,22 +1,39 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { SectionHeader } from '@/components/SectionHeader';
-import { StatRow } from '@/components/StatRow';
 import allCountries from '@/data/all-countries.json';
+import { CountryContent } from '@/components/CountryContent';
 
 export function generateStaticParams() {
   return allCountries.map((c) => ({ code: c.code }));
 }
 
 function getCountry(code: string) {
-  return allCountries.find(
-    (c) => c.code.toUpperCase() === code.toUpperCase()
-  ) || null;
+  return (
+    allCountries.find(
+      (c) => c.code.toUpperCase() === code.toUpperCase()
+    ) || null
+  );
 }
 
 function fmt(n: number) {
   return n ? n.toLocaleString('en-US') : '—';
 }
+
+const SECTION_ORDER = [
+  'Introduction',
+  'Geography',
+  'People and Society',
+  'Environment',
+  'Government',
+  'Economy',
+  'Energy',
+  'Communications',
+  'Transportation',
+  'Military and Security',
+  'Space',
+  'Terrorism',
+  'Transnational Issues',
+];
 
 export default async function CountryPage({
   params,
@@ -27,10 +44,14 @@ export default async function CountryPage({
   const country = getCountry(code);
   if (!country) notFound();
 
-  const density =
-    country.area_km2 > 0
-      ? (0 / country.area_km2).toFixed(1)
-      : '—';
+  const fb = (country as any).factbook as Record<
+    string,
+    Array<{ label: string; value: string }>
+  > | null;
+
+  const activeSections = fb
+    ? SECTION_ORDER.filter((s) => fb[s] && fb[s].length > 0)
+    : [];
 
   return (
     <div className="container">
@@ -53,82 +74,60 @@ export default async function CountryPage({
         </div>
       </div>
 
-      <div className="two-column">
-        <div>
-          <SectionHeader title="INTRODUCTION" />
-          <dl>
-            <StatRow label="Official Name" value={country.name_official} />
-            <StatRow label="Capital" value={country.capital} />
-            <StatRow label="Independent" value={country.independent ? 'Yes' : 'No'} />
-          </dl>
+      {activeSections.length > 0 && (
+        <nav className="section-nav" aria-label="Page sections">
+          {activeSections.map((s) => (
+            <a key={s} href={`#${s.toLowerCase().replace(/\s+/g, '-')}`}>
+              {s}
+            </a>
+          ))}
+        </nav>
+      )}
 
-          <SectionHeader title="GEOGRAPHY" />
-          <dl>
-            <StatRow label="Region" value={country.region} />
-            <StatRow label="Subregion" value={country.subregion} />
-            <StatRow label="Area" value={country.area_km2 ? `${fmt(country.area_km2)} km²` : '—'} />
-            <StatRow label="Landlocked" value={country.landlocked ? 'Yes' : 'No'} />
-            {country.borders.length > 0 && (
-              <StatRow
-                label="Borders"
-                value={country.borders.join(', ')}
-              />
-            )}
-            {country.latlng.length === 2 && (
-              <StatRow
-                label="Coordinates"
-                value={`${country.latlng[0]}°, ${country.latlng[1]}°`}
-              />
-            )}
-          </dl>
-
-          <SectionHeader title="PEOPLE AND SOCIETY" />
-          <dl>
-            <StatRow
-              label="Languages"
-              value={country.languages.length > 0 ? country.languages.join(', ') : '—'}
-            />
-            <StatRow label="Demonym" value={country.demonym || '—'} />
-          </dl>
-        </div>
-
-        <div>
-          <SectionHeader title="ECONOMY" />
-          <dl>
-            <StatRow label="Currency" value={country.currency} />
-          </dl>
-
-          <SectionHeader title="COMMUNICATIONS" />
-          <dl>
-            <StatRow
-              label="Internet TLD"
-              value={country.tld.length > 0 ? country.tld.join(', ') : '—'}
-            />
-            <StatRow label="Calling Code" value={country.calling_code || '—'} />
-          </dl>
-
-          <SectionHeader title="GEOGRAPHY MAP" />
-          <div className="map-embed">
-            <iframe
-              title={`Map of ${country.name_common}`}
-              width="100%"
-              height="300"
-              style={{ border: '1px solid #2A4A73', borderRadius: '4px' }}
-              src={`https://www.openstreetmap.org/export/embed.html?bbox=${
-                country.latlng.length === 2
-                  ? `${country.latlng[1] - 10},${country.latlng[0] - 8},${country.latlng[1] + 10},${country.latlng[0] + 8}`
-                  : '-180,-90,180,90'
-              }&layer=mapnik`}
-              loading="lazy"
-            />
+      {fb && activeSections.length > 0 ? (
+        <CountryContent sections={fb} sectionOrder={activeSections} />
+      ) : (
+        /* Fallback: basic data for countries without factbook profiles */
+        <div className="two-column">
+          <div>
+            <h2 className="section-header">INTRODUCTION</h2>
+            <dl>
+              <div className="stat-row"><dt>Official Name</dt><dd>{country.name_official}</dd></div>
+              <div className="stat-row"><dt>Capital</dt><dd>{country.capital}</dd></div>
+              <div className="stat-row"><dt>Independent</dt><dd>{country.independent ? 'Yes' : 'No'}</dd></div>
+            </dl>
+            <h2 className="section-header">GEOGRAPHY</h2>
+            <dl>
+              <div className="stat-row"><dt>Region</dt><dd>{country.region}</dd></div>
+              <div className="stat-row"><dt>Subregion</dt><dd>{country.subregion}</dd></div>
+              <div className="stat-row"><dt>Area</dt><dd>{country.area_km2 ? `${fmt(country.area_km2)} km²` : '—'}</dd></div>
+              <div className="stat-row"><dt>Landlocked</dt><dd>{country.landlocked ? 'Yes' : 'No'}</dd></div>
+            </dl>
+          </div>
+          <div>
+            <h2 className="section-header">PEOPLE AND SOCIETY</h2>
+            <dl>
+              <div className="stat-row"><dt>Languages</dt><dd>{country.languages.join(', ') || '—'}</dd></div>
+              <div className="stat-row"><dt>Demonym</dt><dd>{country.demonym || '—'}</dd></div>
+            </dl>
+            <h2 className="section-header">ECONOMY</h2>
+            <dl>
+              <div className="stat-row"><dt>Currency</dt><dd>{country.currency}</dd></div>
+            </dl>
+            <h2 className="section-header">COMMUNICATIONS</h2>
+            <dl>
+              <div className="stat-row"><dt>Internet TLD</dt><dd>{country.tld.join(', ') || '—'}</dd></div>
+              <div className="stat-row"><dt>Calling Code</dt><dd>{country.calling_code || '—'}</dd></div>
+            </dl>
           </div>
         </div>
-      </div>
+      )}
 
       <footer className="country-footer">
         <p>
-          Data sourced from open public datasets. This is an open-source reference
-          tool, not affiliated with any government agency.
+          Data sourced from the <a href="https://github.com/factbook/factbook.json" style={{ color: '#C7A55B' }}>CIA World Factbook open archive</a> (public domain) and{' '}
+          <a href="https://github.com/mledoze/countries" style={{ color: '#C7A55B' }}>mledoze/countries</a>.
+          This is an open-source reference tool, not affiliated with any government agency.
         </p>
       </footer>
     </div>
