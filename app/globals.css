@@ -323,3 +323,5 @@ a { color: inherit; }
 .metric-unit { color: #B7C7DA; font-size: 0.72rem; margin-left: 0.3rem; }
 .val-high { background: rgba(199,165,91,0.18) !important; }
 .compare-empty { color: #B7C7DA; }
+
+.compare-added-msg { margin-left: 0.5rem; color: #C7A55B; font-size: 0.8rem; }

@@ -6,8 +6,10 @@ function normalizeCode(code: string): string {
   return code.trim().toUpperCase();
 }
 
-export function parseQueryToList(search: string): string[] {
-  const params = new URLSearchParams(search.startsWith('?') ? search.slice(1) : search);
+export function parseQueryToList(searchParams: string | URLSearchParams): string[] {
+  const params = typeof searchParams === "string"
+    ? new URLSearchParams(searchParams.startsWith('?') ? searchParams.slice(1) : searchParams)
+    : searchParams;
   const seen = new Set<string>();
   const list: string[] = [];
   for (const raw of params.getAll(COMPARE_QUERY_KEY)) {
@@ -47,4 +49,9 @@ export function reorderCountry(list: string[], fromIndex: number, toIndex: numbe
   const [moved] = next.splice(fromIndex, 1);
   next.splice(toIndex, 0, moved);
   return next;
+}
+
+
+export function reorder(list: string[], fromIndex: number, toIndex: number): string[] {
+  return reorderCountry(list, fromIndex, toIndex);
 }
