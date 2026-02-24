@@ -1,18 +1,35 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { useCompareState } from '@/src/useCompareState';
 import { CountryPicker } from './CountryPicker';
 import { CompareToolbar } from './CompareToolbar';
 import { CompareTable, sortableMetrics } from './CompareTable';
 
-export function CompareClient({ countries }: { countries: any[] }) {
-  const { list, addCountry, removeCountry, clearAll, reorderCountry } = useCompareState();
+interface CompareClientProps {
+  countries: any[];
+  list: string[];
+  addCountry: (code: string) => void;
+  removeCountry: (code: string) => void;
+  clearAll: () => void;
+  reorderCountry: (from: number, to: number) => void;
+}
+
+export function CompareClient({
+  countries,
+  list,
+  addCountry,
+  removeCountry,
+  clearAll,
+  reorderCountry,
+}: CompareClientProps) {
   const [highlightDiffs, setHighlightDiffs] = useState(true);
   const [sortMetric, setSortMetric] = useState('population');
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>('desc');
 
-  const selected = useMemo(() => list.map((code) => countries.find((c) => c.code === code)).filter(Boolean), [countries, list]);
+  const selected = useMemo(
+    () => list.map((code) => countries.find((c) => c.code === code)).filter(Boolean),
+    [countries, list]
+  );
 
   return (
     <div className="compare-root">
@@ -26,7 +43,9 @@ export function CompareClient({ countries }: { countries: any[] }) {
         <label style={{ marginLeft: '1rem' }}>
           Sort by{' '}
           <select value={sortMetric} onChange={(e) => setSortMetric(e.target.value)}>
-            {sortableMetrics.map((m) => <option key={m.key} value={m.key}>{m.label}</option>)}
+            {sortableMetrics.map((m) => (
+              <option key={m.key} value={m.key}>{m.label}</option>
+            ))}
           </select>
         </label>
         <button className="view-btn" onClick={() => setSortDir(sortDir === 'asc' ? 'desc' : 'asc')} style={{ marginLeft: '0.5rem' }}>
@@ -34,7 +53,11 @@ export function CompareClient({ countries }: { countries: any[] }) {
         </button>
       </div>
 
-      {selected.length === 0 ? <p className="compare-empty">Add countries to start comparing.</p> : <CompareTable countries={selected} highlightDiffs={highlightDiffs} sortMetric={sortMetric} sortDir={sortDir} />}
+      {selected.length === 0 ? (
+        <p className="compare-empty">Add countries to start comparing.</p>
+      ) : (
+        <CompareTable countries={selected} highlightDiffs={highlightDiffs} sortMetric={sortMetric} sortDir={sortDir} />
+      )}
     </div>
   );
 }

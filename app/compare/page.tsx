@@ -1,7 +1,8 @@
 import Link from 'next/link';
+import { Suspense } from 'react';
 import comparisonData from '@/data/comparison-data.json';
 import allCountries from '@/data/all-countries.json';
-import { CompareClient } from '@/components/CompareClient';
+import CompareClient from './CompareClient';
 
 function extractFactbookValue(country: any, section: string, labelNeedle: string) {
   const entries = country.factbook?.[section] as Array<{ label: string; value: string }> | undefined;
@@ -28,7 +29,9 @@ export default function ComparePage() {
       <Link href="/" className="back-link">← Back to all countries</Link>
       <h1>Compare Countries</h1>
       <p style={{ color: '#B7C7DA', marginBottom: '1rem' }}>Select up to 10 countries, share the URL, and compare side-by-side.</p>
-      <CompareClient countries={countries} />
+      <Suspense fallback={<div className="p-4">Loading comparison…</div>}>
+        <CompareClient countries={countries} />
+      </Suspense>
     </div>
   );
 }
