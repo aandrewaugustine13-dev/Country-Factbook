@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import allCountries from '@/data/all-countries.json';
 import { CountryContent } from '@/components/CountryContent';
+import { AddToCompareButton } from '@/components/AddToCompareButton';
 
 export function generateStaticParams() {
   return allCountries.map((c) => ({ code: c.code }));
@@ -71,6 +72,7 @@ export default async function CountryPage({
         <div>
           <h1>{country.name_common}</h1>
           <p>{country.name_official}</p>
+          <AddToCompareButton code={country.code} />
         </div>
       </div>
 
