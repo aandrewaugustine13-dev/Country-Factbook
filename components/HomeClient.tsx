@@ -17,6 +17,7 @@ const REGIONS = ['All Regions', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania
 export function HomeClient({ countries }: { countries: CountryItem[] }) {
   const [query, setQuery] = useState('');
   const [region, setRegion] = useState('All Regions');
+  const [view, setView] = useState<'grid' | 'list'>('grid');
 
   const filtered = useMemo(() => {
     let result = countries;
@@ -55,11 +56,25 @@ export function HomeClient({ countries }: { countries: CountryItem[] }) {
             </button>
           ))}
         </div>
+        <div className="view-toggle" role="group" aria-label="Country list view">
+          <button
+            className={`view-tab ${view === 'grid' ? 'active' : ''}`}
+            onClick={() => setView('grid')}
+          >
+            Grid
+          </button>
+          <button
+            className={`view-tab ${view === 'list' ? 'active' : ''}`}
+            onClick={() => setView('list')}
+          >
+            List
+          </button>
+        </div>
       </div>
 
       <p className="result-count">{filtered.length} {filtered.length === 1 ? 'country' : 'countries'}</p>
 
-      <ul className="country-grid" aria-label="Country list">
+      <ul className={`country-grid ${view === 'list' ? 'list-view' : ''}`} aria-label="Country list">
         {filtered.map((country) => (
           <li key={country.code}>
             <Link className="country-card" href={`/countries/${country.code}`}>
