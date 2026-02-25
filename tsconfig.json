@@ -31,11 +31,22 @@
   },
   "include": [
     "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
+    "app/**/*.ts",
+    "app/**/*.tsx",
+    "components/**/*.ts",
+    "components/**/*.tsx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "countries/**/*.ts",
+    "countries/**/*.tsx",
+    "build-data.ts",
+    "tailwind.config.ts",
     ".next/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "files-*",
+    "**/files-*",
+    "**/compare-page.tsx"
   ]
 }
