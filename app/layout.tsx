@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import Link from 'next/link';
+import { CompareNavButton } from '@/components/CompareNavButton';
 
 export const metadata: Metadata = {
   title: 'THE WORLD FACTBOOK — Reference Edition 2026',
@@ -9,7 +11,15 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <header className="top-nav">
+          <div className="container top-nav-inner">
+            <Link href="/">Factbook</Link>
+            <CompareNavButton />
+          </div>
+        </header>
+        {children}
+      </body>
     </html>
   );
 }
