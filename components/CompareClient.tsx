@@ -1,9 +1,12 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
+import { CompareTable, sortableMetrics } from './CompareTable';
 
 interface CompareClientProps {
   countries: any[];
+
+  // controlled props from useCompareState
   list: string[];
   addCountry: (code: string) => void;
   removeCountry: (code: string) => void;
@@ -18,6 +21,12 @@ export function CompareClient({
   removeCountry,
   clearAll,
 }: CompareClientProps) {
+  const [highlightDiffs, setHighlightDiffs] = useState(true);
+  const [sortMetric, setSortMetric] = useState<string>(
+    sortableMetrics[0]?.key ?? 'population'
+  );
+  const [sortDir, setSortDir] = useState<'asc' | 'desc'>('desc');
+
   const selectedCountries = useMemo(() => {
     return selectedCodes
       .map((code) => countries.find((c: any) => c.code === code))
@@ -98,15 +107,47 @@ export function CompareClient({
             Side-by-side comparison ({selectedCountries.length} countries)
           </h2>
 
-          <div className="text-center py-16 border-2 border-dashed border-gray-300 rounded-2xl">
-            <p className="text-gray-400 text-lg">
-              Your comparison charts &amp; table go here
-            </p>
-            <p className="text-sm text-gray-500 mt-2">
-              Paste your &lt;CompareTable /&gt;, &lt;CompareBarChart /&gt;, etc.
-              inside this block
-            </p>
+          {/* Controls */}
+          <div className="flex flex-wrap items-center gap-4 mb-6">
+            <label className="text-sm text-gray-700 flex items-center gap-2">
+              Sort by
+              <select
+                value={sortMetric}
+                onChange={(e) => setSortMetric(e.target.value)}
+                className="px-3 py-2 border border-gray-300 rounded-lg"
+              >
+                {sortableMetrics.map((m) => (
+                  <option key={m.key} value={m.key}>
+                    {m.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <button
+              onClick={() => setSortDir((d) => (d === 'asc' ? 'desc' : 'asc'))}
+              className="px-3 py-2 border border-gray-300 rounded-lg text-sm"
+            >
+              {sortDir === 'asc' ? 'Ascending' : 'Descending'}
+            </button>
+
+            <label className="text-sm text-gray-700 flex items-center gap-2">
+              <input
+                type="checkbox"
+                checked={highlightDiffs}
+                onChange={(e) => setHighlightDiffs(e.target.checked)}
+              />
+              Highlight highs/lows
+            </label>
           </div>
+
+          {/* The actual comparison table */}
+          <CompareTable
+            countries={selectedCountries}
+            highlightDiffs={highlightDiffs}
+            sortMetric={sortMetric}
+            sortDir={sortDir}
+          />
         </div>
       ) : (
         <div className="text-center py-20 text-gray-400">
