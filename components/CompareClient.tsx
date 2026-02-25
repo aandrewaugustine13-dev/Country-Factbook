@@ -5,8 +5,6 @@ import { CompareTable, sortableMetrics } from './CompareTable';
 
 interface CompareClientProps {
   countries: any[];
-
-  // controlled props from useCompareState
   list: string[];
   addCountry: (code: string) => void;
   removeCountry: (code: string) => void;
@@ -40,7 +38,6 @@ export function CompareClient({
         Compare up to 10 countries side-by-side
       </p>
 
-      {/* Add country selector */}
       <div className="mb-10">
         <div className="flex gap-3 max-w-md">
           <select
@@ -68,14 +65,13 @@ export function CompareClient({
         </p>
       </div>
 
-      {/* Selected countries chips */}
       {selectedCountries.length > 0 && (
         <div className="mb-10">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-2xl font-semibold">Selected Countries</h2>
             <button
               onClick={clearAll}
-              className="text-red-600 hover:text-red-700 font-medium flex items-center gap-1"
+              className="text-red-600 hover:text-red-700 font-medium"
             >
               Clear all
             </button>
@@ -100,14 +96,12 @@ export function CompareClient({
         </div>
       )}
 
-      {/* Comparison area */}
       {selectedCountries.length > 1 ? (
         <div className="border border-gray-200 rounded-3xl p-8 bg-white shadow">
           <h2 className="text-2xl font-semibold mb-6">
             Side-by-side comparison ({selectedCountries.length} countries)
           </h2>
 
-          {/* Controls */}
           <div className="flex flex-wrap items-center gap-4 mb-6">
             <label className="text-sm text-gray-700 flex items-center gap-2">
               Sort by
@@ -141,7 +135,6 @@ export function CompareClient({
             </label>
           </div>
 
-          {/* The actual comparison table */}
           <CompareTable
             countries={selectedCountries}
             highlightDiffs={highlightDiffs}
