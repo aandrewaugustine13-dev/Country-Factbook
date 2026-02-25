@@ -20,22 +20,8 @@ const POP_FILTERS = ['Any Population', '< 1M', '1M - 10M', '10M - 100M', '> 100M
 
 export function HomeClient({ countries }: { countries: CountryItem[] }) {
   const [query, setQuery] = useState('');
-  const [region, setRegion] = useState('All Continents');
+  const [region, setRegion] = useState('All Regions');
   const [view, setView] = useState<'grid' | 'list'>('grid');
-  const [governmentFilter, setGovernmentFilter] = useState('All Governments');
-  const govQuery = governmentFilter;
-  const [landlocked, setLandlocked] = useState('Any');
-  const [popRange, setPopRange] = useState('Any Population');
-
-  const govOptions = useMemo(() => {
-    const unique = new Set(
-      countries
-        .map((c) => c.government_type)
-        .filter(Boolean)
-        .map((g) => String(g).split(';')[0].trim())
-    );
-    return ['All Governments', ...Array.from(unique).sort().slice(0, 40)];
-  }, [countries]);
 
   const filtered = useMemo(() => {
     let result = countries;
@@ -101,6 +87,20 @@ export function HomeClient({ countries }: { countries: CountryItem[] }) {
         <div className="view-toggle" role="group" aria-label="Country list view">
           <button className={`view-tab ${view === 'grid' ? 'active' : ''}`} onClick={() => setView('grid')}>Grid</button>
           <button className={`view-tab ${view === 'list' ? 'active' : ''}`} onClick={() => setView('list')}>List</button>
+        </div>
+        <div className="view-toggle" role="group" aria-label="Country list view">
+          <button
+            className={`view-tab ${view === 'grid' ? 'active' : ''}`}
+            onClick={() => setView('grid')}
+          >
+            Grid
+          </button>
+          <button
+            className={`view-tab ${view === 'list' ? 'active' : ''}`}
+            onClick={() => setView('list')}
+          >
+            List
+          </button>
         </div>
       </div>
 
