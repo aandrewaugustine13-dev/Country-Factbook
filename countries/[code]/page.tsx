@@ -10,6 +10,9 @@ export default function Home() {
     flag_emoji: c.flag_emoji,
     region: c.region,
     capital: c.capital,
+    landlocked: c.landlocked,
+    population: null,
+    government_type: null,
   }));
 
   return (
