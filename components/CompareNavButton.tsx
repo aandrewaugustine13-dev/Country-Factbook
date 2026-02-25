@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { COMPARE_STORAGE_KEY, parseQueryToList } from '@/src/compare-state';
 import { COMPARE_UPDATED_EVENT } from '@/src/useCompareState';
@@ -42,8 +41,8 @@ export function CompareNavButton() {
   }, []);
 
   return (
-    <Link href="/compare" className="nav-compare" aria-label={`Open compare page (${count} selected)`}>
-      Compare <span className="nav-badge">{count}</span>
-    </Link>
+    <span aria-label={`Compare (${count} selected)`}>
+      📊 Compare <span className="nav-badge">{count}</span>
+    </span>
   );
 }
