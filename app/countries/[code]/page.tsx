@@ -73,7 +73,6 @@ export default async function CountryPage({
           <h1>{country.name_common}</h1>
           <p>{country.name_official}</p>
           <AddToCompareButton code={country.code} />
-          <p><Link href={`/countries/${country.code}/report`} style={{ color: "#C7A55B" }}>Print-friendly report</Link></p>
         </div>
       </div>
 
