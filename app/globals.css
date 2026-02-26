@@ -1228,3 +1228,39 @@ a:hover { color: var(--un-blue); }
   .two-column { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
   a { color: #000 !important; text-decoration: none; }
 }
+
+/* ===== JET AGE ACCENTS ===== */
+.jet-age-stripe {
+  display: grid;
+  grid-template-rows: 1px 4px 1px;
+  gap: 1px;
+  width: min(280px, 60vw);
+  margin: 0.7rem auto 0;
+}
+.jet-age-stripe span:nth-child(1),
+.jet-age-stripe span:nth-child(3) {
+  display: block;
+  background: var(--un-blue-deeper);
+}
+.jet-age-stripe span:nth-child(2) {
+  display: block;
+  background: var(--un-blue);
+}
+
+.home-stamp-wrap {
+  margin-top: 0.55rem;
+}
+
+.stamp-badge {
+  display: inline-block;
+  border: 1px solid color-mix(in srgb, var(--un-blue-deeper) 70%, var(--border) 30%);
+  color: var(--un-blue-deeper);
+  background: color-mix(in srgb, var(--bg) 86%, var(--bg-off) 14%);
+  border-radius: var(--radius-sm);
+  padding: 0.16rem 0.45rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transform: rotate(-2deg);
+}
