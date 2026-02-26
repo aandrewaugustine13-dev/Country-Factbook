@@ -47,7 +47,7 @@ button,
 input,
 select,
 textarea {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
 }
 
 a { color: var(--un-blue-dark); }
@@ -66,7 +66,7 @@ a:hover { color: var(--un-blue); }
 
 /* ===== TOP NAV — Institutional Header ===== */
 .top-nav {
-  border-bottom: 2px solid var(--un-blue-dark);
+  border-bottom: 1px solid var(--border);
   background-color: var(--bg);
   background-image: linear-gradient(rgba(23, 47, 74, 0.025), rgba(23, 47, 74, 0.025));
 }
@@ -101,7 +101,7 @@ a:hover { color: var(--un-blue); }
   transition: all 0.15s;
 }
 .nav-link:hover {
-  background: rgba(30, 61, 98, 0.06);
+  background: rgba(30, 61, 98, 0.05);
   color: var(--un-blue-dark);
 }
 .nav-badge {
@@ -188,7 +188,7 @@ a:hover { color: var(--un-blue); }
 }
 .region-tab:hover {
   border-color: var(--un-blue-dark);
-  background: rgba(30, 61, 98, 0.04);
+  background: rgba(30, 61, 98, 0.03);
   color: var(--un-blue-dark);
 }
 .region-tab.active {
@@ -257,17 +257,20 @@ a:hover { color: var(--un-blue); }
 .country-grid li {
   border-right: 1px solid var(--border);
   border-bottom: 1px solid color-mix(in srgb, var(--border) 80%, var(--un-blue-dark) 20%);
+  padding: 0;
 }
 
 .country-card {
   display: flex;
   gap: 0.75rem;
   align-items: center;
-  background-color: var(--bg);
-  background-image: linear-gradient(rgba(23, 47, 74, 0.025), rgba(23, 47, 74, 0.025));
+  background: var(--bg);
+  border: 1px solid var(--border);
   padding: 0.7rem 0.85rem;
   text-decoration: none;
-  transition: background 0.12s;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 1px 0 rgba(23, 47, 74, 0.1);
+  transition: background 0.12s, border-color 0.12s;
 }
 .country-card:hover {
   background: color-mix(in srgb, var(--bg) 72%, var(--bg-off) 28%);
@@ -332,13 +335,13 @@ a:hover { color: var(--un-blue); }
 /* ===== SECTION HEADERS — Swiss Style ===== */
 .section-header {
   margin: 1.75rem 0 0.6rem;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--un-blue-dark);
-  border-bottom: 2px solid var(--un-blue-dark);
-  padding-bottom: 0.4rem;
+  color: var(--un-blue-deeper);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.32rem;
 }
 
 .stat-row {
@@ -401,7 +404,7 @@ a:hover { color: var(--un-blue); }
   letter-spacing: 0.06em;
   cursor: pointer;
 }
-.fb-toggle-all:hover { border-color: var(--un-blue); color: var(--un-blue-dark); }
+.fb-toggle-all:hover { border-color: var(--un-blue-dark); background: var(--bg-off); color: var(--un-blue-dark); }
 
 .fb-section { margin-bottom: 0.25rem; }
 
@@ -477,18 +480,22 @@ a:hover { color: var(--un-blue); }
   white-space: nowrap; border: 0;
 }
 
+
+.compare-add-wrap { margin-top: 0.35rem; }
+.compare-chips-wrap { margin-bottom: 0.75rem; }
+
 /* ===== COMPARE ADDED MSG ===== */
 .compare-added-msg { margin-left: 0.5rem; color: var(--un-gold); font-size: 0.8rem; font-weight: 600; }
 
 /* ===== COMPARE PAGE — Dropdown & Chips ===== */
 .compare-dropdown {
   border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  background-color: var(--bg);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
   background-image: linear-gradient(rgba(23, 47, 74, 0.025), rgba(23, 47, 74, 0.025));
   margin-top: -0.5rem;
   margin-bottom: 0.75rem;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 0 rgba(23, 47, 74, 0.12);
 }
 .compare-dropdown-item {
   width: 100%;
@@ -541,7 +548,7 @@ a:hover { color: var(--un-blue); }
   padding: 0 0.2rem;
   line-height: 1;
 }
-.chip-remove:hover { background: rgba(192,57,43,0.08); }
+.chip-remove:hover { background: var(--bg-off); border-color: var(--text-muted); }
 .compare-clear {
   background-color: var(--bg);
   background-image: linear-gradient(rgba(23, 47, 74, 0.025), rgba(23, 47, 74, 0.025));
@@ -556,13 +563,13 @@ a:hover { color: var(--un-blue); }
   cursor: pointer;
   font-family: inherit;
 }
-.compare-clear:hover { background: rgba(192,57,43,0.05); }
+.compare-clear:hover { background: var(--bg-off); border-color: var(--error); }
 
 /* ===== COMPARE TABLE ===== */
 .compare-table-wrap {
   overflow: auto;
   border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
 }
 .compare-table {
   width: 100%;
@@ -572,8 +579,8 @@ a:hover { color: var(--un-blue); }
 }
 .compare-table th,
 .compare-table td {
-  border: 1px solid var(--border-light);
-  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--border);
+  padding: 0.42rem 0.55rem;
   vertical-align: top;
   background-color: var(--bg);
   background-image: linear-gradient(rgba(23, 47, 74, 0.025), rgba(23, 47, 74, 0.025));
@@ -581,14 +588,15 @@ a:hover { color: var(--un-blue); }
 .compare-table thead th {
   position: sticky;
   top: 0;
-  background: var(--un-blue-dark);
-  color: #fff;
-  font-size: 0.78rem;
-  font-weight: 600;
+  background: var(--bg-panel);
+  color: var(--un-blue-deeper);
+  font-size: 0.72rem;
+  font-weight: 700;
   text-align: center;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   z-index: 3;
-  border-color: rgba(255,255,255,0.15);
+  border-color: var(--border);
 }
 .compare-metric-col {
   text-align: left !important;
@@ -607,17 +615,18 @@ a:hover { color: var(--un-blue); }
   text-align: center;
   color: var(--text);
 }
-.compare-table tr:hover td { background: color-mix(in srgb, var(--bg) 72%, var(--bg-off) 28%); }
+.compare-table tbody tr:nth-child(even) td { background: color-mix(in srgb, var(--bg) 86%, var(--bg-off) 14%); }
+.compare-table tr:hover td { background: color-mix(in srgb, var(--bg) 78%, var(--bg-off) 22%); }
 .group-header td {
-  background: var(--un-blue-dark) !important;
-  color: #fff !important;
+  background: var(--bg-off) !important;
+  color: var(--un-blue-deeper) !important;
   font-weight: 700;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  padding: 0.35rem 0.6rem;
+  letter-spacing: 0.14em;
+  padding: 0.3rem 0.55rem;
   text-align: left;
-  border-color: rgba(255,255,255,0.15);
+  border-color: var(--border);
 }
 .metric-unit {
   color: var(--text-muted);
@@ -1021,7 +1030,7 @@ a:hover { color: var(--un-blue); }
 }
 .quiz-filter-btn:hover {
   border-color: var(--un-blue-dark);
-  background: rgba(30, 61, 98, 0.04);
+  background: rgba(30, 61, 98, 0.03);
   color: var(--un-blue-dark);
 }
 .quiz-filter-btn.active {
