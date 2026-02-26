@@ -15,20 +15,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
-          href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
       </head>
       <body>
         <header className="top-nav">
           <div className="container top-nav-inner">
-            <Link href="/" className="nav-home">🌐 Factbook</Link>
+            <Link href="/" className="nav-home">⚙ The World Factbook</Link>
             <nav className="nav-links">
               <Link href="/compare" className="nav-link">
                 <CompareNavButton />
               </Link>
-              <Link href="/quiz" className="nav-link">🎯 Quiz</Link>
-              <Link href="/daily" className="nav-link">🎲 Daily</Link>
+              <Link href="/quiz" className="nav-link">Quiz</Link>
+              <Link href="/daily" className="nav-link">Daily</Link>
             </nav>
           </div>
         </header>
