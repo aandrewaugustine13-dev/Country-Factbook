@@ -1,7 +1,6 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { useMemo } from 'react';
 
 type Country = {
   code: string;
@@ -13,64 +12,72 @@ type Country = {
   median_age?: number;
   internet_users_percent?: number;
   urbanization_percent?: number;
-  languages?: string[];
-  currency?: string;
 };
 
-export default function CompareClient({ countries }: { countries: Country[] }) {
+export default function CompareClient({
+  countries,
+}: {
+  countries: Country[];
+}) {
   const searchParams = useSearchParams();
 
+  // Read ?c=USA&c=CAN style params
   const selectedCodes = searchParams.getAll('c');
 
-  const selectedCountries = useMemo(() => {
-    return countries.filter((c) => selectedCodes.includes(c.code));
-  }, [countries, selectedCodes]);
+  // Filter selected countries
+  const selected = countries.filter((c) =>
+    selectedCodes.includes(c.code)
+  );
 
-  if (selectedCountries.length === 0) {
-    return (
-      <div className="text-sm opacity-70">
-        No countries selected. Add query params like ?c=USA&c=CAN
-      </div>
-    );
+  if (!selected.length) {
+    return <div>No countries selected.</div>;
   }
 
   return (
-    <div className="overflow-x-auto">
-      <table className="w-full text-sm border border-gray-300">
+    <div style={{ overflowX: 'auto' }}>
+      <table style={{ borderCollapse: 'collapse', width: '100%' }}>
         <thead>
           <tr>
-            <th className="p-2 border">Metric</th>
-            {selectedCountries.map((c) => (
-              <th key={c.code} className="p-2 border">
+            <th style={cellStyle}>Metric</th>
+            {selected.map((c) => (
+              <th key={c.code} style={cellStyle}>
                 {c.name}
               </th>
             ))}
           </tr>
         </thead>
         <tbody>
-          {renderRow('Population', selectedCountries, 'population')}
-          {renderRow('Area (km²)', selectedCountries, 'area')}
-          {renderRow('GDP per Capita', selectedCountries, 'gdp_per_capita')}
-          {renderRow('Life Expectancy', selectedCountries, 'life_expectancy')}
-          {renderRow('Median Age', selectedCountries, 'median_age')}
-          {renderRow('Internet %', selectedCountries, 'internet_users_percent')}
-          {renderRow('Urbanization %', selectedCountries, 'urbanization_percent')}
+          {row('Population', selected, 'population')}
+          {row('Area', selected, 'area')}
+          {row('GDP per Capita', selected, 'gdp_per_capita')}
+          {row('Life Expectancy', selected, 'life_expectancy')}
+          {row('Median Age', selected, 'median_age')}
+          {row('Internet %', selected, 'internet_users_percent')}
+          {row('Urbanization %', selected, 'urbanization_percent')}
         </tbody>
       </table>
     </div>
   );
 }
 
-function renderRow(
+const cellStyle: React.CSSProperties = {
+  border: '1px solid #999',
+  padding: '8px',
+  textAlign: 'right',
+};
+
+function row(
   label: string,
   countries: Country[],
   key: keyof Country
 ) {
   return (
     <tr key={label}>
-      <td className="p-2 border font-medium">{label}</td>
+      <td style={{ ...cellStyle, textAlign: 'left', fontWeight: 600 }}>
+        {label}
+      </td>
       {countries.map((c) => (
-        <td key={c.code} className="p-2 border text-right">
+        <td key={c.code} style={cellStyle}>
           {c[key] ?? '—'}
         </td>
       ))}
