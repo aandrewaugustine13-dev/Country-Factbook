@@ -2,7 +2,7 @@
 
 export function CompareToolbar({ selected, onRemove, onMove, onClear }: { selected: Array<{ code: string; name: string; flag_url: string }>; onRemove: (code: string) => void; onMove: (from: number, to: number) => void; onClear: () => void; }) {
   return (
-    <div className="compare-chips compare-chips-wrap">
+    <div className="compare-chips" style={{ marginBottom: '0.75rem' }}>
       {selected.map((c, i) => (
         <span key={c.code} className="compare-chip">
           <img src={c.flag_url} alt="" width={18} height={12} />

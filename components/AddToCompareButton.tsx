@@ -25,7 +25,7 @@ export function AddToCompareButton({ code }: { code: string }) {
   }
 
   return (
-    <div className="compare-add-wrap">
+    <div style={{ marginTop: '0.35rem' }}>
       <button className="fb-toggle-all" onClick={handleClick} aria-label="Add this country to compare">
         Add to Compare
       </button>

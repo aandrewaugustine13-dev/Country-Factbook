@@ -1,8 +1,6 @@
 import { Seal } from '@/components/Seal';
 import { HomeClient } from '@/components/HomeClient';
 import allCountries from '@/data/all-countries.json';
-import { JetAgeStripe } from '@/components/JetAgeStripe';
-import { StampBadge } from '@/components/StampBadge';
 
 export default function Home() {
   const countries = allCountries.map((c) => ({
@@ -20,10 +18,6 @@ export default function Home() {
         <Seal />
         <h1>THE WORLD FACTBOOK</h1>
         <p>Reference Edition 2026</p>
-        <JetAgeStripe />
-        <div className="home-stamp-wrap">
-          <StampBadge label="REFERENCE" />
-        </div>
       </header>
       <HomeClient countries={countries} />
     </div>

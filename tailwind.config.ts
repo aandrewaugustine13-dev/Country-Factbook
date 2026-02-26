@@ -4,21 +4,13 @@ const config: Config = {
   content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['Inter', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
-      },
-      borderRadius: {
-        sm: '2px',
-        DEFAULT: '3px',
-        md: '4px',
-      },
       colors: {
-        background: '#F6F4EE',
-        surface: '#ECE9E1',
-        border: '#AAB6C7',
-        textPrimary: '#1B2635',
-        textSecondary: '#4E5F77',
-        accent: '#4A86C5',
+        background: '#FFFFFF',
+        surface: '#F5F7FB',
+        border: '#C8D3E0',
+        textPrimary: '#1A1D2B',
+        textSecondary: '#5A6678',
+        accent: '#4B92DB',
         gold: '#C6952B',
       },
     },
