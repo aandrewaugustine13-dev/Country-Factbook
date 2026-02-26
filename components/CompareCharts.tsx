@@ -11,12 +11,12 @@ import { GlossaryTip } from './GlossaryTip';
 type Country = Record<string, any>;
 
 const REGION_COLORS: Record<string, string> = {
-  Africa: '#f59e0b',
-  Americas: '#3b82f6',
-  Asia: '#ef4444',
-  Europe: '#8b5cf6',
-  Oceania: '#10b981',
-  Antarctic: '#71717a',
+  Africa: '#C6952B',
+  Americas: '#4B92DB',
+  Asia: '#C0392B',
+  Europe: '#6C5CE7',
+  Oceania: '#2D8A4E',
+  Antarctic: '#8694A7',
 };
 
 function truncateName(name: string, max = 16) {
@@ -67,26 +67,26 @@ export function CompareBarChart({ countries }: { countries: Country[] }) {
           <BarChart data={chartData} layout="vertical" margin={{ left: 8, right: 24, top: 4, bottom: 4 }}>
             <XAxis
               type="number"
-              tick={{ fill: '#B7C7DA', fontSize: 11, fontFamily: 'inherit' }}
+              tick={{ fill: '#5A6678', fontSize: 11, fontFamily: 'inherit' }}
               tickFormatter={v => formatMetricValue(v, metric.format)}
-              axisLine={{ stroke: '#2A4A73' }}
-              tickLine={{ stroke: '#2A4A73' }}
+              axisLine={{ stroke: '#C8D3E0' }}
+              tickLine={{ stroke: '#C8D3E0' }}
             />
             <YAxis
               type="category"
               dataKey="name"
-              tick={{ fill: '#E6EDF5', fontSize: 12, fontFamily: 'inherit' }}
+              tick={{ fill: '#1A1D2B', fontSize: 12, fontFamily: 'inherit' }}
               width={110}
               axisLine={false}
               tickLine={false}
             />
             <Tooltip
               contentStyle={{
-                background: '#132B4C',
-                border: '1px solid #2A4A73',
-                borderRadius: '0.4rem',
+                background: '#fff',
+                border: '1px solid #C8D3E0',
+                borderRadius: '0.25rem',
                 fontSize: '0.85rem',
-                color: '#E6EDF5',
+                color: '#1A1D2B',
               }}
               formatter={(v: number) => [formatMetricValue(v, metric.format), metric.label]}
               labelFormatter={(label) => {
@@ -96,7 +96,7 @@ export function CompareBarChart({ countries }: { countries: Country[] }) {
             />
             <Bar dataKey="value" radius={[0, 4, 4, 0]} maxBarSize={30}>
               {chartData.map((entry, i) => (
-                <Cell key={i} fill={REGION_COLORS[entry.region] || '#C7A55B'} fillOpacity={0.85} />
+                <Cell key={i} fill={REGION_COLORS[entry.region] || '#C6952B'} fillOpacity={0.85} />
               ))}
             </Bar>
           </BarChart>
@@ -147,24 +147,24 @@ export function WealthHealthScatter({ countries }: { countries: Country[] }) {
 
       <ResponsiveContainer width="100%" height={320}>
         <ScatterChart margin={{ bottom: 24, left: 12, right: 24, top: 8 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="rgba(42,74,115,0.4)" />
+          <CartesianGrid strokeDasharray="3 3" stroke="rgba(200,211,224,0.6)" />
           <XAxis
             type="number"
             dataKey="x"
             name="GDP/capita"
-            tick={{ fill: '#B7C7DA', fontSize: 11 }}
+            tick={{ fill: '#5A6678', fontSize: 11 }}
             tickFormatter={v => `$${(v / 1000).toFixed(0)}K`}
-            label={{ value: 'GDP per Capita', position: 'bottom', offset: 4, style: { fill: '#B7C7DA', fontSize: 11 } }}
-            axisLine={{ stroke: '#2A4A73' }}
+            label={{ value: 'GDP per Capita', position: 'bottom', offset: 4, style: { fill: '#5A6678', fontSize: 11 } }}
+            axisLine={{ stroke: '#C8D3E0' }}
           />
           <YAxis
             type="number"
             dataKey="y"
             name="Life Exp."
-            tick={{ fill: '#B7C7DA', fontSize: 11 }}
+            tick={{ fill: '#5A6678', fontSize: 11 }}
             domain={['auto', 'auto']}
-            label={{ value: 'Life Expectancy', angle: -90, position: 'insideLeft', style: { fill: '#B7C7DA', fontSize: 11 } }}
-            axisLine={{ stroke: '#2A4A73' }}
+            label={{ value: 'Life Expectancy', angle: -90, position: 'insideLeft', style: { fill: '#5A6678', fontSize: 11 } }}
+            axisLine={{ stroke: '#C8D3E0' }}
           />
           <Tooltip
             content={({ payload }) => {
@@ -172,13 +172,13 @@ export function WealthHealthScatter({ countries }: { countries: Country[] }) {
               const d = payload[0].payload;
               return (
                 <div style={{
-                  background: '#132B4C', border: '1px solid #2A4A73',
-                  borderRadius: '0.4rem', padding: '0.5rem 0.75rem', fontSize: '0.85rem',
+                  background: '#fff', border: '1px solid #C8D3E0',
+                  borderRadius: '0.25rem', padding: '0.5rem 0.75rem', fontSize: '0.85rem',
                 }}>
-                  <div style={{ fontWeight: 600, color: '#E6EDF5' }}>{d.emoji} {d.name}</div>
-                  <div style={{ color: '#B7C7DA' }}>GDP/capita: ${d.x?.toLocaleString()}</div>
-                  <div style={{ color: '#B7C7DA' }}>Life exp: {d.y} years</div>
-                  <div style={{ color: '#B7C7DA' }}>Pop: {d.pop >= 1e6 ? `${(d.pop / 1e6).toFixed(1)}M` : d.pop.toLocaleString()}</div>
+                  <div style={{ fontWeight: 600, color: '#1A1D2B' }}>{d.emoji} {d.name}</div>
+                  <div style={{ color: '#5A6678' }}>GDP/capita: ${d.x?.toLocaleString()}</div>
+                  <div style={{ color: '#5A6678' }}>Life exp: {d.y} years</div>
+                  <div style={{ color: '#5A6678' }}>Pop: {d.pop >= 1e6 ? `${(d.pop / 1e6).toFixed(1)}M` : d.pop.toLocaleString()}</div>
                 </div>
               );
             }}
@@ -187,7 +187,7 @@ export function WealthHealthScatter({ countries }: { countries: Country[] }) {
             {data.map((entry, i) => (
               <Cell
                 key={i}
-                fill={REGION_COLORS[entry.region] || '#C7A55B'}
+                fill={REGION_COLORS[entry.region] || '#C6952B'}
                 r={Math.max(5, Math.min(18, Math.sqrt(entry.pop / 4000000)))}
               />
             ))}
