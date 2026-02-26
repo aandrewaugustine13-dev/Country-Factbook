@@ -1,49 +1,58 @@
-import React from 'react';
-
-export const Seal = () => {
+export function Seal() {
   return (
-    <svg 
-      width="205" 
-      height="205" 
-      viewBox="0 0 205 205" 
-      fill="none" 
-      xmlns="http://www.w3.org/2000/svg"
-      className="seal mx-auto block drop-shadow-2xl"
+    <svg
+      className="seal"
+      viewBox="0 0 240 240"
+      role="img"
+      aria-label="Seal of The World Factbook Reference Edition 2026"
     >
-      {/* Heavy outer ring */}
-      <circle cx="102.5" cy="102.5" r="99" stroke="#009EDB" strokeWidth="14" />
-      <circle cx="102.5" cy="102.5" r="86" stroke="#0A1428" strokeWidth="8" />
+      {/* Outer rings */}
+      <circle cx="120" cy="120" r="116" fill="none" stroke="currentColor" strokeWidth="2" />
+      <circle cx="120" cy="120" r="108" fill="none" stroke="currentColor" strokeWidth="0.75" />
 
-      {/* Globe */}
-      <circle cx="102.5" cy="102.5" r="54" fill="#132337" stroke="#009EDB" strokeWidth="9" />
-      
-      {/* Globe lines */}
-      <path d="M102.5 48 Q70 70 70 102.5 Q70 135 102.5 157" fill="none" stroke="#60D0F5" strokeWidth="4" strokeLinecap="round" />
-      <path d="M102.5 48 Q135 70 135 102.5 Q135 135 102.5 157" fill="none" stroke="#60D0F5" strokeWidth="4" strokeLinecap="round" />
-      <ellipse cx="102.5" cy="102.5" rx="54" ry="24" fill="none" stroke="#60D0F5" strokeWidth="3.5" />
-      <ellipse cx="102.5" cy="102.5" rx="54" ry="38" fill="none" stroke="#60D0F5" strokeWidth="3" />
-
-      {/* Heavy Gold Laurel Wreaths - Left */}
-      <g>
-        <path d="M48 78 Q25 48 39 35 Q68 52 73 78" fill="none" stroke="#E2B04A" strokeWidth="15" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M47 126 Q24 152 40 168 Q70 147 75 122" fill="none" stroke="#E2B04A" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" />
-        {/* leaves */}
-        <path d="M35 52 Q27 44 23 54 Q30 58 38 52" fill="none" stroke="#E2B04A" strokeWidth="8" />
-        <path d="M48 65 Q39 55 35 68" fill="none" stroke="#E2B04A" strokeWidth="8" />
-        <path d="M37 142 Q29 150 24 140" fill="none" stroke="#E2B04A" strokeWidth="8" />
-        <path d="M51 133 Q43 142 39 130" fill="none" stroke="#E2B04A" strokeWidth="8" />
+      {/* Laurel wreath — left branch */}
+      <g opacity="0.9">
+        <ellipse cx="72" cy="155" rx="6" ry="14" fill="none" stroke="currentColor" strokeWidth="1.2" transform="rotate(-20, 72, 155)" />
+        <ellipse cx="62" cy="142" rx="5.5" ry="13" fill="none" stroke="currentColor" strokeWidth="1.2" transform="rotate(-35, 62, 142)" />
+        <ellipse cx="55" cy="126" rx="5" ry="12" fill="none" stroke="currentColor" strokeWidth="1.2" transform="rotate(-50, 55, 126)" />
+        <ellipse cx="53" cy="108" rx="5" ry="11" fill="none" stroke="currentColor" strokeWidth="1.2" transform="rotate(-65, 53, 108)" />
+        <ellipse cx="56" cy="90" rx="5" ry="11" fill="none" stroke="currentColor" strokeWidth="1.2" transform="rotate(-80, 56, 90)" />
+        <ellipse cx="63" cy="76" rx="5" ry="10" fill="none" stroke="currentColor" strokeWidth="1.2" transform="rotate(-95, 63, 76)" />
+        {/* Stem */}
+        <path d="M80 168 Q55 130 70 65" fill="none" stroke="currentColor" strokeWidth="1" />
       </g>
 
-      {/* Heavy Gold Laurel Wreaths - Right */}
-      <g>
-        <path d="M157 78 Q180 48 166 35 Q137 52 132 78" fill="none" stroke="#E2B04A" strokeWidth="15" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M158 126 Q181 152 165 168 Q135 147 130 122" fill="none" stroke="#E2B04A" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" />
-        {/* leaves */}
-        <path d="M170 52 Q178 44 182 54 Q175 58 167 52" fill="none" stroke="#E2B04A" strokeWidth="8" />
-        <path d="M157 65 Q166 55 170 68" fill="none" stroke="#E2B04A" strokeWidth="8" />
-        <path d="M168 142 Q176 150 181 140" fill="none" stroke="#E2B04A" strokeWidth="8" />
-        <path d="M154 133 Q162 142 166 130" fill="none" stroke="#E2B04A" strokeWidth="8" />
+      {/* Laurel wreath — right branch (mirrored) */}
+      <g opacity="0.9">
+        <ellipse cx="168" cy="155" rx="6" ry="14" fill="none" stroke="currentColor" strokeWidth="1.2" transform="rotate(20, 168, 155)" />
+        <ellipse cx="178" cy="142" rx="5.5" ry="13" fill="none" stroke="currentColor" strokeWidth="1.2" transform="rotate(35, 178, 142)" />
+        <ellipse cx="185" cy="126" rx="5" ry="12" fill="none" stroke="currentColor" strokeWidth="1.2" transform="rotate(50, 185, 126)" />
+        <ellipse cx="187" cy="108" rx="5" ry="11" fill="none" stroke="currentColor" strokeWidth="1.2" transform="rotate(65, 187, 108)" />
+        <ellipse cx="184" cy="90" rx="5" ry="11" fill="none" stroke="currentColor" strokeWidth="1.2" transform="rotate(80, 184, 90)" />
+        <ellipse cx="177" cy="76" rx="5" ry="10" fill="none" stroke="currentColor" strokeWidth="1.2" transform="rotate(95, 177, 76)" />
+        {/* Stem */}
+        <path d="M160 168 Q185 130 170 65" fill="none" stroke="currentColor" strokeWidth="1" />
       </g>
+
+      {/* Center globe */}
+      <circle cx="120" cy="115" r="32" fill="none" stroke="currentColor" strokeWidth="1.5" />
+      <ellipse cx="120" cy="115" rx="14" ry="32" fill="none" stroke="currentColor" strokeWidth="0.8" />
+      <ellipse cx="120" cy="115" rx="25" ry="32" fill="none" stroke="currentColor" strokeWidth="0.8" />
+      <line x1="88" y1="115" x2="152" y2="115" stroke="currentColor" strokeWidth="0.8" />
+      <path d="M91 102c10 4 48 4 58 0" fill="none" stroke="currentColor" strokeWidth="0.8" />
+      <path d="M91 128c10-4 48-4 58 0" fill="none" stroke="currentColor" strokeWidth="0.8" />
+
+      {/* Text on circular paths */}
+      <defs>
+        <path id="topArc" d="M 34 120 A 86 86 0 0 1 206 120" />
+        <path id="bottomArc" d="M 206 125 A 86 86 0 0 1 34 125" />
+      </defs>
+      <text fontSize="10" fontWeight="600" letterSpacing="3.5" textAnchor="middle" fontFamily="Inter, Helvetica, sans-serif">
+        <textPath href="#topArc" startOffset="50%">THE WORLD FACTBOOK</textPath>
+      </text>
+      <text fontSize="8" fontWeight="500" letterSpacing="2.5" textAnchor="middle" fontFamily="Inter, Helvetica, sans-serif">
+        <textPath href="#bottomArc" startOffset="50%">REFERENCE EDITION 2026</textPath>
+      </text>
     </svg>
   );
-};
+}
