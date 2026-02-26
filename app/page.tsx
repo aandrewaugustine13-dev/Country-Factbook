@@ -1,4 +1,4 @@
-import { Seal } from '@/components/Seal';
+import Seal from '@/components/Seal';
 import { HomeClient } from '@/components/HomeClient';
 import allCountries from '@/data/all-countries.json';
 
