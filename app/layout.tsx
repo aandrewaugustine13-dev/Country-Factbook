@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <header className="top-nav">
           <div className="container top-nav-inner">
-            <Link href="/" className="nav-home">⚙ The World Factbook</Link>
+            <Link href="/" className="nav-home">The World Factbook</Link>
             <nav className="nav-links">
               <Link href="/compare" className="nav-link">
                 <CompareNavButton />
