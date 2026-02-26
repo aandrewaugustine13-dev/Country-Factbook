@@ -582,7 +582,8 @@ a:hover { color: var(--un-blue); }
   border: 1px solid var(--border);
   padding: 0.42rem 0.55rem;
   vertical-align: top;
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image: linear-gradient(rgba(23, 47, 74, 0.025), rgba(23, 47, 74, 0.025));
 }
 .compare-table thead th {
   position: sticky;
