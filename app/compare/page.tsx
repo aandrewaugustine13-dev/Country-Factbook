@@ -12,7 +12,6 @@ function extractFactbookValue(country: any, section: string, labelNeedle: string
 
 export default function ComparePage() {
   const map = new Map((allCountries as any[]).map((c) => [c.code, c]));
-
   const countries = (comparisonData as any[]).map((c) => {
     const base = map.get(c.code) || {};
     return {
@@ -26,21 +25,13 @@ export default function ComparePage() {
   });
 
   return (
-    <div className="max-w-7xl mx-auto p-6">
-      <Link href="/" className="text-sm text-gray-600 hover:text-gray-900">
-        ← Back to all countries
-      </Link>
-
-      <h1 className="text-3xl font-bold mt-4">Compare Countries</h1>
-      <p className="text-gray-600 mt-2">
-        Select up to 10 countries, share the URL, and compare side-by-side.
-      </p>
-
-      <div className="mt-8">
-        <Suspense fallback={<div>Loading comparison…</div>}>
-          <CompareClient countries={countries} />
-        </Suspense>
-      </div>
+    <div className="container">
+      <Link href="/" className="back-link">← Back to all countries</Link>
+      <h1>Compare Countries</h1>
+      <p style={{ color: '#B7C7DA', marginBottom: '1rem' }}>Select up to 10 countries, share the URL, and compare side-by-side.</p>
+      <Suspense fallback={<div className="p-4">Loading comparison…</div>}>
+        <CompareClient countries={countries} />
+      </Suspense>
     </div>
   );
 }

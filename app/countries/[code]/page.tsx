@@ -3,6 +3,7 @@ import Link from 'next/link';
 import allCountries from '@/data/all-countries.json';
 import { CountryContent } from '@/components/CountryContent';
 import { AddToCompareButton } from '@/components/AddToCompareButton';
+import { CountryMap } from '@/components/CountryMap';
 
 export function generateStaticParams() {
   return allCountries.map((c) => ({ code: c.code }));
@@ -84,6 +85,17 @@ export default async function CountryPage({
             </a>
           ))}
         </nav>
+      )}
+
+      {country.latlng && country.latlng.length === 2 && (
+        <div style={{ marginBottom: '1.25rem' }}>
+          <h2 className="section-header">LOCATION</h2>
+          <CountryMap
+            lat={country.latlng[0]}
+            lng={country.latlng[1]}
+            name={country.name_common}
+          />
+        </div>
       )}
 
       {fb && activeSections.length > 0 ? (

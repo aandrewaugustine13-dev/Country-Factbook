@@ -4,11 +4,10 @@ import { CompareClient as CompareView } from '@/components/CompareClient';
 import { useCompareState } from '@/src/useCompareState';
 
 export default function CompareClient({ countries }: { countries: any[] }) {
-  const { list, addCountry, removeCountry, clearAll, reorderCountry } =
-    useCompareState();
+  const { list, addCountry, removeCountry, clearAll, reorderCountry } = useCompareState();
 
   if (list === null) {
-    return <div>Loading comparison…</div>;
+    return <div className="p-4">Loading comparison…</div>;
   }
 
   return (

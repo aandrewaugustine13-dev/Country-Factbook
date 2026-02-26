@@ -1,7 +1,11 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { CountryPicker } from './CountryPicker';
+import { CompareToolbar } from './CompareToolbar';
 import { CompareTable, sortableMetrics } from './CompareTable';
+import { CompareBarChart, WealthHealthScatter } from './CompareCharts';
+import { COMPARISON_PRESETS } from '@/src/presets';
 
 interface CompareClientProps {
   countries: any[];
@@ -9,142 +13,141 @@ interface CompareClientProps {
   addCountry: (code: string) => void;
   removeCountry: (code: string) => void;
   clearAll: () => void;
-  reorderCountry: (fromIndex: number, toIndex: number) => void;
+  reorderCountry: (from: number, to: number) => void;
 }
 
 export function CompareClient({
   countries,
-  list: selectedCodes,
+  list,
   addCountry,
   removeCountry,
   clearAll,
+  reorderCountry,
 }: CompareClientProps) {
   const [highlightDiffs, setHighlightDiffs] = useState(true);
-  const [sortMetric, setSortMetric] = useState<string>(
-    sortableMetrics[0]?.key ?? 'population'
-  );
+  const [sortMetric, setSortMetric] = useState('population');
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>('desc');
+  const [view, setView] = useState<'charts' | 'table'>('charts');
 
-  const selectedCountries = useMemo(() => {
-    return selectedCodes
-      .map((code) => countries.find((c: any) => c.code === code))
-      .filter(Boolean);
-  }, [countries, selectedCodes]);
+  const selected = useMemo(
+    () => list.map((code) => countries.find((c) => c.code === code)).filter(Boolean),
+    [countries, list]
+  );
+
+  function loadPreset(codes: string[]) {
+    clearAll();
+    // Slight delay so clearAll processes first
+    setTimeout(() => {
+      codes.forEach((code) => addCountry(code));
+    }, 10);
+  }
 
   return (
-    <div className="max-w-7xl mx-auto p-6">
-      <h1 className="text-4xl font-bold mb-2">Country Factbook 2026</h1>
-      <p className="text-xl text-gray-600 mb-8">
-        Compare up to 10 countries side-by-side
-      </p>
+    <div className="compare-root">
+      <CountryPicker countries={countries} selected={list} onAdd={addCountry} />
 
-      <div className="mb-10">
-        <div className="flex gap-3 max-w-md">
-          <select
-            onChange={(e) => {
-              addCountry(e.target.value);
-              e.currentTarget.value = '';
-            }}
-            className="flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500"
-            defaultValue=""
-          >
-            <option value="" disabled>
-              Select a country to add...
-            </option>
-            {countries
-              .filter((c: any) => !selectedCodes.includes(c.code))
-              .map((country: any) => (
-                <option key={country.code} value={country.code}>
-                  {country.name}
-                </option>
-              ))}
-          </select>
+      {/* Preset Quick-Load Buttons */}
+      <div className="preset-section">
+        <span className="preset-label">Quick Sets:</span>
+        <div className="compare-presets">
+          {COMPARISON_PRESETS.map((preset) => (
+            <button
+              key={preset.name}
+              className="preset-btn"
+              onClick={() => loadPreset(preset.codes)}
+              title={preset.desc}
+            >
+              {preset.name}
+            </button>
+          ))}
         </div>
-        <p className="text-sm text-gray-500 mt-2">
-          {selectedCodes.length}/10 countries selected
-        </p>
       </div>
 
-      {selectedCountries.length > 0 && (
-        <div className="mb-10">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-2xl font-semibold">Selected Countries</h2>
-            <button
-              onClick={clearAll}
-              className="text-red-600 hover:text-red-700 font-medium"
-            >
-              Clear all
-            </button>
-          </div>
+      <CompareToolbar
+        selected={selected as any}
+        onRemove={removeCountry}
+        onMove={reorderCountry}
+        onClear={clearAll}
+      />
 
-          <div className="flex flex-wrap gap-3">
-            {selectedCountries.map((country: any) => (
-              <div
-                key={country.code}
-                className="bg-white border border-gray-200 px-5 py-2.5 rounded-2xl flex items-center gap-3 shadow-sm"
+      {selected.length > 0 && (
+        <>
+          {/* View Toggle + Sort Controls */}
+          <div className="compare-controls">
+            <div className="compare-view-toggle">
+              <button
+                className={`view-btn ${view === 'charts' ? 'active' : ''}`}
+                onClick={() => setView('charts')}
               >
-                <span className="font-medium">{country.name}</span>
+                📊 Charts
+              </button>
+              <button
+                className={`view-btn ${view === 'table' ? 'active' : ''}`}
+                onClick={() => setView('table')}
+              >
+                📋 Table
+              </button>
+            </div>
+
+            {view === 'table' && (
+              <div className="compare-sort-controls">
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={highlightDiffs}
+                    onChange={(e) => setHighlightDiffs(e.target.checked)}
+                  />{' '}
+                  Highlight differences
+                </label>
+                <label>
+                  Sort by{' '}
+                  <select
+                    value={sortMetric}
+                    onChange={(e) => setSortMetric(e.target.value)}
+                    className="sort-select"
+                  >
+                    {sortableMetrics.map((m) => (
+                      <option key={m.key} value={m.key}>
+                        {m.label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
                 <button
-                  onClick={() => removeCountry(country.code)}
-                  className="text-red-500 hover:text-red-600 text-2xl leading-none -mt-0.5"
+                  className="view-btn"
+                  onClick={() => setSortDir(sortDir === 'asc' ? 'desc' : 'asc')}
                 >
-                  ×
+                  {sortDir === 'asc' ? '↑ Asc' : '↓ Desc'}
                 </button>
               </div>
-            ))}
+            )}
           </div>
-        </div>
+
+          {/* Chart View */}
+          {view === 'charts' && (
+            <div className="compare-charts-grid">
+              <CompareBarChart countries={selected} />
+              <WealthHealthScatter countries={selected} />
+            </div>
+          )}
+
+          {/* Table View (always render for printing, hide visually if charts active) */}
+          <div className={view === 'charts' ? 'table-below-charts' : ''}>
+            {view === 'charts' && <h3 className="table-section-title">Full Data Table</h3>}
+            <CompareTable
+              countries={selected}
+              highlightDiffs={highlightDiffs}
+              sortMetric={sortMetric}
+              sortDir={sortDir}
+            />
+          </div>
+        </>
       )}
 
-      {selectedCountries.length > 1 ? (
-        <div className="border border-gray-200 rounded-3xl p-8 bg-white shadow">
-          <h2 className="text-2xl font-semibold mb-6">
-            Side-by-side comparison ({selectedCountries.length} countries)
-          </h2>
-
-          <div className="flex flex-wrap items-center gap-4 mb-6">
-            <label className="text-sm text-gray-700 flex items-center gap-2">
-              Sort by
-              <select
-                value={sortMetric}
-                onChange={(e) => setSortMetric(e.target.value)}
-                className="px-3 py-2 border border-gray-300 rounded-lg"
-              >
-                {sortableMetrics.map((m) => (
-                  <option key={m.key} value={m.key}>
-                    {m.label}
-                  </option>
-                ))}
-              </select>
-            </label>
-
-            <button
-              onClick={() => setSortDir((d) => (d === 'asc' ? 'desc' : 'asc'))}
-              className="px-3 py-2 border border-gray-300 rounded-lg text-sm"
-            >
-              {sortDir === 'asc' ? 'Ascending' : 'Descending'}
-            </button>
-
-            <label className="text-sm text-gray-700 flex items-center gap-2">
-              <input
-                type="checkbox"
-                checked={highlightDiffs}
-                onChange={(e) => setHighlightDiffs(e.target.checked)}
-              />
-              Highlight highs/lows
-            </label>
-          </div>
-
-          <CompareTable
-            countries={selectedCountries}
-            highlightDiffs={highlightDiffs}
-            sortMetric={sortMetric}
-            sortDir={sortDir}
-          />
-        </div>
-      ) : (
-        <div className="text-center py-20 text-gray-400">
-          Add at least 2 countries to see the comparison
+      {selected.length === 0 && (
+        <div className="compare-empty">
+          <p style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>🌍</p>
+          <p>Add countries above or pick a Quick Set to start comparing.</p>
         </div>
       )}
     </div>
