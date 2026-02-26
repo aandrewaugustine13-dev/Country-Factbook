@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ============================================================
-   THE WORLD FACTBOOK — REFERENCE EDITION 2026
-   Jet Age Corporate / UN Diplomatic Style
-   Strong UN Blue + Clean Stylized Lines
-   ============================================================ */
-
 :root {
   --un-blue: #009EDB;
   --un-blue-dark: #0077B6;
@@ -15,140 +9,64 @@
   --surface: #132337;
   --surface-hover: #1E2F4A;
   --border: #2A415F;
-  --border-accent: rgba(0, 158, 219, 0.25);
   --text: #F1F5F9;
   --text-secondary: #CBD5E1;
   --text-muted: #94A3B8;
   --gold: #E2B04A;
-  --radius-sm: 4px;
   --radius-md: 8px;
-  color-scheme: dark;
 }
-
-* { box-sizing: border-box; }
 
 body {
-  margin: 0;
   background: var(--jet-navy);
   color: var(--text);
-  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 15px;
-  line-height: 1.6;
-  letter-spacing: 0.01em;
-  -webkit-font-smoothing: antialiased;
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
-/* Top Nav — Corporate Jet Age */
-.top-nav {
-  border-bottom: 1px solid var(--border);
-  background: rgba(10, 20, 40, 0.95);
-  backdrop-filter: blur(8px);
-}
-.nav-home { letter-spacing: 0.12em; font-weight: 700; }
-.nav-link {
-  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
-}
-.nav-link:hover { color: var(--un-blue); background: rgba(0, 158, 219, 0.1); }
+.seal { filter: drop-shadow(0 15px 35px rgba(0, 158, 219, 0.45)); }
 
-/* Header + Seal — Confident & Stylized */
+/* Header weight */
 .home-header {
-  text-align: center;
-  padding: 2.5rem 0 2rem;
-  border-bottom: 1px solid var(--border-accent);
+  padding: 2.75rem 0 2.25rem;
+  border-bottom: 1px solid rgba(0, 158, 219, 0.2);
 }
 .home-header h1 {
-  font-size: clamp(1.35rem, 3vw, 2.1rem);
-  font-weight: 700;
-  letter-spacing: 0.22em;
+  font-size: clamp(1.75rem, 4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--un-blue);
-  margin: 0.5rem 0 0;
-}
-.home-header p {
-  font-size: 0.82rem;
-  letter-spacing: 0.18em;
-  color: var(--text-muted);
-  font-weight: 500;
-}
-.seal { filter: drop-shadow(0 4px 12px rgba(0, 158, 219, 0.25)); }
-
-/* Search — Clean & Focused */
-.search {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--text);
-  padding: 0.85rem 1rem;
-  border-radius: var(--radius-md);
-  font-size: 1rem;
-}
-.search:focus {
-  border-color: var(--un-blue);
-  box-shadow: 0 0 0 3px rgba(0, 158, 219, 0.15);
 }
 
-/* Region Tabs & Toggles — Stylized */
-.region-tab, .view-tab {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--text-secondary);
-  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
-}
-.region-tab.active, .view-tab.active {
-  background: var(--un-blue);
-  color: white;
-  border-color: var(--un-blue);
-}
-.region-tab:hover:not(.active), .view-tab:hover:not(.active) {
-  border-color: var(--un-blue);
-  color: var(--un-blue);
-}
-
-/* Country Grid — Clean Stylized Cards */
+/* List + Grid fix */
 .country-grid {
-  gap: 1px;
-  background: var(--border);
+  display: grid;
+  gap: 12px;
+  padding: 0;
+}
+.country-grid.list-view {
+  grid-template-columns: 1fr;
 }
 .country-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  padding: 1rem;
-  transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
-  position: relative;
-  overflow: hidden;
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1.4rem;
+  transition: all 0.25s cubic-bezier(0.23,1,0.32,1);
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
 }
 .country-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3),
-              0 0 0 2px var(--un-blue);
+  transform: translateY(-2px);
   border-color: var(--un-blue);
-}
-.country-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(to right, transparent, var(--un-blue), transparent);
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-.country-card:hover::before { opacity: 1; }
-
-.country-card h2 {
-  font-weight: 600;
-  font-size: 0.98rem;
-  letter-spacing: 0.02em;
-}
-.country-card p {
-  color: var(--text-muted);
-  font-size: 0.82rem;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.4);
 }
 .country-card img {
-  border: 1px solid var(--border);
+  width: 58px;
+  height: 40px;
+  object-fit: cover;
   border-radius: 3px;
+  border: 1px solid var(--border);
 }
-
-/* Result count & misc */
-.result-count { color: var(--text-muted); letter-spacing: 0.08em; }
-
-/* Dark mode polish */
-::selection { background: rgba(0, 158, 219, 0.3); }
+.country-card h2 { font-weight: 600; font-size: 1.02rem; margin: 0; }
+.country-card p { color: var(--text-muted); font-size: 0.85rem; margin: 0; }
