@@ -68,7 +68,7 @@ export default async function CountryPage({
           alt={`Flag of ${country.name_common}`}
           width={80}
           height={56}
-          style={{ borderRadius: '4px', border: '1px solid #2A4A73' }}
+          style={{ borderRadius: '2px', border: '1px solid #C8D3E0' }}
         />
         <div>
           <h1>{country.name_common}</h1>
@@ -139,8 +139,8 @@ export default async function CountryPage({
 
       <footer className="country-footer">
         <p>
-          Data sourced from the <a href="https://github.com/factbook/factbook.json" style={{ color: '#C7A55B' }}>CIA World Factbook open archive</a> (public domain) and{' '}
-          <a href="https://github.com/mledoze/countries" style={{ color: '#C7A55B' }}>mledoze/countries</a>.
+          Data sourced from the <a href="https://github.com/factbook/factbook.json" style={{ color: '#4B92DB' }}>CIA World Factbook open archive</a> (public domain) and{' '}
+          <a href="https://github.com/mledoze/countries" style={{ color: '#4B92DB' }}>mledoze/countries</a>.
           This is an open-source reference tool, not affiliated with any government agency.
         </p>
       </footer>
