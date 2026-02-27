@@ -248,7 +248,15 @@ export default function RootLayout({
             </Link>
 
             <nav className="flex items-center gap-2 sm:gap-3">
-              <CompareNavButton />
+              <Link href="/compare" className="nav-link flex items-center gap-1 text-sm text-slate-300 hover:text-white transition-colors">
+                <CompareNavButton />
+              </Link>
+              <Link href="/quiz" className="nav-link text-sm text-slate-300 hover:text-white transition-colors">
+                Quiz
+              </Link>
+              <Link href="/daily" className="nav-link text-sm text-slate-300 hover:text-white transition-colors">
+                Daily
+              </Link>
             </nav>
           </div>
         </header>
