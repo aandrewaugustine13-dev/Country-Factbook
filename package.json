@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "fix:data": "node scripts/fix-country-data.cjs",
+    "prebuild": "node scripts/fix-country-data.cjs",
     "build": "next build",
     "start": "next start"
   },
