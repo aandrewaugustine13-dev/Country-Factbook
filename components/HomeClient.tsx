@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
+import { InstitutionalGlobe } from './InstitutionalGlobe';
 
 interface CountryItem {
   code: string;
@@ -22,6 +23,48 @@ interface HomeStats {
 const REGIONS = ['All Regions', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania', 'Antarctic'];
 
 const REGION_ORDER = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania', 'Antarctic'];
+
+const REGION_MARKS: Record<string, string> = {
+  Africa: 'AF',
+  Americas: 'AM',
+  Asia: 'AS',
+  Europe: 'EU',
+  Oceania: 'OC',
+  Antarctic: 'AN',
+};
+
+const TOOLS = [
+  {
+    href: '/compare',
+    title: 'Compare',
+    desc: 'Side-by-side metrics and charts',
+    mark: '01',
+  },
+  {
+    href: '/map',
+    title: 'Map',
+    desc: 'Click the world to explore',
+    mark: '02',
+  },
+  {
+    href: '/pyramids',
+    title: 'Pyramids',
+    desc: 'Age structure for the classroom',
+    mark: '03',
+  },
+  {
+    href: '/quiz',
+    title: 'Quiz',
+    desc: 'Which country ranks higher?',
+    mark: '04',
+  },
+  {
+    href: '/daily',
+    title: 'Daily',
+    desc: 'Guess the country of the day',
+    mark: '05',
+  },
+] as const;
 
 export function HomeClient({
   countries,
@@ -54,116 +97,145 @@ export function HomeClient({
 
   return (
     <>
-      {/* Dashboard hero */}
-      <section className="dash-hero" aria-label="Overview">
-        <div className="dash-hero-main">
-          <p className="dash-kicker">
-            <span className="dash-kicker-dot" aria-hidden="true" />
-            Reference Edition 2026
-          </p>
-          <h1>A modern atlas of nations</h1>
-          <p>
-            Explore authoritative country profiles, compare economies and societies side by side,
-            and test your world knowledge — built for clarity, speed, and institutional confidence.
-          </p>
-          <div className="dash-hero-actions">
-            <a href="#browse" className="btn btn-primary">
-              Browse countries
-            </a>
-            <Link href="/compare" className="btn btn-ghost">
-              Compare
-            </Link>
-            <Link href="/quiz" className="btn btn-ghost">
-              Take the quiz
-            </Link>
-          </div>
-        </div>
+      {/* Hero — institutional panel */}
+      <section className="home-hero" aria-label="Overview">
+        <div className="home-hero-panel">
+          <div className="home-hero-rule" aria-hidden="true" />
 
-        <div className="dash-side">
-          <div className="stat-card">
-            <span className="stat-card-label">Countries & territories</span>
-            <span className="stat-card-value">{stats.total}</span>
-            <span className="stat-card-meta">{stats.withFactbook} full Factbook profiles</span>
-          </div>
-          <div className="stat-card">
-            <span className="stat-card-label">Comparable metrics</span>
-            <span className="stat-card-value">{stats.withPopulation}</span>
-            <span className="stat-card-meta">profiles with population data</span>
-          </div>
-          <div className="quick-links">
-            <Link href="/compare" className="quick-link">
-              <span className="quick-link-icon" aria-hidden="true">
-                📊
-              </span>
-              <span className="quick-link-title">Compare</span>
-              <span className="quick-link-desc">Side-by-side stats & charts</span>
-            </Link>
-            <Link href="/map" className="quick-link">
-              <span className="quick-link-icon" aria-hidden="true">
-                🗺️
-              </span>
-              <span className="quick-link-title">Map</span>
-              <span className="quick-link-desc">Click countries to explore</span>
-            </Link>
-            <Link href="/pyramids" className="quick-link">
-              <span className="quick-link-icon" aria-hidden="true">
-                📐
-              </span>
-              <span className="quick-link-title">Pyramids</span>
-              <span className="quick-link-desc">Age structure comparison</span>
-            </Link>
-            <Link href="/quiz" className="quick-link">
-              <span className="quick-link-icon" aria-hidden="true">
-                🎯
-              </span>
-              <span className="quick-link-title">Quiz</span>
-              <span className="quick-link-desc">Which country ranks higher?</span>
-            </Link>
-            <Link href="/daily" className="quick-link">
-              <span className="quick-link-icon" aria-hidden="true">
-                🌍
-              </span>
-              <span className="quick-link-title">Daily</span>
-              <span className="quick-link-desc">Guess the country of the day</span>
-            </Link>
+          <div className="home-hero-grid">
+            <div className="home-hero-copy">
+              <p className="home-hero-kicker">
+                <span className="home-hero-kicker-line" aria-hidden="true" />
+                The World Factbook
+                <span className="home-hero-kicker-sep" aria-hidden="true">
+                  ·
+                </span>
+                Reference Edition 2026
+              </p>
+
+              <h1 className="home-hero-title">
+                An atlas of nations
+                <span className="home-hero-title-sub">for study and reference</span>
+              </h1>
+
+              <p className="home-hero-lead">
+                Authoritative country profiles, clear comparisons, and classroom tools — designed
+                with institutional clarity and quiet optimism.
+              </p>
+
+              <div className="home-hero-actions">
+                <a href="#browse" className="btn btn-primary">
+                  Browse countries
+                </a>
+                <Link href="/map" className="btn btn-ghost">
+                  Explore the map
+                </Link>
+                <Link href="/compare" className="btn btn-ghost">
+                  Compare
+                </Link>
+              </div>
+
+              <dl className="home-hero-stats">
+                <div>
+                  <dt>Entries</dt>
+                  <dd>{stats.total}</dd>
+                </div>
+                <div>
+                  <dt>Full profiles</dt>
+                  <dd>{stats.withFactbook}</dd>
+                </div>
+                <div>
+                  <dt>With metrics</dt>
+                  <dd>{stats.withPopulation}</dd>
+                </div>
+              </dl>
+            </div>
+
+            <div className="home-hero-emblem" aria-hidden="true">
+              <div className="home-hero-emblem-frame">
+                <InstitutionalGlobe variant="hero" className="home-hero-globe" />
+                <p className="home-hero-emblem-caption">Nations of the world</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Regional overview */}
-      <div className="panel-label">
-        <h2>Regions</h2>
-        <span>Jump to a part of the world</span>
-      </div>
-      <div className="region-overview" role="group" aria-label="Filter by region">
-        {REGION_ORDER.map((r) => (
-          <button
-            key={r}
-            type="button"
-            className={`region-chip-card ${region === r ? 'active' : ''}`}
-            onClick={() => selectRegion(r)}
-          >
-            <span className="region-chip-name">{r}</span>
-            <span className="region-chip-count">
-              {stats.regionCounts[r] || 0}{' '}
-              {(stats.regionCounts[r] || 0) === 1 ? 'entry' : 'entries'}
-            </span>
-          </button>
-        ))}
-      </div>
+      {/* Tools — numbered institutional index */}
+      <section className="home-tools" aria-label="Reference tools">
+        <div className="home-section-head">
+          <div>
+            <p className="home-section-eyebrow">Index</p>
+            <h2 className="home-section-title">Reference tools</h2>
+          </div>
+          <p className="home-section-note">Study, compare, and explore</p>
+        </div>
 
-      {/* Browse */}
-      <section id="browse" aria-label="Browse countries">
-        <div className="panel-label">
-          <h2>Browse countries</h2>
-          <span>
-            {filtered.length} of {countries.length}
+        <ul className="home-tools-grid">
+          {TOOLS.map((tool) => (
+            <li key={tool.href}>
+              <Link href={tool.href} className="home-tool-card">
+                <span className="home-tool-mark">{tool.mark}</span>
+                <span className="home-tool-title">{tool.title}</span>
+                <span className="home-tool-desc">{tool.desc}</span>
+                <span className="home-tool-arrow" aria-hidden="true">
+                  →
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Regions */}
+      <section className="home-regions" aria-label="Regions">
+        <div className="home-section-head">
+          <div>
+            <p className="home-section-eyebrow">Atlas</p>
+            <h2 className="home-section-title">Regions of the world</h2>
+          </div>
+          <p className="home-section-note">Filter the directory below</p>
+        </div>
+
+        <div className="home-region-grid" role="group" aria-label="Filter by region">
+          {REGION_ORDER.map((r) => {
+            const count = stats.regionCounts[r] || 0;
+            const active = region === r;
+            return (
+              <button
+                key={r}
+                type="button"
+                className={`home-region-card ${active ? 'active' : ''}`}
+                onClick={() => selectRegion(r)}
+                aria-pressed={active}
+              >
+                <span className="home-region-mark">{REGION_MARKS[r]}</span>
+                <span className="home-region-name">{r}</span>
+                <span className="home-region-count">
+                  {count} {count === 1 ? 'entry' : 'entries'}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Browse directory */}
+      <section id="browse" className="home-browse" aria-label="Browse countries">
+        <div className="home-section-head">
+          <div>
+            <p className="home-section-eyebrow">Directory</p>
+            <h2 className="home-section-title">Browse countries</h2>
+          </div>
+          <span className="home-browse-count">
+            {filtered.length}
+            <span className="home-browse-count-total"> / {countries.length}</span>
           </span>
         </div>
 
-        <div className="browse-panel">
+        <div className="browse-panel home-browse-panel">
           <div className="controls">
-            <div className="search-wrap">
+            <div className="search-wrap home-search-wrap">
               <label htmlFor="search" className="sr-only">
                 Search countries
               </label>
