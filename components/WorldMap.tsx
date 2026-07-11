@@ -3,42 +3,40 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { Map as LeafletMap, GeoJSON as LeafletGeoJSON, Layer, PathOptions } from 'leaflet';
 import type { MapCountrySummary } from '@/src/map-countries';
-import { resolveAppCode, APP_TO_GEO_CODE } from '@/src/map-countries';
+import { resolveAppCode } from '@/src/map-countries';
+import {
+  MAP_LAYERS,
+  type LayerId,
+  getLayerDef,
+  colorForLayerValue,
+  legendItems,
+} from '@/src/map-layers';
 import { CountryInfoModal } from './CountryInfoModal';
 
 const GEO_URL = '/geo/countries.geojson';
 
-const STYLE_DEFAULT: PathOptions = {
-  fillColor: '#1B6CA8',
-  fillOpacity: 0.18,
+const STYLE_BASE: PathOptions = {
   color: '#0D2B45',
-  weight: 0.8,
+  weight: 0.75,
   opacity: 0.55,
+  fillOpacity: 0.82,
 };
 
-const STYLE_HOVER: PathOptions = {
-  fillColor: '#1B6CA8',
-  fillOpacity: 0.42,
+const STYLE_HOVER_EXTRA: PathOptions = {
+  weight: 1.6,
+  opacity: 0.9,
+  fillOpacity: 0.92,
+};
+
+const STYLE_SELECTED_EXTRA: PathOptions = {
   color: '#0D2B45',
-  weight: 1.5,
-  opacity: 0.85,
+  weight: 2.2,
+  opacity: 1,
+  fillOpacity: 0.95,
 };
 
-const STYLE_SELECTED: PathOptions = {
-  fillColor: '#B8860B',
-  fillOpacity: 0.45,
-  color: '#0D2B45',
-  weight: 2,
-  opacity: 0.95,
-};
-
-const STYLE_NO_DATA: PathOptions = {
-  fillColor: '#8A96A3',
-  fillOpacity: 0.12,
-  color: '#8A96A3',
-  weight: 0.6,
-  opacity: 0.4,
-};
+const NO_DATA_FILL = '#c5cdd6';
+const DEFAULT_FILL = '#8eb6d4';
 
 interface GeoFeatureProps {
   name?: string;
@@ -46,12 +44,23 @@ interface GeoFeatureProps {
   iso_a2?: string | null;
 }
 
+type PathLayer = Layer & {
+  setStyle: (s: PathOptions) => void;
+  bringToFront?: () => void;
+  feature?: { properties?: GeoFeatureProps };
+  getBounds?: () => { isValid: () => boolean };
+  on: (events: Record<string, (e: { target: PathLayer }) => void>) => void;
+  bindTooltip?: (s: string, o?: object) => void;
+};
+
 export function WorldMap({ countries }: { countries: MapCountrySummary[] }) {
   const mapElRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<LeafletMap | null>(null);
   const geoLayerRef = useRef<LeafletGeoJSON | null>(null);
-  const layerByCodeRef = useRef<Map<string, Layer>>(new Map());
-  const selectedLayerRef = useRef<Layer | null>(null);
+  const layerByCodeRef = useRef<Map<string, PathLayer>>(new Map());
+  const selectedLayerRef = useRef<PathLayer | null>(null);
+  const activeLayerRef = useRef<LayerId | null>(null);
+  const byCodeRef = useRef<Map<string, MapCountrySummary>>(new Map());
 
   const byCode = useMemo(() => {
     const m = new Map<string, MapCountrySummary>();
@@ -59,35 +68,90 @@ export function WorldMap({ countries }: { countries: MapCountrySummary[] }) {
     return m;
   }, [countries]);
 
+  useEffect(() => {
+    byCodeRef.current = byCode;
+  }, [byCode]);
+
   const [selected, setSelected] = useState<MapCountrySummary | null>(null);
   const [unknownName, setUnknownName] = useState<string | null>(null);
   const [query, setQuery] = useState('');
   const [ready, setReady] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
+  const [activeLayerId, setActiveLayerId] = useState<LayerId | null>('development');
+
+  activeLayerRef.current = activeLayerId;
+
+  const styleForCode = useCallback((code: string | null): PathOptions => {
+    if (!code) {
+      return { ...STYLE_BASE, fillColor: NO_DATA_FILL, fillOpacity: 0.35 };
+    }
+    const country = byCodeRef.current.get(code);
+    if (!country) {
+      return { ...STYLE_BASE, fillColor: NO_DATA_FILL, fillOpacity: 0.35 };
+    }
+    const layerId = activeLayerRef.current;
+    if (!layerId) {
+      return { ...STYLE_BASE, fillColor: DEFAULT_FILL, fillOpacity: 0.35 };
+    }
+    const def = getLayerDef(layerId);
+    const lv = country.layers?.[layerId];
+    const fill = colorForLayerValue(def, lv);
+    return {
+      ...STYLE_BASE,
+      fillColor: fill,
+      fillOpacity: lv ? 0.82 : 0.28,
+    };
+  }, []);
+
+  const restyleAll = useCallback(() => {
+    layerByCodeRef.current.forEach((layer, code) => {
+      if (selectedLayerRef.current === layer) {
+        layer.setStyle({
+          ...styleForCode(code),
+          ...STYLE_SELECTED_EXTRA,
+        });
+      } else {
+        layer.setStyle(styleForCode(code));
+      }
+    });
+    // Also restyle features without app match that aren't in layerByCode
+    geoLayerRef.current?.eachLayer((layer) => {
+      const path = layer as PathLayer;
+      const code = resolveAppCode(path.feature?.properties?.iso_a3 ?? null);
+      if (code && layerByCodeRef.current.has(code)) return;
+      if (selectedLayerRef.current === path) return;
+      path.setStyle?.(styleForCode(null));
+    });
+  }, [styleForCode]);
+
+  useEffect(() => {
+    if (ready) restyleAll();
+  }, [activeLayerId, ready, restyleAll]);
 
   const clearSelectionStyle = useCallback(() => {
-    const prev = selectedLayerRef.current as (Layer & { setStyle?: (s: PathOptions) => void; feature?: { properties?: GeoFeatureProps } }) | null;
+    const prev = selectedLayerRef.current;
     if (prev?.setStyle) {
-      const props = prev.feature?.properties;
-      const code = resolveAppCode(props?.iso_a3 ?? null);
-      const hasData = code ? byCode.has(code) : false;
-      prev.setStyle(hasData ? STYLE_DEFAULT : STYLE_NO_DATA);
+      const code = resolveAppCode(prev.feature?.properties?.iso_a3 ?? null);
+      prev.setStyle(styleForCode(code));
     }
     selectedLayerRef.current = null;
-  }, [byCode]);
+  }, [styleForCode]);
 
   const openCountry = useCallback(
-    (country: MapCountrySummary | null, geoName?: string | null, layer?: Layer | null) => {
+    (country: MapCountrySummary | null, geoName?: string | null, layer?: PathLayer | null) => {
       clearSelectionStyle();
-      const path = layer as (Layer & { setStyle?: (s: PathOptions) => void }) | null | undefined;
-      if (path?.setStyle) {
-        path.setStyle(STYLE_SELECTED);
-        selectedLayerRef.current = layer || null;
+      if (layer?.setStyle) {
+        const code = country?.code || resolveAppCode(layer.feature?.properties?.iso_a3 ?? null);
+        layer.setStyle({
+          ...styleForCode(code),
+          ...STYLE_SELECTED_EXTRA,
+        });
+        selectedLayerRef.current = layer;
       }
       setSelected(country);
       setUnknownName(country ? null : geoName || 'Unknown area');
     },
-    [clearSelectionStyle]
+    [clearSelectionStyle, styleForCode]
   );
 
   const closeModal = useCallback(() => {
@@ -96,7 +160,7 @@ export function WorldMap({ countries }: { countries: MapCountrySummary[] }) {
     setUnknownName(null);
   }, [clearSelectionStyle]);
 
-  // Init map + GeoJSON
+  // Init map once
   useEffect(() => {
     let cancelled = false;
 
@@ -104,8 +168,6 @@ export function WorldMap({ countries }: { countries: MapCountrySummary[] }) {
       if (!mapElRef.current || mapRef.current) return;
 
       const L = await import('leaflet');
-      // CSS via link tag in render (same pattern as CountryMap)
-
       if (cancelled || !mapElRef.current) return;
 
       const map = L.map(mapElRef.current, {
@@ -125,7 +187,6 @@ export function WorldMap({ countries }: { countries: MapCountrySummary[] }) {
         maxZoom: 10,
       }).addTo(map);
 
-      // Optional label layer for readability without cluttering boundaries
       L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png', {
         subdomains: 'abcd',
         maxZoom: 10,
@@ -140,51 +201,53 @@ export function WorldMap({ countries }: { countries: MapCountrySummary[] }) {
         const geojson = await res.json();
         if (cancelled) return;
 
-        const layerByCode = new Map<string, Layer>();
+        const layerByCode = new Map<string, PathLayer>();
 
         const geoLayer = L.geoJSON(geojson, {
           style: (feature) => {
-            const iso = feature?.properties?.iso_a3 as string | undefined;
-            const code = resolveAppCode(iso);
-            return code && byCode.has(code) ? STYLE_DEFAULT : STYLE_NO_DATA;
+            const code = resolveAppCode(feature?.properties?.iso_a3);
+            return styleForCode(code);
           },
           onEachFeature: (feature, layer) => {
+            const path = layer as PathLayer;
             const props = (feature.properties || {}) as GeoFeatureProps;
             const appCode = resolveAppCode(props.iso_a3);
-            if (appCode) layerByCode.set(appCode, layer);
-
-            const path = layer as Layer & {
-              setStyle: (s: PathOptions) => void;
-              on: (events: Record<string, (e: { target: Layer }) => void>) => void;
-            };
+            if (appCode) layerByCode.set(appCode, path);
 
             path.on({
               mouseover: (e) => {
-                const t = e.target as Layer & { setStyle: (s: PathOptions) => void; bringToFront?: () => void };
+                const t = e.target as PathLayer;
                 if (selectedLayerRef.current === t) return;
-                t.setStyle(STYLE_HOVER);
+                const code = resolveAppCode(t.feature?.properties?.iso_a3 ?? null);
+                t.setStyle({
+                  ...styleForCode(code),
+                  ...STYLE_HOVER_EXTRA,
+                });
                 t.bringToFront?.();
               },
               mouseout: (e) => {
-                const t = e.target as Layer & { setStyle: (s: PathOptions) => void; feature?: { properties?: GeoFeatureProps } };
+                const t = e.target as PathLayer;
                 if (selectedLayerRef.current === t) {
-                  t.setStyle(STYLE_SELECTED);
+                  const code = resolveAppCode(t.feature?.properties?.iso_a3 ?? null);
+                  t.setStyle({
+                    ...styleForCode(code),
+                    ...STYLE_SELECTED_EXTRA,
+                  });
                   return;
                 }
-                const c = resolveAppCode(t.feature?.properties?.iso_a3);
-                t.setStyle(c && byCode.has(c) ? STYLE_DEFAULT : STYLE_NO_DATA);
+                const code = resolveAppCode(t.feature?.properties?.iso_a3 ?? null);
+                t.setStyle(styleForCode(code));
               },
               click: (e) => {
-                const t = e.target as Layer & { feature?: { properties?: GeoFeatureProps } };
+                const t = e.target as PathLayer;
                 const c = resolveAppCode(t.feature?.properties?.iso_a3);
-                const match = c ? byCode.get(c) || null : null;
+                const match = c ? byCodeRef.current.get(c) || null : null;
                 openCountry(match, t.feature?.properties?.name || null, t);
               },
             });
 
-            // Accessible name for screen readers when using keyboard focus isn't available on SVG paths
             if (props.name) {
-              (layer as { bindTooltip?: (s: string, o?: object) => void }).bindTooltip?.(props.name, {
+              path.bindTooltip?.(props.name, {
                 sticky: true,
                 direction: 'top',
                 opacity: 0.92,
@@ -214,14 +277,8 @@ export function WorldMap({ countries }: { countries: MapCountrySummary[] }) {
       geoLayerRef.current = null;
       layerByCodeRef.current = new Map();
     };
-    // byCode is stable for the page load; openCountry closes over latest byCode via clearSelectionStyle
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  // Keep style helper in sync if countries prop changes (unlikely after mount)
-  useEffect(() => {
-    // no-op placeholder for future choropleth layers
-  }, [byCode]);
 
   const searchResults = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -236,111 +293,173 @@ export function WorldMap({ countries }: { countries: MapCountrySummary[] }) {
   function flyToCountry(country: MapCountrySummary) {
     setQuery('');
     const map = mapRef.current;
-    const layer = layerByCodeRef.current.get(country.code);
-    // Also try geo alias
-    const geoCode = APP_TO_GEO_CODE[country.code];
-    const layerAlt = geoCode
-      ? [...layerByCodeRef.current.entries()].find(([code]) => code === country.code)?.[1]
-      : null;
-    const target = layer || layerAlt || null;
+    const layer = layerByCodeRef.current.get(country.code) || null;
 
-    if (target && map) {
-      const bounds = (target as { getBounds?: () => { isValid: () => boolean } }).getBounds?.();
+    if (layer && map) {
+      const bounds = layer.getBounds?.();
       if (bounds && bounds.isValid()) {
         map.fitBounds(bounds as Parameters<LeafletMap['fitBounds']>[0], {
           padding: [40, 40],
           maxZoom: 6,
         });
       }
-      openCountry(country, null, target);
+      openCountry(country, null, layer);
       return;
     }
 
-    // Fallback: center on latlng if no polygon (small islands missing from 110m)
     if (map && country.latlng?.length === 2) {
       map.setView([country.latlng[0], country.latlng[1]], 5);
     }
     openCountry(country, null, null);
   }
 
-  const withBoundary = useMemo(() => {
-    // Approximate: countries that will light up (known geo codes)
-    return countries.length;
-  }, [countries]);
+  const activeDef = getLayerDef(activeLayerId);
+  const legend = activeDef ? legendItems(activeDef) : [];
 
   return (
-    <div className="world-map-root">
-      <div className="world-map-toolbar">
-        <div className="world-map-search-wrap">
-          <label htmlFor="map-search" className="sr-only">
-            Find a country on the map
-          </label>
-          <input
-            id="map-search"
-            className="search"
-            type="search"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Find a country…"
-            autoComplete="off"
-            disabled={!ready && !loadError}
-          />
-          {query.trim() && searchResults.length > 0 && (
-            <div className="compare-dropdown world-map-dropdown">
-              {searchResults.map((c) => (
-                <button
-                  key={c.code}
-                  type="button"
-                  className="compare-dropdown-item"
-                  onClick={() => flyToCountry(c)}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={c.flag_url} alt="" width={22} height={14} />
-                  <span>{c.name_common}</span>
-                  <span className="dropdown-region">{c.region}</span>
-                </button>
-              ))}
+    <div className="world-map-root thematic-map-root">
+      <div className="thematic-layout">
+        {/* Layer panel */}
+        <aside className="map-layer-panel" aria-label="Map data layers">
+          <div className="map-layer-panel-head">
+            <h2 className="map-layer-panel-title">Map layers</h2>
+            <p className="map-layer-panel-lead">
+              Choose one theme. Colors show patterns — click a country for details.
+            </p>
+          </div>
+
+          <div className="map-layer-list" role="radiogroup" aria-label="Thematic layer">
+            <label className={`map-layer-option ${activeLayerId === null ? 'active' : ''}`}>
+              <input
+                type="radio"
+                name="map-layer"
+                checked={activeLayerId === null}
+                onChange={() => setActiveLayerId(null)}
+              />
+              <span className="map-layer-option-body">
+                <span className="map-layer-option-name">None (outline only)</span>
+                <span className="map-layer-option-desc">Simple political map</span>
+              </span>
+            </label>
+
+            {MAP_LAYERS.map((layer) => (
+              <label
+                key={layer.id}
+                className={`map-layer-option ${activeLayerId === layer.id ? 'active' : ''}`}
+              >
+                <input
+                  type="radio"
+                  name="map-layer"
+                  checked={activeLayerId === layer.id}
+                  onChange={() => setActiveLayerId(layer.id)}
+                />
+                <span className="map-layer-option-body">
+                  <span className="map-layer-option-name">{layer.name}</span>
+                  <span className="map-layer-option-desc">{layer.description}</span>
+                </span>
+              </label>
+            ))}
+          </div>
+
+          {activeDef && (
+            <div className="map-layer-source">
+              <strong>About this layer</strong>
+              <p>{activeDef.sourceNote}</p>
             </div>
           )}
-        </div>
-        <p className="world-map-hint">
-          Click a country to learn more · {withBoundary} profiles available
-          {!ready && !loadError ? ' · Loading map…' : ''}
-        </p>
-      </div>
+        </aside>
 
-      {loadError && (
-        <div className="compare-empty">
-          <p>Could not load country boundaries.</p>
-          <p className="pyramid-empty-hint">{loadError}</p>
-          <p className="pyramid-empty-hint">
-            Expected file: <code>public/geo/countries.geojson</code>
+        {/* Map column */}
+        <div className="thematic-map-col">
+          <div className="world-map-toolbar">
+            <div className="world-map-search-wrap">
+              <label htmlFor="map-search" className="sr-only">
+                Find a country on the map
+              </label>
+              <input
+                id="map-search"
+                className="search"
+                type="search"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Find a country…"
+                autoComplete="off"
+                disabled={!ready && !loadError}
+              />
+              {query.trim() && searchResults.length > 0 && (
+                <div className="compare-dropdown world-map-dropdown">
+                  {searchResults.map((c) => (
+                    <button
+                      key={c.code}
+                      type="button"
+                      className="compare-dropdown-item"
+                      onClick={() => flyToCountry(c)}
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={c.flag_url} alt="" width={22} height={14} />
+                      <span>{c.name_common}</span>
+                      <span className="dropdown-region">
+                        {activeLayerId && c.layers?.[activeLayerId]
+                          ? c.layers[activeLayerId]!.display
+                          : c.region}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+            <p className="world-map-hint">
+              {activeDef
+                ? `Showing: ${activeDef.shortName} · click a country for values`
+                : 'Outline map · choose a layer to color the world'}
+              {!ready && !loadError ? ' · Loading…' : ''}
+            </p>
+          </div>
+
+          {loadError && (
+            <div className="compare-empty">
+              <p>Could not load country boundaries.</p>
+              <p className="pyramid-empty-hint">{loadError}</p>
+            </div>
+          )}
+
+          <div className="world-map-frame">
+            <link
+              rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+            />
+            <div ref={mapElRef} className="world-map-canvas" aria-label="Interactive thematic map" />
+
+            {activeDef && legend.length > 0 && (
+              <div className="map-choropleth-legend" aria-label={`${activeDef.name} legend`}>
+                <p className="map-choropleth-legend-title">{activeDef.legendTitle}</p>
+                <ul>
+                  {legend.map((item) => (
+                    <li key={item.label}>
+                      <i style={{ background: item.color }} />
+                      <span>{item.label}</span>
+                    </li>
+                  ))}
+                  <li>
+                    <i style={{ background: NO_DATA_FILL }} />
+                    <span>No data</span>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
+
+          <p className="map-student-tip">
+            <strong>Classroom tip:</strong> Ask students what patterns they notice (coastal vs inland,
+            Global North vs South) before opening country cards. Toggle layers one at a time.
           </p>
-        </div>
-      )}
-
-      <div className="world-map-frame">
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
-        />
-        <div ref={mapElRef} className="world-map-canvas" aria-label="Interactive world map" />
-        <div className="world-map-legend" aria-hidden>
-          <span>
-            <i className="world-map-swatch has-data" /> In Factbook
-          </span>
-          <span>
-            <i className="world-map-swatch no-data" /> Limited data
-          </span>
-          <span>
-            <i className="world-map-swatch selected" /> Selected
-          </span>
         </div>
       </div>
 
       <CountryInfoModal
         country={selected}
         geoName={unknownName}
+        activeLayerId={activeLayerId}
         onClose={closeModal}
       />
     </div>

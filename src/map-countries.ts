@@ -3,15 +3,14 @@
  *
  * Boundary data: public/geo/countries.geojson (Natural Earth 110m, slimmed).
  * App profiles: data/all-countries.json keyed by ISO 3166-1 alpha-3 (`code`).
- *
- * Natural Earth sometimes uses non-ISO codes (e.g. KOS for Kosovo). Map those
- * here so clicks resolve to our country pages.
+ * Thematic values: data/map-layer-data.json (see src/map-layers.ts).
  */
+
+import type { LayerId, LayerValue } from './map-layers';
 
 /** GeoJSON iso_a3 → app ISO alpha-3 code */
 export const GEO_TO_APP_CODE: Record<string, string> = {
   KOS: 'UNK', // Kosovo — app uses UNK
-  // Add more if a future GeoJSON revision diverges
 };
 
 /** App code → preferred GeoJSON iso_a3 (inverse overrides) */
@@ -33,6 +32,8 @@ export interface MapCountrySummary {
   /** Short intro for modal (Background excerpt) */
   blurb: string | null;
   population: number | null;
+  /** Precomputed thematic layer values */
+  layers: Partial<Record<LayerId, LayerValue>>;
 }
 
 export function resolveAppCode(geoIsoA3: string | null | undefined): string | null {

@@ -49,20 +49,25 @@ The script [`build-data.ts`](./build-data.ts) rebuilds both app datasets:
 | `data/comparison-data.json` | Parsed numeric metrics for compare / quiz / daily |
 | `data/population-pyramids.json` | Age structure bands (0–14 / 15–64 / 65+) for pyramid charts |
 
-### Interactive map
-Open **`/map`**. Boundaries load from `public/geo/countries.geojson` (Natural Earth 110m, slimmed).
+### Interactive thematic map
+Open **`/map`**. Boundaries: `public/geo/countries.geojson` (Natural Earth 110m). Layer values: `data/map-layer-data.json`.
 
-- Click a country → modal with capital, population, region, short background
-- **View full profile** links to `/countries/[code]`
-- Matching uses ISO alpha-3 (`iso_a3` ↔ `code`); overrides live in `src/map-countries.ts` (e.g. `KOS` → `UNK`)
+| Layer | What students see | Source / proxy |
+| --- | --- | --- |
+| Development | GDP per person | comparison-data `gdp_per_capita` |
+| Density | People / km² | population ÷ area |
+| Urbanization | % urban | comparison-data + Factbook |
+| Natural resources | Energy / farmland / minerals… | classified from Factbook text |
+| Climate zones | Tropical, arid, temperate… | keyword class on Climate field |
+| Migration | Net migrants / 1,000 | Factbook net migration rate |
+| Displacement | Refugees + IDPs | Transnational Issues text |
+| Trade & connections | Internet % | globalization proxy |
 
-To upgrade boundaries (more islands, higher detail):
+- **One choropleth at a time** (radio toggles) so colors stay readable
+- Click a country → modal **highlights the active layer value**
+- Rebuild layers: `npm run build:map-layers` (also runs after `npm run build:data`)
 
-```bash
-# Example: replace with another GeoJSON that includes iso_a3 (or ISO_A3)
-# Then slim properties if the file is large, and re-check overrides.
-cp path/to/countries.geojson public/geo/countries.geojson
-```
+Matching uses ISO alpha-3; overrides in `src/map-countries.ts` (e.g. `KOS` → `UNK`).
 
 ### Population pyramids (classroom tool)
 Open **`/pyramids`** to compare 1–4 countries side by side (Recharts back-to-back bars).

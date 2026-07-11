@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build:data": "tsx build-data.ts",
+    "build:data": "tsx build-data.ts && node scripts/extract-map-layers.cjs",
+    "build:map-layers": "node scripts/extract-map-layers.cjs",
     "fix:data": "node scripts/fix-country-data.cjs",
     "prebuild": "node scripts/fix-country-data.cjs",
     "build": "next build",

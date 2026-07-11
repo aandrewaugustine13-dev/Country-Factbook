@@ -1,14 +1,16 @@
 import Link from 'next/link';
 import allCountries from '@/data/all-countries.json';
 import comparisonData from '@/data/comparison-data.json';
+import mapLayerData from '@/data/map-layer-data.json';
 import { MapPageClient } from '@/components/MapPageClient';
 import type { MapCountrySummary } from '@/src/map-countries';
 import { extractBlurb } from '@/src/map-countries';
+import type { LayerId, LayerValue } from '@/src/map-layers';
 
 export const metadata = {
   title: 'World Map — World Factbook',
   description:
-    'Explore an interactive world map. Click any country to see capital, population, and open its full Factbook profile.',
+    'Explore thematic map layers — development, density, climate, migration, and more. Click countries for layer-aware fact cards.',
 };
 
 export default function MapPage() {
@@ -17,6 +19,12 @@ export default function MapPage() {
       c.code,
       c.population,
     ])
+  );
+
+  const layerByCode = new Map(
+    (mapLayerData as { code: string; layers: Partial<Record<LayerId, LayerValue>> }[]).map(
+      (row) => [row.code, row.layers]
+    )
   );
 
   const countries: MapCountrySummary[] = (allCountries as any[]).map((c) => ({
@@ -32,17 +40,18 @@ export default function MapPage() {
     latlng: c.latlng || [],
     blurb: extractBlurb(c.factbook),
     population: popByCode.get(c.code) ?? null,
+    layers: layerByCode.get(c.code) || {},
   }));
 
   return (
-    <div className="container map-page">
+    <div className="container map-page map-page-wide">
       <Link href="/" className="back-link">
         ← Back to dashboard
       </Link>
-      <h1 className="page-title">World map</h1>
+      <h1 className="page-title">Thematic world map</h1>
       <p className="page-lead">
-        Click a country to open a short fact card. Use search to jump to a place, then open the full
-        profile when you want more detail.
+        Toggle a data layer to color the world, then click a country. The fact card highlights values
+        for the layer you chose — built for exploring geographic patterns in class.
       </p>
       <MapPageClient countries={countries} />
     </div>

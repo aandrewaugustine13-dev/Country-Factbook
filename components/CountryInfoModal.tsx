@@ -4,16 +4,21 @@ import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import type { MapCountrySummary } from '@/src/map-countries';
 import { formatPopulation } from '@/src/map-countries';
+import type { LayerId } from '@/src/map-layers';
+import { getLayerDef } from '@/src/map-layers';
 
 interface Props {
   country: MapCountrySummary | null;
   geoName?: string | null;
+  activeLayerId?: LayerId | null;
   onClose: () => void;
 }
 
-export function CountryInfoModal({ country, geoName, onClose }: Props) {
-  const dialogRef = useRef<HTMLDivElement>(null);
+export function CountryInfoModal({ country, geoName, activeLayerId, onClose }: Props) {
   const closeBtnRef = useRef<HTMLButtonElement>(null);
+  const layerDef = getLayerDef(activeLayerId ?? null);
+  const layerValue =
+    country && activeLayerId ? country.layers?.[activeLayerId] : null;
 
   useEffect(() => {
     if (!country && !geoName) return;
@@ -45,7 +50,6 @@ export function CountryInfoModal({ country, geoName, onClose }: Props) {
       }}
     >
       <div
-        ref={dialogRef}
         className="map-modal"
         role="dialog"
         aria-modal="true"
@@ -80,6 +84,21 @@ export function CountryInfoModal({ country, geoName, onClose }: Props) {
               </div>
             </div>
 
+            {/* Active layer highlight */}
+            {layerDef && (
+              <div className="map-modal-layer-highlight">
+                <p className="map-modal-layer-kicker">Active map layer</p>
+                <p className="map-modal-layer-name">{layerDef.name}</p>
+                <p className="map-modal-layer-value">
+                  {layerValue?.display || 'No data for this country'}
+                </p>
+                {layerValue?.detail && (
+                  <p className="map-modal-layer-detail">{layerValue.detail}</p>
+                )}
+                <p className="map-modal-layer-note">{layerDef.sourceNote}</p>
+              </div>
+            )}
+
             <dl className="map-modal-facts">
               <div>
                 <dt>Capital</dt>
@@ -108,7 +127,40 @@ export function CountryInfoModal({ country, geoName, onClose }: Props) {
               </div>
             </dl>
 
-            {country.blurb && <p className="map-modal-blurb">{country.blurb}</p>}
+            {/* Other layer snapshots when a layer is active */}
+            {layerDef && (
+              <div className="map-modal-other-layers">
+                <p className="map-modal-other-title">Also at a glance</p>
+                <ul>
+                  {(
+                    [
+                      ['development', 'Development'],
+                      ['density', 'Density'],
+                      ['urbanization', 'Urban'],
+                      ['migration', 'Migration'],
+                    ] as const
+                  )
+                    .filter(([id]) => id !== activeLayerId)
+                    .map(([id, label]) => {
+                      const v = country.layers?.[id];
+                      if (!v) return null;
+                      return (
+                        <li key={id}>
+                          <span>{label}</span>
+                          <strong>{v.display}</strong>
+                        </li>
+                      );
+                    })}
+                </ul>
+              </div>
+            )}
+
+            {country.blurb && !layerDef && (
+              <p className="map-modal-blurb">{country.blurb}</p>
+            )}
+            {country.blurb && layerDef && (
+              <p className="map-modal-blurb map-modal-blurb-muted">{country.blurb}</p>
+            )}
 
             <div className="map-modal-actions">
               <Link href={`/countries/${country.code}`} className="btn btn-sky map-modal-cta">
