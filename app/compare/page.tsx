@@ -26,10 +26,14 @@ export default function ComparePage() {
 
   return (
     <div className="container">
-      <Link href="/" className="back-link">← Back to all countries</Link>
-      <h1>Compare Countries</h1>
-      <p style={{ color: '#9BB0CB', marginBottom: '1rem' }}>Select up to 10 countries, share the URL, and compare side-by-side.</p>
-      <Suspense fallback={<div className="p-4">Loading comparison…</div>}>
+      <Link href="/" className="back-link">
+        ← Back to dashboard
+      </Link>
+      <h1 className="page-title">Compare countries</h1>
+      <p className="page-lead">
+        Select up to 10 countries, share the URL, and explore side-by-side charts and metrics.
+      </p>
+      <Suspense fallback={<div className="compare-empty">Loading comparison…</div>}>
         <CompareClient countries={countries} />
       </Suspense>
     </div>

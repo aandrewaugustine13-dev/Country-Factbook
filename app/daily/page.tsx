@@ -26,7 +26,9 @@ export default function DailyPage() {
 
   return (
     <div className="container">
-      <Link href="/" className="back-link">← Back to all countries</Link>
+      <Link href="/" className="back-link">
+        ← Back to dashboard
+      </Link>
       <DailyClient countries={countries} />
     </div>
   );

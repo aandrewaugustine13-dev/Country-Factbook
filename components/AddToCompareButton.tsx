@@ -19,17 +19,19 @@ export function AddToCompareButton({ code }: { code: string }) {
 
     const next = addCountry(current, code);
     localStorage.setItem(COMPARE_STORAGE_KEY, JSON.stringify(next));
-    window.dispatchEvent(new CustomEvent(COMPARE_UPDATED_EVENT, { detail: { count: next.length } }));
+    window.dispatchEvent(
+      new CustomEvent(COMPARE_UPDATED_EVENT, { detail: { count: next.length } })
+    );
     setAdded(true);
     window.setTimeout(() => setAdded(false), 1400);
   }
 
   return (
-    <div style={{ marginTop: '0.35rem' }}>
-      <button className="fb-toggle-all" onClick={handleClick} aria-label="Add this country to compare">
-        Add to Compare
+    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
+      <button className="btn btn-outline" onClick={handleClick} aria-label="Add this country to compare">
+        + Compare
       </button>
       {added && <span className="compare-added-msg">Added</span>}
-    </div>
+    </span>
   );
 }

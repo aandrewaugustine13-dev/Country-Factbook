@@ -35,7 +35,9 @@ export default function QuizPage() {
 
   return (
     <div className="container">
-      <Link href="/" className="back-link">← Back to all countries</Link>
+      <Link href="/" className="back-link">
+        ← Back to dashboard
+      </Link>
       <QuizClient countries={countries} />
     </div>
   );

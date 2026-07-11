@@ -54,24 +54,55 @@ export default async function CountryPage({
 
   return (
     <div className="container">
-      <Link href="/" className="back-link">
-        ← Back to all countries
+      <Link href="/#browse" className="back-link">
+        ← Back to dashboard
       </Link>
 
-      <div className="country-header">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={country.flag_url}
-          alt={`Flag of ${country.name_common}`}
-          width={80}
-          height={56}
-          style={{ borderRadius: '2px', border: '1px solid #1E3A5F' }}
-        />
-        <div>
-          <h1>{country.name_common}</h1>
-          <p>{country.name_official}</p>
-          <AddToCompareButton code={country.code} />
+      <div className="country-hero">
+        <div className="country-header">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={country.flag_url}
+            alt={`Flag of ${country.name_common}`}
+            width={88}
+            height={60}
+            className="country-header-flag"
+          />
+          <div>
+            <h1>{country.name_common}</h1>
+            <p>{country.name_official}</p>
+            <div className="country-header-actions">
+              <span className="pill">{country.region}</span>
+              {country.subregion && country.subregion !== 'Unknown' && (
+                <span className="pill pill-teal">{country.subregion}</span>
+              )}
+              <span className="pill pill-gold">{country.code}</span>
+              <AddToCompareButton code={country.code} />
+            </div>
+          </div>
         </div>
+
+        <dl className="country-meta-grid">
+          <div className="meta-tile">
+            <dt>Capital</dt>
+            <dd>{country.capital || '—'}</dd>
+          </div>
+          <div className="meta-tile">
+            <dt>Area</dt>
+            <dd>{country.area_km2 ? `${fmt(country.area_km2)} km²` : '—'}</dd>
+          </div>
+          <div className="meta-tile">
+            <dt>Currency</dt>
+            <dd>{country.currency || '—'}</dd>
+          </div>
+          <div className="meta-tile">
+            <dt>Languages</dt>
+            <dd>
+              {country.languages?.length ? country.languages.slice(0, 3).join(', ') : '—'}
+              {country.languages && country.languages.length > 3 ? '…' : ''}
+            </dd>
+          </div>
+        </dl>
       </div>
 
       {activeSections.length > 0 && (
@@ -85,8 +116,8 @@ export default async function CountryPage({
       )}
 
       {country.latlng && country.latlng.length === 2 && (
-        <div style={{ marginBottom: '1.25rem' }}>
-          <h2 className="section-header">LOCATION</h2>
+        <div className="map-panel">
+          <h2 className="section-header">Location</h2>
           <CountryMap
             lat={country.latlng[0]}
             lng={country.latlng[1]}
@@ -98,37 +129,66 @@ export default async function CountryPage({
       {fb && activeSections.length > 0 ? (
         <CountryContent sections={fb} sectionOrder={activeSections} />
       ) : (
-        /* Fallback: basic data for countries without factbook profiles */
         <div className="two-column">
-          <div>
-            <h2 className="section-header">INTRODUCTION</h2>
+          <div className="fallback-panel">
+            <h2 className="section-header">Introduction</h2>
             <dl>
-              <div className="stat-row"><dt>Official Name</dt><dd>{country.name_official}</dd></div>
-              <div className="stat-row"><dt>Capital</dt><dd>{country.capital}</dd></div>
-              <div className="stat-row"><dt>Independent</dt><dd>{country.independent ? 'Yes' : 'No'}</dd></div>
+              <div className="stat-row">
+                <dt>Official Name</dt>
+                <dd>{country.name_official}</dd>
+              </div>
+              <div className="stat-row">
+                <dt>Capital</dt>
+                <dd>{country.capital}</dd>
+              </div>
+              <div className="stat-row">
+                <dt>Independent</dt>
+                <dd>{country.independent ? 'Yes' : 'No'}</dd>
+              </div>
             </dl>
-            <h2 className="section-header">GEOGRAPHY</h2>
+            <h2 className="section-header">Geography</h2>
             <dl>
-              <div className="stat-row"><dt>Region</dt><dd>{country.region}</dd></div>
-              <div className="stat-row"><dt>Subregion</dt><dd>{country.subregion}</dd></div>
-              <div className="stat-row"><dt>Area</dt><dd>{country.area_km2 ? `${fmt(country.area_km2)} km²` : '—'}</dd></div>
-              <div className="stat-row"><dt>Landlocked</dt><dd>{country.landlocked ? 'Yes' : 'No'}</dd></div>
+              <div className="stat-row">
+                <dt>Region</dt>
+                <dd>{country.region}</dd>
+              </div>
+              <div className="stat-row">
+                <dt>Subregion</dt>
+                <dd>{country.subregion}</dd>
+              </div>
+              <div className="stat-row">
+                <dt>Area</dt>
+                <dd>{country.area_km2 ? `${fmt(country.area_km2)} km²` : '—'}</dd>
+              </div>
+              <div className="stat-row">
+                <dt>Landlocked</dt>
+                <dd>{country.landlocked ? 'Yes' : 'No'}</dd>
+              </div>
             </dl>
           </div>
-          <div>
-            <h2 className="section-header">PEOPLE AND SOCIETY</h2>
+          <div className="fallback-panel">
+            <h2 className="section-header">People &amp; Economy</h2>
             <dl>
-              <div className="stat-row"><dt>Languages</dt><dd>{country.languages.join(', ') || '—'}</dd></div>
-              <div className="stat-row"><dt>Demonym</dt><dd>{country.demonym || '—'}</dd></div>
-            </dl>
-            <h2 className="section-header">ECONOMY</h2>
-            <dl>
-              <div className="stat-row"><dt>Currency</dt><dd>{country.currency}</dd></div>
-            </dl>
-            <h2 className="section-header">COMMUNICATIONS</h2>
-            <dl>
-              <div className="stat-row"><dt>Internet TLD</dt><dd>{country.tld.join(', ') || '—'}</dd></div>
-              <div className="stat-row"><dt>Calling Code</dt><dd>{country.calling_code || '—'}</dd></div>
+              <div className="stat-row">
+                <dt>Languages</dt>
+                <dd>{country.languages.join(', ') || '—'}</dd>
+              </div>
+              <div className="stat-row">
+                <dt>Demonym</dt>
+                <dd>{country.demonym || '—'}</dd>
+              </div>
+              <div className="stat-row">
+                <dt>Currency</dt>
+                <dd>{country.currency}</dd>
+              </div>
+              <div className="stat-row">
+                <dt>Internet TLD</dt>
+                <dd>{country.tld.join(', ') || '—'}</dd>
+              </div>
+              <div className="stat-row">
+                <dt>Calling Code</dt>
+                <dd>{country.calling_code || '—'}</dd>
+              </div>
             </dl>
           </div>
         </div>
@@ -137,14 +197,9 @@ export default async function CountryPage({
       <footer className="country-footer">
         <p>
           Data sourced from the{' '}
-          <a href="https://github.com/factbook/factbook.json" style={{ color: '#4AADE0' }}>
-            CIA World Factbook open archive
-          </a>{' '}
-          (public domain) and{' '}
-          <a href="https://github.com/mledoze/countries" style={{ color: '#4AADE0' }}>
-            mledoze/countries
-          </a>
-          . Rebuilt via <code>npm run build:data</code>. This is an open-source reference tool, not
+          <a href="https://github.com/factbook/factbook.json">CIA World Factbook open archive</a>{' '}
+          (public domain) and <a href="https://github.com/mledoze/countries">mledoze/countries</a>.
+          Rebuilt via <code>npm run build:data</code>. This is an open-source reference tool, not
           affiliated with any government agency.
         </p>
       </footer>

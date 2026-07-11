@@ -11,12 +11,12 @@ import { GlossaryTip } from './GlossaryTip';
 type Country = Record<string, any>;
 
 const REGION_COLORS: Record<string, string> = {
-  Africa: '#C6952B',
-  Americas: '#4B92DB',
+  Africa: '#B8860B',
+  Americas: '#1B6CA8',
   Asia: '#C0392B',
-  Europe: '#6C5CE7',
+  Europe: '#2A7F7A',
   Oceania: '#2D8A4E',
-  Antarctic: '#8694A7',
+  Antarctic: '#8A96A3',
 };
 
 function truncateName(name: string, max = 16) {
@@ -67,26 +67,27 @@ export function CompareBarChart({ countries }: { countries: Country[] }) {
           <BarChart data={chartData} layout="vertical" margin={{ left: 8, right: 24, top: 4, bottom: 4 }}>
             <XAxis
               type="number"
-              tick={{ fill: '#9BB0CB', fontSize: 11, fontFamily: 'inherit' }}
+              tick={{ fill: '#5A6A7A', fontSize: 11, fontFamily: 'inherit' }}
               tickFormatter={v => formatMetricValue(v, metric.format)}
-              axisLine={{ stroke: '#1E3A5F' }}
-              tickLine={{ stroke: '#1E3A5F' }}
+              axisLine={{ stroke: '#E5DFD4' }}
+              tickLine={{ stroke: '#E5DFD4' }}
             />
             <YAxis
               type="category"
               dataKey="name"
-              tick={{ fill: '#E8EDF4', fontSize: 12, fontFamily: 'inherit' }}
+              tick={{ fill: '#0D2B45', fontSize: 12, fontFamily: 'inherit' }}
               width={110}
               axisLine={false}
               tickLine={false}
             />
             <Tooltip
               contentStyle={{
-                background: '#132B4C',
-                border: '1px solid #1E3A5F',
-                borderRadius: '0.25rem',
+                background: '#FFFFFF',
+                border: '1px solid #E5DFD4',
+                borderRadius: '0.5rem',
                 fontSize: '0.85rem',
-                color: '#E8EDF4',
+                color: '#1A2332',
+                boxShadow: '0 8px 24px rgba(13, 43, 69, 0.1)',
               }}
               formatter={(v: number) => [formatMetricValue(v, metric.format), metric.label]}
               labelFormatter={(label) => {
@@ -96,7 +97,7 @@ export function CompareBarChart({ countries }: { countries: Country[] }) {
             />
             <Bar dataKey="value" radius={[0, 4, 4, 0]} maxBarSize={30}>
               {chartData.map((entry, i) => (
-                <Cell key={i} fill={REGION_COLORS[entry.region] || '#C6952B'} fillOpacity={0.85} />
+                <Cell key={i} fill={REGION_COLORS[entry.region] || '#B8860B'} fillOpacity={0.9} />
               ))}
             </Bar>
           </BarChart>
@@ -147,24 +148,24 @@ export function WealthHealthScatter({ countries }: { countries: Country[] }) {
 
       <ResponsiveContainer width="100%" height={320}>
         <ScatterChart margin={{ bottom: 24, left: 12, right: 24, top: 8 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="rgba(30,58,95,0.5)" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#E5DFD4" />
           <XAxis
             type="number"
             dataKey="x"
             name="GDP/capita"
-            tick={{ fill: '#9BB0CB', fontSize: 11 }}
+            tick={{ fill: '#5A6A7A', fontSize: 11 }}
             tickFormatter={v => `$${(v / 1000).toFixed(0)}K`}
-            label={{ value: 'GDP per Capita', position: 'bottom', offset: 4, style: { fill: '#9BB0CB', fontSize: 11 } }}
-            axisLine={{ stroke: '#1E3A5F' }}
+            label={{ value: 'GDP per Capita', position: 'bottom', offset: 4, style: { fill: '#5A6A7A', fontSize: 11 } }}
+            axisLine={{ stroke: '#E5DFD4' }}
           />
           <YAxis
             type="number"
             dataKey="y"
             name="Life Exp."
-            tick={{ fill: '#9BB0CB', fontSize: 11 }}
+            tick={{ fill: '#5A6A7A', fontSize: 11 }}
             domain={['auto', 'auto']}
-            label={{ value: 'Life Expectancy', angle: -90, position: 'insideLeft', style: { fill: '#9BB0CB', fontSize: 11 } }}
-            axisLine={{ stroke: '#1E3A5F' }}
+            label={{ value: 'Life Expectancy', angle: -90, position: 'insideLeft', style: { fill: '#5A6A7A', fontSize: 11 } }}
+            axisLine={{ stroke: '#E5DFD4' }}
           />
           <Tooltip
             content={({ payload }) => {
@@ -172,13 +173,14 @@ export function WealthHealthScatter({ countries }: { countries: Country[] }) {
               const d = payload[0].payload;
               return (
                 <div style={{
-                  background: '#132B4C', border: '1px solid #1E3A5F',
-                  borderRadius: '0.25rem', padding: '0.5rem 0.75rem', fontSize: '0.85rem',
+                  background: '#FFFFFF', border: '1px solid #E5DFD4',
+                  borderRadius: '0.5rem', padding: '0.55rem 0.8rem', fontSize: '0.85rem',
+                  boxShadow: '0 8px 24px rgba(13, 43, 69, 0.1)',
                 }}>
-                  <div style={{ fontWeight: 600, color: '#E8EDF4' }}>{d.emoji} {d.name}</div>
-                  <div style={{ color: '#9BB0CB' }}>GDP/capita: ${d.x?.toLocaleString()}</div>
-                  <div style={{ color: '#9BB0CB' }}>Life exp: {d.y} years</div>
-                  <div style={{ color: '#9BB0CB' }}>Pop: {d.pop >= 1e6 ? `${(d.pop / 1e6).toFixed(1)}M` : d.pop.toLocaleString()}</div>
+                  <div style={{ fontWeight: 600, color: '#0D2B45' }}>{d.emoji} {d.name}</div>
+                  <div style={{ color: '#5A6A7A' }}>GDP/capita: ${d.x?.toLocaleString()}</div>
+                  <div style={{ color: '#5A6A7A' }}>Life exp: {d.y} years</div>
+                  <div style={{ color: '#5A6A7A' }}>Pop: {d.pop >= 1e6 ? `${(d.pop / 1e6).toFixed(1)}M` : d.pop.toLocaleString()}</div>
                 </div>
               );
             }}
@@ -187,7 +189,7 @@ export function WealthHealthScatter({ countries }: { countries: Country[] }) {
             {data.map((entry, i) => (
               <Cell
                 key={i}
-                fill={REGION_COLORS[entry.region] || '#C6952B'}
+                fill={REGION_COLORS[entry.region] || '#B8860B'}
                 r={Math.max(5, Math.min(18, Math.sqrt(entry.pop / 4000000)))}
               />
             ))}

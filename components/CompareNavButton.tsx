@@ -42,7 +42,7 @@ export function CompareNavButton() {
 
   return (
     <span aria-label={`Compare (${count} selected)`}>
-      📊 Compare <span className="nav-badge">{count}</span>
+      Compare <span className="nav-badge">{count}</span>
     </span>
   );
 }

@@ -31,7 +31,7 @@ function SectionBlock({
         onClick={() => setOpen(!open)}
         aria-expanded={open}
       >
-        <span>{title.toUpperCase()}</span>
+        <span>{title}</span>
         <span className="toggle-icon">{open ? '−' : '+'}</span>
       </button>
       {open && (

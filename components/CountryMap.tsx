@@ -68,9 +68,9 @@ export function CountryMap({ lat, lng, name, zoom }: CountryMapProps) {
         style={{
           width: '100%',
           height: '320px',
-          borderRadius: '0.25rem',
-          border: '1px solid #1E3A5F',
-          background: '#0C1B2E',
+          borderRadius: '0.5rem',
+          border: '1px solid #E5DFD4',
+          background: '#F7F4EE',
         }}
       />
     </>

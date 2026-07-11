@@ -1,5 +1,6 @@
 import { HomeClient } from '@/components/HomeClient';
 import allCountries from '@/data/all-countries.json';
+import comparisonData from '@/data/comparison-data.json';
 
 export default function Home() {
   const countries = allCountries.map((c) => ({
@@ -11,17 +12,28 @@ export default function Home() {
     capital: c.capital,
   }));
 
+  const withFactbook = allCountries.filter((c) => (c as { factbook?: unknown }).factbook).length;
+
+  const regionCounts: Record<string, number> = {};
+  for (const c of countries) {
+    regionCounts[c.region] = (regionCounts[c.region] || 0) + 1;
+  }
+
+  const withPopulation = (comparisonData as { population?: number | null }[]).filter(
+    (c) => c.population != null
+  ).length;
+
   return (
     <div className="container">
-      <header className="home-header">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/logo.jpg"
-          alt="The World Factbook — Reference Edition 2026"
-          className="home-logo"
-        />
-      </header>
-      <HomeClient countries={countries} />
+      <HomeClient
+        countries={countries}
+        stats={{
+          total: countries.length,
+          withFactbook,
+          withPopulation,
+          regionCounts,
+        }}
+      />
     </div>
   );
 }
