@@ -24,16 +24,14 @@ export default function Home() {
   ).length;
 
   return (
-    <div className="container">
-      <HomeClient
-        countries={countries}
-        stats={{
-          total: countries.length,
-          withFactbook,
-          withPopulation,
-          regionCounts,
-        }}
-      />
-    </div>
+    <HomeClient
+      countries={countries}
+      stats={{
+        total: countries.length,
+        withFactbook,
+        withPopulation,
+        regionCounts,
+      }}
+    />
   );
 }

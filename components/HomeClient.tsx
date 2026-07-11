@@ -37,7 +37,7 @@ function ToolIcon({ name }: { name: string }) {
   const common = {
     fill: 'none',
     stroke: 'currentColor',
-    strokeWidth: 1.85,
+    strokeWidth: 2,
     strokeLinecap: 'round' as const,
     strokeLinejoin: 'round' as const,
   };
@@ -66,7 +66,7 @@ function ToolIcon({ name }: { name: string }) {
         <svg viewBox="0 0 24 24" className="home-tool-icon" aria-hidden>
           <circle {...common} cx="12" cy="12" r="8" />
           <path {...common} d="M9.5 9.5a2.5 2.5 0 1 1 3.6 2.2c-.7.4-1.1.9-1.1 1.8V14" />
-          <circle cx="12" cy="17" r="0.85" fill="currentColor" stroke="none" />
+          <circle cx="12" cy="17" r="0.9" fill="currentColor" stroke="none" />
         </svg>
       );
     case 'daily':
@@ -81,13 +81,12 @@ function ToolIcon({ name }: { name: string }) {
   }
 }
 
-/** One-word or two-word labels only — scannable tiles */
 const TOOLS = [
   { href: '/map', title: 'Map', hint: 'Layers', icon: 'map', featured: true },
   { href: '/compare', title: 'Compare', hint: 'Stats', icon: 'compare', featured: true },
   { href: '/pyramids', title: 'Pyramids', hint: 'Ages', icon: 'pyramids', featured: true },
-  { href: '/quiz', title: 'Quiz', hint: 'Play', icon: 'quiz', featured: false },
-  { href: '/daily', title: 'Daily', hint: 'Guess', icon: 'daily', featured: false },
+  { href: '/quiz', title: 'Quiz', icon: 'quiz', featured: false },
+  { href: '/daily', title: 'Daily', icon: 'daily', featured: false },
 ] as const;
 
 export function HomeClient({
@@ -123,51 +122,51 @@ export function HomeClient({
   }
 
   return (
-    <>
-      {/* Hero */}
+    <div className="home-page">
+      {/* Full-bleed bold hero */}
       <section className="home-hero" aria-label="Overview">
         <div className="home-hero-panel">
           <div className="home-hero-glow" aria-hidden="true" />
+          <div className="home-hero-stripe" aria-hidden="true" />
           <div className="home-hero-mesh" aria-hidden="true" />
 
-          <div className="home-hero-grid">
+          <div className="home-hero-inner">
             <div className="home-hero-copy">
               <p className="home-hero-kicker">
                 <span className="home-hero-pulse" aria-hidden="true" />
-                Factbook 2026
+                World Factbook 2026
               </p>
 
               <h1 className="home-hero-title">
-                The world,
-                <br />
-                <span className="home-hero-title-accent">mapped out.</span>
+                Know the
+                <span className="home-hero-title-accent"> planet.</span>
               </h1>
 
-              <p className="home-hero-lead">Explore countries. Spot patterns. Dig deeper.</p>
+              <p className="home-hero-lead">Maps. Numbers. Countries. Go explore.</p>
 
               <div className="home-hero-actions">
-                <Link href="/map" className="btn btn-hero-primary">
-                  Open the map
+                <Link href="/map" className="btn-hero-primary">
+                  Open map →
                 </Link>
-                <a href="#browse" className="btn btn-hero-secondary">
-                  Browse countries
+                <a href="#browse" className="btn-hero-secondary">
+                  All countries
                 </a>
               </div>
 
-              <ul className="home-hero-metrics" aria-label="At a glance">
-                <li>
+              <div className="home-hero-stats-bar">
+                <div>
                   <strong>{stats.total}</strong>
-                  <span>countries</span>
-                </li>
-                <li>
+                  <span>Countries</span>
+                </div>
+                <div>
                   <strong>{stats.withFactbook}</strong>
-                  <span>profiles</span>
-                </li>
-                <li>
+                  <span>Profiles</span>
+                </div>
+                <div>
                   <strong>8</strong>
-                  <span>map layers</span>
-                </li>
-              </ul>
+                  <span>Layers</span>
+                </div>
+              </div>
             </div>
 
             <div className="home-hero-emblem" aria-hidden="true">
@@ -176,166 +175,172 @@ export function HomeClient({
                   <InstitutionalGlobe variant="hero" className="home-hero-globe" />
                 </div>
               </div>
-              <div className="home-hero-badge">Nations of the world</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Tools — icon-forward, almost no prose */}
-      <section className="home-featured" aria-label="Tools">
-        <ul className="home-featured-grid">
-          {TOOLS.filter((t) => t.featured).map((tool) => (
-            <li key={tool.href}>
-              <Link href={tool.href} className={`home-feature-card home-feature-${tool.icon}`}>
-                <span className="home-feature-icon-wrap">
-                  <ToolIcon name={tool.icon} />
-                </span>
-                <span className="home-feature-title">{tool.title}</span>
-                <span className="home-feature-hint">{tool.hint}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <div className="home-quick-row">
-          {TOOLS.filter((t) => !t.featured).map((tool) => (
-            <Link key={tool.href} href={tool.href} className="home-quick-pill">
-              <ToolIcon name={tool.icon} />
-              <span>{tool.title}</span>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* Regions */}
-      <section className="home-regions" aria-label="Regions">
-        <div className="home-section-head home-section-head-tight">
-          <h2 className="home-section-title">Regions</h2>
-          {region !== 'All Regions' && (
-            <button
-              type="button"
-              className="home-clear-region"
-              onClick={() => setRegion('All Regions')}
-            >
-              Show all
-            </button>
-          )}
-        </div>
-
-        <div className="home-region-grid" role="group" aria-label="Filter by region">
-          {REGION_ORDER.map((r) => {
-            const count = stats.regionCounts[r] || 0;
-            const active = region === r;
-            return (
-              <button
-                key={r}
-                type="button"
-                className={`home-region-card ${active ? 'active' : ''}`}
-                onClick={() => selectRegion(r)}
-                aria-pressed={active}
-              >
-                <span className="home-region-mark">{REGION_MARKS[r]}</span>
-                <span className="home-region-name">{r}</span>
-                <span className="home-region-count">{count}</span>
-              </button>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* Directory */}
-      <section id="browse" className="home-browse" aria-label="Browse countries">
-        <div className="home-section-head home-section-head-tight">
-          <h2 className="home-section-title">Countries</h2>
-          <span className="home-browse-count">
-            {filtered.length}
-            <span className="home-browse-count-total"> / {countries.length}</span>
-          </span>
-        </div>
-
-        <div className="browse-panel home-browse-panel">
-          <div className="controls home-browse-controls">
-            <div className="search-wrap home-search-wrap">
-              <label htmlFor="search" className="sr-only">
-                Search countries
-              </label>
-              <input
-                id="search"
-                className="search"
-                type="search"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search country, capital, or code…"
-                autoComplete="off"
-              />
-            </div>
-
-            <div className="controls-row">
-              <div className="region-tabs" aria-label="Region filter">
-                {REGIONS.map((r) => (
-                  <button
-                    key={r}
-                    type="button"
-                    className={`region-tab ${region === r ? 'active' : ''}`}
-                    onClick={() => setRegion(r)}
-                  >
-                    {r === 'All Regions' ? 'All' : r}
-                  </button>
-                ))}
-              </div>
-              <div className="view-toggle" role="group" aria-label="Country list view">
-                <button
-                  type="button"
-                  className={`view-tab ${view === 'grid' ? 'active' : ''}`}
-                  onClick={() => setView('grid')}
-                >
-                  Grid
-                </button>
-                <button
-                  type="button"
-                  className={`view-tab ${view === 'list' ? 'active' : ''}`}
-                  onClick={() => setView('list')}
-                >
-                  List
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <ul
-            className={`country-grid ${view === 'list' ? 'list-view' : ''}`}
-            aria-label="Country list"
-          >
-            {filtered.map((country) => (
-              <li key={country.code}>
-                <Link className="country-card" href={`/countries/${country.code}`}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={country.flag_url}
-                    alt={`Flag of ${country.name_common}`}
-                    width={56}
-                    height={40}
-                    loading="lazy"
-                  />
-                  <div className="country-card-body">
-                    <h2>{country.name_common}</h2>
-                    <p>
-                      {country.capital !== 'N/A' ? country.capital : '—'}
-                      <span className="country-card-sep">·</span>
-                      {country.region}
-                    </p>
-                  </div>
-                  <span className="country-card-code">{country.code}</span>
+      <div className="home-body">
+        {/* Bold solid tool tiles */}
+        <section className="home-featured" aria-label="Tools">
+          <ul className="home-featured-grid">
+            {TOOLS.filter((t) => t.featured).map((tool) => (
+              <li key={tool.href}>
+                <Link href={tool.href} className={`home-feature-card home-feature-${tool.icon}`}>
+                  <span className="home-feature-top">
+                    <span className="home-feature-icon-wrap">
+                      <ToolIcon name={tool.icon} />
+                    </span>
+                    <span className="home-feature-hint">{tool.hint}</span>
+                  </span>
+                  <span className="home-feature-title">{tool.title}</span>
+                  <span className="home-feature-arrow" aria-hidden>
+                    →
+                  </span>
                 </Link>
               </li>
             ))}
           </ul>
+          <div className="home-quick-row">
+            {TOOLS.filter((t) => !t.featured).map((tool) => (
+              <Link key={tool.href} href={tool.href} className="home-quick-pill">
+                <ToolIcon name={tool.icon} />
+                {tool.title}
+              </Link>
+            ))}
+          </div>
+        </section>
 
-          {filtered.length === 0 && (
-            <p className="no-results">No matches — try another name or region.</p>
-          )}
-        </div>
-      </section>
-    </>
+        {/* Regions */}
+        <section className="home-regions" aria-label="Regions">
+          <div className="home-section-head">
+            <h2 className="home-section-title">Regions</h2>
+            {region !== 'All Regions' && (
+              <button
+                type="button"
+                className="home-clear-region"
+                onClick={() => setRegion('All Regions')}
+              >
+                Show all
+              </button>
+            )}
+          </div>
+
+          <div className="home-region-grid" role="group" aria-label="Filter by region">
+            {REGION_ORDER.map((r) => {
+              const count = stats.regionCounts[r] || 0;
+              const active = region === r;
+              return (
+                <button
+                  key={r}
+                  type="button"
+                  className={`home-region-card ${active ? 'active' : ''}`}
+                  onClick={() => selectRegion(r)}
+                  aria-pressed={active}
+                >
+                  <span className="home-region-mark">{REGION_MARKS[r]}</span>
+                  <span className="home-region-name">{r}</span>
+                  <span className="home-region-count">{count}</span>
+                </button>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* Directory */}
+        <section id="browse" className="home-browse" aria-label="Browse countries">
+          <div className="home-section-head">
+            <h2 className="home-section-title">Countries</h2>
+            <span className="home-browse-count">
+              {filtered.length}
+              <span className="home-browse-count-total"> / {countries.length}</span>
+            </span>
+          </div>
+
+          <div className="browse-panel home-browse-panel">
+            <div className="controls home-browse-controls">
+              <div className="search-wrap home-search-wrap">
+                <label htmlFor="search" className="sr-only">
+                  Search countries
+                </label>
+                <input
+                  id="search"
+                  className="search"
+                  type="search"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder="Search country, capital, or code…"
+                  autoComplete="off"
+                />
+              </div>
+
+              <div className="controls-row">
+                <div className="region-tabs" aria-label="Region filter">
+                  {REGIONS.map((r) => (
+                    <button
+                      key={r}
+                      type="button"
+                      className={`region-tab ${region === r ? 'active' : ''}`}
+                      onClick={() => setRegion(r)}
+                    >
+                      {r === 'All Regions' ? 'All' : r}
+                    </button>
+                  ))}
+                </div>
+                <div className="view-toggle" role="group" aria-label="Country list view">
+                  <button
+                    type="button"
+                    className={`view-tab ${view === 'grid' ? 'active' : ''}`}
+                    onClick={() => setView('grid')}
+                  >
+                    Grid
+                  </button>
+                  <button
+                    type="button"
+                    className={`view-tab ${view === 'list' ? 'active' : ''}`}
+                    onClick={() => setView('list')}
+                  >
+                    List
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <ul
+              className={`country-grid ${view === 'list' ? 'list-view' : ''}`}
+              aria-label="Country list"
+            >
+              {filtered.map((country) => (
+                <li key={country.code}>
+                  <Link className="country-card" href={`/countries/${country.code}`}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={country.flag_url}
+                      alt={`Flag of ${country.name_common}`}
+                      width={56}
+                      height={40}
+                      loading="lazy"
+                    />
+                    <div className="country-card-body">
+                      <h2>{country.name_common}</h2>
+                      <p>
+                        {country.capital !== 'N/A' ? country.capital : '—'}
+                        <span className="country-card-sep">·</span>
+                        {country.region}
+                      </p>
+                    </div>
+                    <span className="country-card-code">{country.code}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            {filtered.length === 0 && (
+              <p className="no-results">No matches — try another name or region.</p>
+            )}
+          </div>
+        </section>
+      </div>
+    </div>
   );
 }
