@@ -1,18 +1,21 @@
 /**
- * Stylized UN-emblem–inspired globe.
- * Graphic / logo-like treatment: azimuthal grid, abstract landmasses, olive wreath.
- * Not a photorealistic globe — mid-century institutional mark updated for 2026.
+ * Stylized UN-emblem globe — iconic, graphic, mid-century institutional.
+ * Hero variant uses gold land on cream strokes for stronger presence.
  */
 export function InstitutionalGlobe({
   className = '',
   variant = 'hero',
 }: {
   className?: string;
-  /** hero = light strokes on dark; mark = dark strokes on light */
   variant?: 'hero' | 'mark';
 }) {
-  const stroke = variant === 'hero' ? 'currentColor' : 'currentColor';
-  const land = variant === 'hero' ? 'currentColor' : 'currentColor';
+  const isHero = variant === 'hero';
+
+  // Hero: cream grid + gold continents (classic UN palette vibe)
+  // Mark: navy monochrome for header
+  const stroke = isHero ? '#F0E6C8' : 'currentColor';
+  const land = isHero ? '#E8C96A' : 'currentColor';
+  const wreath = isHero ? '#C9A84C' : 'currentColor';
 
   return (
     <svg
@@ -25,163 +28,140 @@ export function InstitutionalGlobe({
     >
       <title>World emblem</title>
 
-      {/* Outer institutional rings */}
-      <circle cx="120" cy="112" r="78" stroke={stroke} strokeWidth="1.25" opacity="0.35" />
-      <circle cx="120" cy="112" r="72" stroke={stroke} strokeWidth="2.25" />
+      {/* Soft disc behind globe */}
+      {isHero && (
+        <circle cx="120" cy="108" r="82" fill="rgba(10, 34, 56, 0.35)" />
+      )}
 
-      {/* Azimuthal latitude rings */}
-      <circle cx="120" cy="112" r="54" stroke={stroke} strokeWidth="1" opacity="0.55" />
-      <circle cx="120" cy="112" r="36" stroke={stroke} strokeWidth="1" opacity="0.55" />
-      <circle cx="120" cy="112" r="18" stroke={stroke} strokeWidth="1" opacity="0.45" />
+      {/* Outer rings — double seal */}
+      <circle cx="120" cy="108" r="80" stroke={stroke} strokeWidth="1" opacity="0.25" />
+      <circle cx="120" cy="108" r="74" stroke={stroke} strokeWidth="2.5" opacity="0.9" />
+      <circle cx="120" cy="108" r="70" stroke={stroke} strokeWidth="1" opacity="0.35" />
 
-      {/* Longitude arcs (simplified globe net) */}
-      <ellipse cx="120" cy="112" rx="24" ry="72" stroke={stroke} strokeWidth="1" opacity="0.5" />
-      <ellipse cx="120" cy="112" rx="48" ry="72" stroke={stroke} strokeWidth="1" opacity="0.5" />
+      {/* Latitude rings */}
+      <circle cx="120" cy="108" r="52" stroke={stroke} strokeWidth="1.1" opacity="0.5" />
+      <circle cx="120" cy="108" r="34" stroke={stroke} strokeWidth="1.1" opacity="0.5" />
+      <circle cx="120" cy="108" r="16" stroke={stroke} strokeWidth="1" opacity="0.4" />
+
+      {/* Meridians */}
+      <ellipse cx="120" cy="108" rx="22" ry="70" stroke={stroke} strokeWidth="1.1" opacity="0.45" />
+      <ellipse cx="120" cy="108" rx="46" ry="70" stroke={stroke} strokeWidth="1.1" opacity="0.45" />
       <line
         x1="120"
-        y1="40"
+        y1="38"
         x2="120"
-        y2="184"
+        y2="178"
         stroke={stroke}
-        strokeWidth="1"
+        strokeWidth="1.15"
         opacity="0.55"
         strokeLinecap="round"
       />
       <line
-        x1="48"
-        y1="112"
-        x2="192"
-        y2="112"
+        x1="50"
+        y1="108"
+        x2="190"
+        y2="108"
         stroke={stroke}
-        strokeWidth="1"
+        strokeWidth="1.15"
         opacity="0.55"
         strokeLinecap="round"
       />
-      {/* Tilted meridians for depth */}
       <path
-        d="M72 52 C92 78, 92 146, 72 172"
+        d="M74 50 C94 76, 94 140, 74 166"
         stroke={stroke}
         strokeWidth="1"
-        opacity="0.4"
+        opacity="0.35"
         strokeLinecap="round"
       />
       <path
-        d="M168 52 C148 78, 148 146, 168 172"
+        d="M166 50 C146 76, 146 140, 166 166"
         stroke={stroke}
         strokeWidth="1"
-        opacity="0.4"
+        opacity="0.35"
         strokeLinecap="round"
       />
 
-      {/* Abstract landmasses — simplified continents, emblem style */}
-      <g fill={land} opacity={variant === 'hero' ? 0.88 : 0.9}>
-        {/* Americas (left) */}
-        <path d="M78 78 C84 70, 94 68, 100 74 C104 80, 102 90, 98 98 C94 108, 90 118, 88 128 C86 136, 82 140, 78 136 C74 130, 76 118, 78 108 C80 96, 74 86, 78 78 Z" />
-        {/* South America */}
-        <path d="M92 130 C98 128, 104 134, 106 144 C108 154, 104 164, 98 168 C92 170, 88 164, 88 154 C88 144, 88 134, 92 130 Z" />
-        {/* Europe / Africa */}
-        <path d="M118 70 C128 66, 138 72, 140 82 C142 90, 136 96, 130 98 C134 108, 136 122, 132 134 C128 146, 122 152, 116 148 C112 140, 114 128, 116 116 C118 104, 114 90, 116 80 C116 76, 116 72, 118 70 Z" />
-        {/* Asia */}
-        <path d="M142 76 C156 70, 170 76, 174 90 C178 102, 172 112, 164 116 C158 120, 154 128, 150 134 C146 128, 148 118, 150 110 C146 104, 140 96, 138 88 C136 80, 138 78, 142 76 Z" />
-        {/* Australia */}
-        <path d="M158 142 C168 140, 176 146, 176 154 C176 160, 168 164, 160 162 C154 160, 152 152, 154 146 C154 144, 156 142, 158 142 Z" />
+      {/* Continents — bold emblem shapes */}
+      <g fill={land} opacity={isHero ? 0.95 : 0.9}>
+        <path d="M76 74 C84 66, 96 64, 102 72 C106 80, 104 90, 100 100 C96 112, 90 122, 88 132 C86 140, 82 144, 78 140 C74 132, 76 118, 78 108 C80 96, 72 84, 76 74 Z" />
+        <path d="M90 128 C98 126, 106 134, 108 146 C110 158, 104 168, 98 170 C90 172, 86 164, 86 152 C86 140, 86 132, 90 128 Z" />
+        <path d="M116 66 C128 62, 140 68, 142 80 C144 90, 136 98, 130 100 C134 112, 136 128, 132 140 C128 152, 120 156, 116 150 C112 140, 114 126, 116 114 C118 100, 112 86, 114 76 C114 70, 114 68, 116 66 Z" />
+        <path d="M140 72 C156 66, 172 72, 176 88 C180 102, 172 114, 164 118 C158 122, 154 132, 150 138 C146 130, 148 118, 150 110 C146 102, 138 94, 136 86 C134 78, 136 74, 140 72 Z" />
+        <path d="M156 140 C168 138, 176 144, 176 152 C176 160, 168 164, 158 162 C152 160, 150 152, 152 146 C152 142, 154 140, 156 140 Z" />
       </g>
 
       {/* Olive wreath — left */}
-      <g
-        stroke={stroke}
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        fill="none"
-        opacity="0.85"
-      >
-        <path d="M56 150 C42 128, 40 98, 52 72 C58 60, 68 50, 80 44" />
-        <path d="M58 142 C50 136, 48 126, 52 118" />
-        <path d="M52 120 C44 114, 42 104, 46 96" />
-        <path d="M48 98 C40 92, 40 82, 46 74" />
-        <path d="M50 76 C44 70, 46 60, 54 56" />
-        <path d="M58 58 C54 52, 56 44, 64 42" />
-        {/* Leaf fills */}
+      <g stroke={wreath} strokeWidth="1.75" strokeLinecap="round" fill="none" opacity="0.9">
+        <path d="M52 148 C38 124, 36 92, 50 66 C56 54, 68 44, 82 38" />
         <path
-          d="M56 138 C48 132, 48 124, 54 120 C60 126, 60 134, 56 138 Z"
-          fill={land}
+          d="M54 136 C46 130, 46 122, 52 118 C58 124, 58 132, 54 136 Z"
+          fill={wreath}
           stroke="none"
-          opacity="0.75"
+          opacity="0.85"
         />
         <path
-          d="M50 116 C42 110, 42 102, 48 98 C54 104, 54 112, 50 116 Z"
-          fill={land}
+          d="M48 112 C40 106, 40 98, 46 94 C52 100, 52 108, 48 112 Z"
+          fill={wreath}
           stroke="none"
-          opacity="0.75"
+          opacity="0.85"
         />
         <path
-          d="M48 94 C40 88, 40 80, 46 76 C52 82, 52 90, 48 94 Z"
-          fill={land}
+          d="M46 90 C38 84, 38 76, 44 72 C50 78, 50 86, 46 90 Z"
+          fill={wreath}
           stroke="none"
-          opacity="0.75"
+          opacity="0.85"
         />
         <path
-          d="M52 72 C46 66, 48 58, 54 56 C58 62, 56 70, 52 72 Z"
-          fill={land}
+          d="M50 68 C44 62, 46 54, 52 52 C56 58, 54 66, 50 68 Z"
+          fill={wreath}
           stroke="none"
-          opacity="0.75"
+          opacity="0.85"
         />
       </g>
 
       {/* Olive wreath — right */}
-      <g
-        stroke={stroke}
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        fill="none"
-        opacity="0.85"
-      >
-        <path d="M184 150 C198 128, 200 98, 188 72 C182 60, 172 50, 160 44" />
-        <path d="M182 142 C190 136, 192 126, 188 118" />
-        <path d="M188 120 C196 114, 198 104, 194 96" />
-        <path d="M192 98 C200 92, 200 82, 194 74" />
-        <path d="M190 76 C196 70, 194 60, 186 56" />
-        <path d="M182 58 C186 52, 184 44, 176 42" />
+      <g stroke={wreath} strokeWidth="1.75" strokeLinecap="round" fill="none" opacity="0.9">
+        <path d="M188 148 C202 124, 204 92, 190 66 C184 54, 172 44, 158 38" />
         <path
-          d="M184 138 C192 132, 192 124, 186 120 C180 126, 180 134, 184 138 Z"
-          fill={land}
+          d="M186 136 C194 130, 194 122, 188 118 C182 124, 182 132, 186 136 Z"
+          fill={wreath}
           stroke="none"
-          opacity="0.75"
+          opacity="0.85"
         />
         <path
-          d="M190 116 C198 110, 198 102, 192 98 C186 104, 186 112, 190 116 Z"
-          fill={land}
+          d="M192 112 C200 106, 200 98, 194 94 C188 100, 188 108, 192 112 Z"
+          fill={wreath}
           stroke="none"
-          opacity="0.75"
+          opacity="0.85"
         />
         <path
-          d="M192 94 C200 88, 200 80, 194 76 C188 82, 188 90, 192 94 Z"
-          fill={land}
+          d="M194 90 C202 84, 202 76, 196 72 C190 78, 190 86, 194 90 Z"
+          fill={wreath}
           stroke="none"
-          opacity="0.75"
+          opacity="0.85"
         />
         <path
-          d="M188 72 C194 66, 192 58, 186 56 C182 62, 184 70, 188 72 Z"
-          fill={land}
+          d="M190 68 C196 62, 194 54, 188 52 C184 58, 186 66, 190 68 Z"
+          fill={wreath}
           stroke="none"
-          opacity="0.75"
+          opacity="0.85"
         />
       </g>
 
-      {/* Base ribbon / institutional bar */}
+      {/* Base bars — institutional seal footing */}
       <path
-        d="M78 196 H162"
+        d="M76 192 H164"
         stroke={stroke}
-        strokeWidth="2"
+        strokeWidth="2.25"
         strokeLinecap="round"
-        opacity="0.5"
+        opacity="0.55"
       />
       <path
-        d="M88 202 H152"
-        stroke={stroke}
-        strokeWidth="1.25"
+        d="M88 198 H152"
+        stroke={wreath}
+        strokeWidth="1.5"
         strokeLinecap="round"
-        opacity="0.35"
+        opacity="0.7"
       />
     </svg>
   );
