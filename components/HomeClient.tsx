@@ -33,7 +33,6 @@ const REGION_MARKS: Record<string, string> = {
   Antarctic: 'AN',
 };
 
-/** Compact line icons for tool tiles — institutional, not emoji */
 function ToolIcon({ name }: { name: string }) {
   const common = {
     fill: 'none',
@@ -87,40 +86,35 @@ const TOOLS = [
   {
     href: '/map',
     title: 'Map',
-    desc: 'Thematic layers',
-    mark: '01',
+    desc: 'Color the world by data',
     icon: 'map',
     featured: true,
   },
   {
     href: '/compare',
     title: 'Compare',
-    desc: 'Side-by-side stats',
-    mark: '02',
+    desc: 'Stack countries head-to-head',
     icon: 'compare',
     featured: true,
   },
   {
     href: '/pyramids',
     title: 'Pyramids',
-    desc: 'Age structure',
-    mark: '03',
+    desc: 'See young vs aging nations',
     icon: 'pyramids',
     featured: true,
   },
   {
     href: '/quiz',
     title: 'Quiz',
-    desc: 'Higher or lower',
-    mark: '04',
+    desc: 'Higher or lower?',
     icon: 'quiz',
     featured: false,
   },
   {
     href: '/daily',
     title: 'Daily',
-    desc: 'Mystery country',
-    mark: '05',
+    desc: 'Guess the country',
     icon: 'daily',
     featured: false,
   },
@@ -153,7 +147,6 @@ export function HomeClient({
 
   function selectRegion(r: string) {
     setRegion(r === region ? 'All Regions' : r);
-    // Scroll to directory when filtering from atlas
     if (typeof document !== 'undefined') {
       document.getElementById('browse')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
@@ -161,63 +154,67 @@ export function HomeClient({
 
   return (
     <>
-      {/* Hero */}
+      {/* Hero — bold, visual-first */}
       <section className="home-hero" aria-label="Overview">
         <div className="home-hero-panel">
-          <div className="home-hero-rule" aria-hidden="true" />
+          <div className="home-hero-glow" aria-hidden="true" />
+          <div className="home-hero-orbit home-hero-orbit-a" aria-hidden="true" />
+          <div className="home-hero-orbit home-hero-orbit-b" aria-hidden="true" />
+
           <div className="home-hero-grid">
             <div className="home-hero-copy">
               <p className="home-hero-kicker">
-                <span className="home-hero-kicker-line" aria-hidden="true" />
-                Reference Edition 2026
+                <span className="home-hero-pulse" aria-hidden="true" />
+                World Factbook · 2026
               </p>
 
-              <h1 className="home-hero-title">The World Factbook</h1>
-              <p className="home-hero-tagline">A classroom atlas of nations</p>
+              <h1 className="home-hero-title">
+                See the world
+                <span className="home-hero-title-accent">clearly.</span>
+              </h1>
 
               <p className="home-hero-lead">
-                Profiles, maps, and comparisons — built for World Geography.
+                Maps, comparisons, and country stories — ready to explore.
               </p>
 
               <div className="home-hero-actions">
-                <Link href="/map" className="btn btn-primary">
-                  Open map
+                <Link href="/map" className="btn btn-hero-primary">
+                  Launch map
                 </Link>
-                <a href="#browse" className="btn btn-ghost">
-                  Browse countries
+                <a href="#browse" className="btn btn-hero-secondary">
+                  Find a country
                 </a>
+                <Link href="/quiz" className="btn btn-hero-ghost">
+                  Take a quiz
+                </Link>
               </div>
 
-              <dl className="home-hero-stats">
-                <div>
-                  <dt>Countries</dt>
-                  <dd>{stats.total}</dd>
-                </div>
-                <div>
-                  <dt>Profiles</dt>
-                  <dd>{stats.withFactbook}</dd>
-                </div>
-                <div>
-                  <dt>Metrics</dt>
-                  <dd>{stats.withPopulation}</dd>
-                </div>
-              </dl>
+              <div className="home-hero-chips" aria-label="Highlights">
+                <span className="home-hero-chip">
+                  <strong>{stats.total}</strong> countries
+                </span>
+                <span className="home-hero-chip">
+                  <strong>{stats.withFactbook}</strong> full profiles
+                </span>
+                <span className="home-hero-chip home-hero-chip-accent">
+                  8 map layers
+                </span>
+              </div>
             </div>
 
             <div className="home-hero-emblem" aria-hidden="true">
-              <div className="home-hero-emblem-frame">
-                <InstitutionalGlobe variant="hero" className="home-hero-globe" />
+              <div className="home-hero-emblem-ring">
+                <div className="home-hero-emblem-core">
+                  <InstitutionalGlobe variant="hero" className="home-hero-globe" />
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Featured tools — visual-first */}
-      <section className="home-featured" aria-label="Primary tools">
-        <div className="home-section-head home-section-head-tight">
-          <h2 className="home-section-title">Explore</h2>
-        </div>
+      {/* Jump in — big visual cards */}
+      <section className="home-featured" aria-label="Ways to explore">
         <ul className="home-featured-grid">
           {TOOLS.filter((t) => t.featured).map((tool) => (
             <li key={tool.href}>
@@ -236,26 +233,28 @@ export function HomeClient({
             </li>
           ))}
         </ul>
-        <ul className="home-secondary-tools">
+        <div className="home-quick-row">
           {TOOLS.filter((t) => !t.featured).map((tool) => (
-            <li key={tool.href}>
-              <Link href={tool.href} className="home-secondary-link">
-                <ToolIcon name={tool.icon} />
-                <span>{tool.title}</span>
-                <span className="home-secondary-desc">{tool.desc}</span>
-              </Link>
-            </li>
+            <Link key={tool.href} href={tool.href} className="home-quick-pill">
+              <ToolIcon name={tool.icon} />
+              {tool.title}
+              <span className="home-quick-pill-desc">{tool.desc}</span>
+            </Link>
           ))}
-        </ul>
+        </div>
       </section>
 
-      {/* Regions — compact atlas strip */}
+      {/* Regions */}
       <section className="home-regions" aria-label="Regions">
         <div className="home-section-head home-section-head-tight">
-          <h2 className="home-section-title">Regions</h2>
+          <h2 className="home-section-title">Jump by region</h2>
           {region !== 'All Regions' && (
-            <button type="button" className="home-clear-region" onClick={() => setRegion('All Regions')}>
-              Clear filter
+            <button
+              type="button"
+              className="home-clear-region"
+              onClick={() => setRegion('All Regions')}
+            >
+              Show all
             </button>
           )}
         </div>
@@ -284,7 +283,7 @@ export function HomeClient({
       {/* Directory */}
       <section id="browse" className="home-browse" aria-label="Browse countries">
         <div className="home-section-head home-section-head-tight">
-          <h2 className="home-section-title">Countries</h2>
+          <h2 className="home-section-title">All countries</h2>
           <span className="home-browse-count">
             {filtered.length}
             <span className="home-browse-count-total"> / {countries.length}</span>
@@ -303,7 +302,7 @@ export function HomeClient({
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search country, capital, or code…"
+                placeholder="Type a country, capital, or code…"
                 autoComplete="off"
               />
             </div>
@@ -370,7 +369,7 @@ export function HomeClient({
           </ul>
 
           {filtered.length === 0 && (
-            <p className="no-results">No matches. Try another search or region.</p>
+            <p className="no-results">No matches — try another name or region.</p>
           )}
         </div>
       </section>

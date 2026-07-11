@@ -156,7 +156,7 @@ export const MAP_LAYERS: MapLayerDef[] = [
     shortName: 'Displacement',
     kind: 'numeric',
     description:
-      'A classroom proxy for conflict stress: refugees + IDPs hosted or reported (log scale). Not a full political-stability index.',
+      'Proxy for conflict stress: refugees + IDPs reported (log scale). Not a full political-stability index.',
     legendTitle: 'Refugees + IDPs (approx.)',
     sourceNote:
       'Parsed from Factbook “Refugees and internally displaced persons.” Higher values often signal conflict or major hosting.',
@@ -176,7 +176,7 @@ export const MAP_LAYERS: MapLayerDef[] = [
     description: 'How connected an economy is online — internet access as a simple globalization signal.',
     legendTitle: 'Internet users (%)',
     sourceNote:
-      'Uses internet access % (available consistently). Export values vary too much in free text for a clean choropleth.',
+      'Internet users (% of population) — a simple stand-in for global connection. Export totals vary too much in free text for a clean map.',
     colors: ['#f2f0f7', '#cbc9e2', '#9e9ac8', '#756bb1', '#54278f'],
     format: (n) => `${n.toFixed(0)}%`,
     breaks: [25, 50, 70, 90],

@@ -4,7 +4,7 @@ import { DailyClient } from './DailyClient';
 
 export const metadata = {
   title: 'Country of the Day — World Factbook',
-  description: 'Discover a random country every day. Great for classroom bellringers.',
+  description: 'Guess the country from a few key facts — then reveal the answer.',
 };
 
 export default function DailyPage() {

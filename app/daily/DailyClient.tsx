@@ -33,7 +33,7 @@ export function DailyClient({ countries }: { countries: Country[] }) {
     <div className="daily-container">
       <h1 className="daily-title">Country of the Day</h1>
       <p className="daily-subtitle">
-        Great for bellringers — project this and have students guess before you hit reveal!
+        Read the clues. Can you name the country before you reveal it?
       </p>
 
       <div className="daily-card">

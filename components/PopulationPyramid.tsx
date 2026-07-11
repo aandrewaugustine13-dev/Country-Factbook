@@ -188,7 +188,7 @@ export function PopulationPyramid({
       {showGuide && (
         <div className="pyramid-guide">
           <p className="pyramid-guide-summary">{meta.summary}</p>
-          <p className="pyramid-guide-label">Think about</p>
+          <p className="pyramid-guide-label">Ask yourself</p>
           <ul className="pyramid-guide-questions">
             {meta.questions.map((q) => (
               <li key={q}>{q}</li>

@@ -241,7 +241,7 @@ export function PyramidsClient({ pyramids }: { pyramids: PyramidData[] }) {
         </div>
 
         <div className="preset-section pyramid-presets">
-          <span className="preset-label">Classroom quick sets</span>
+          <span className="preset-label">Quick sets</span>
           <div className="compare-presets">
             {CLASSROOM_PRESETS.map((preset) => (
               <button
@@ -285,7 +285,7 @@ export function PyramidsClient({ pyramids }: { pyramids: PyramidData[] }) {
         <div className="compare-empty">
           <p>Select 1–4 countries to view population pyramids.</p>
           <p className="pyramid-empty-hint">
-            Try a classroom preset above, or search for Nigeria and Japan to see a stark contrast.
+            Try a quick set above, or search for Nigeria and Japan for a stark contrast.
           </p>
         </div>
       ) : (
@@ -306,7 +306,7 @@ export function PyramidsClient({ pyramids }: { pyramids: PyramidData[] }) {
 
       {selectedPyramids.length >= 2 && (
         <section className="pyramid-class-prompt">
-          <h2>Class discussion</h2>
+          <h2>Look closer</h2>
           <ol>
             <li>
               Which country has the <strong>widest base</strong> (largest share under 15)? What might

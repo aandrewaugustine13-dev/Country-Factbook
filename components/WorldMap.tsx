@@ -450,8 +450,8 @@ export function WorldMap({ countries }: { countries: MapCountrySummary[] }) {
           </div>
 
           <p className="map-student-tip">
-            <strong>Classroom tip:</strong> Ask students what patterns they notice (coastal vs inland,
-            Global North vs South) before opening country cards. Toggle layers one at a time.
+            <strong>Try this:</strong> Switch layers and look for patterns — coasts vs interiors,
+            wealth vs density — then click a country to dig in.
           </p>
         </div>
       </div>

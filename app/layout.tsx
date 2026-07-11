@@ -15,7 +15,7 @@ const plex = IBM_Plex_Sans({
 export const metadata: Metadata = {
   title: 'The World Factbook — Reference Edition 2026',
   description:
-    'A modern, open-source reference for country profiles and statistics — inspired by the CIA World Factbook.',
+    'Explore countries with interactive maps, comparisons, and population pyramids. Open World Factbook data for students.',
 };
 
 export default function RootLayout({
@@ -61,7 +61,7 @@ export default function RootLayout({
         <footer className="site-footer">
           <div className="site-footer-inner">
             <p>
-              Public-domain Factbook data · Independent classroom reference · Not a government site
+              Public-domain Factbook data · Independent project · Not a government site
             </p>
           </div>
         </footer>
