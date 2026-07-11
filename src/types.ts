@@ -46,6 +46,9 @@ export interface CountryProfile {
   factbook: FactbookSections | null;
 }
 
+/** Age-band population pyramid (data/population-pyramids.json). */
+export type { PopulationPyramid, PopulationBand, PyramidShape } from './population-pyramid';
+
 /**
  * Numeric/text metrics for compare / quiz / daily features
  * (data/comparison-data.json), parsed from Factbook free text.

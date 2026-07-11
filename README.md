@@ -13,6 +13,7 @@ This site provides authoritative country profiles and statistics for researchers
 - Grid and list views
 - Full Factbook section profiles (Introduction through Transnational Issues)
 - Country comparison, quiz, and “country of the day”
+- **Population pyramid comparison** (`/pyramids`) for classroom age-structure analysis
 - Individual country pages (`/countries/USA`, `/countries/CHN`, etc.)
 - Built with Next.js 15 + Tailwind — static export friendly
 
@@ -45,6 +46,27 @@ The script [`build-data.ts`](./build-data.ts) rebuilds both app datasets:
 | --- | --- |
 | `data/all-countries.json` | Full profiles + nested Factbook sections |
 | `data/comparison-data.json` | Parsed numeric metrics for compare / quiz / daily |
+| `data/population-pyramids.json` | Age structure bands (0–14 / 15–64 / 65+) for pyramid charts |
+
+### Population pyramids (classroom tool)
+Open **`/pyramids`** to compare 1–4 countries side by side (Recharts back-to-back bars).
+
+Data is parsed from Factbook **Age structure** text into:
+
+```json
+{
+  "code": "NGA",
+  "name": "Nigeria",
+  "bands": [
+    { "id": "0-14", "label": "0–14 years", "percent": 40.4, "male": 48856606, "female": 46770810 },
+    { "id": "15-64", "percent": 56.2, "male": 66897900, "female": 66187584 },
+    { "id": "65+", "percent": 3.4, "male": 3759943, "female": 4274287 }
+  ],
+  "shape": "expansive"
+}
+```
+
+Rebuild with `npm run build:data` after refreshing Factbook sources. Parser lives in `src/population-pyramid.ts`.
 
 ### What it does
 1. Downloads base country metadata (mledoze/countries).

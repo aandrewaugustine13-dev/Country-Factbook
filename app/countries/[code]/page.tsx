@@ -1,10 +1,13 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import allCountries from '@/data/all-countries.json';
+import pyramidData from '@/data/population-pyramids.json';
 import { CountryContent } from '@/components/CountryContent';
 import { AddToCompareButton } from '@/components/AddToCompareButton';
 import { CountryMap } from '@/components/CountryMap';
+import { CountryPyramidSection } from '@/components/CountryPyramidSection';
 import type { CountryProfile, FactbookSections } from '@/src/types';
+import type { PopulationPyramid } from '@/src/population-pyramid';
 
 export function generateStaticParams() {
   return allCountries.map((c) => ({ code: c.code }));
@@ -51,6 +54,10 @@ export default async function CountryPage({
   const activeSections = fb
     ? SECTION_ORDER.filter((s) => fb[s] && fb[s].length > 0)
     : [];
+
+  const pyramid = (pyramidData as PopulationPyramid[]).find(
+    (p) => p.code === country.code
+  );
 
   return (
     <div className="container">
@@ -123,6 +130,12 @@ export default async function CountryPage({
             lng={country.latlng[1]}
             name={country.name_common}
           />
+        </div>
+      )}
+
+      {pyramid && (
+        <div style={{ marginBottom: '1.25rem' }}>
+          <CountryPyramidSection data={pyramid} />
         </div>
       )}
 

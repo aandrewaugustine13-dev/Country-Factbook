@@ -1,0 +1,7427 @@
+[
+  {
+    "code": "AFG",
+    "name": "Afghanistan",
+    "flag_url": "https://flagcdn.com/w320/af.png",
+    "flag_emoji": "🇦🇫",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 39.6,
+        "male": 8062407,
+        "female": 7818897
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 57.5,
+        "male": 11702734,
+        "female": 11372249
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 2.9,
+        "male": 535925,
+        "female": 629340
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 40121552
+  },
+  {
+    "code": "ALB",
+    "name": "Albania",
+    "flag_url": "https://flagcdn.com/w320/al.png",
+    "flag_emoji": "🇦🇱",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 18,
+        "male": 292296,
+        "female": 267052
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 66.9,
+        "male": 1023515,
+        "female": 1055388
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 15.1,
+        "male": 215252,
+        "female": 253597
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 3107100
+  },
+  {
+    "code": "DZA",
+    "name": "Algeria",
+    "flag_url": "https://flagcdn.com/w320/dz.png",
+    "flag_emoji": "🇩🇿",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 30.8,
+        "male": 7411337,
+        "female": 7062794
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 62.3,
+        "male": 14846102,
+        "female": 14441034
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 6.9,
+        "male": 1597382,
+        "female": 1663824
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 47022473
+  },
+  {
+    "code": "ASM",
+    "name": "American Samoa",
+    "flag_url": "https://flagcdn.com/w320/as.png",
+    "flag_emoji": "🇦🇸",
+    "region": "Oceania",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 25.3,
+        "male": 5738,
+        "female": 5387
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 66,
+        "male": 14291,
+        "female": 14679
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 8.7,
+        "male": 1775,
+        "female": 2025
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 43895
+  },
+  {
+    "code": "AND",
+    "name": "Andorra",
+    "flag_url": "https://flagcdn.com/w320/ad.png",
+    "flag_emoji": "🇦🇩",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 12,
+        "male": 5276,
+        "female": 4954
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 67.7,
+        "male": 29562,
+        "female": 28201
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 20.4,
+        "male": 8814,
+        "female": 8563
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 85370
+  },
+  {
+    "code": "AGO",
+    "name": "Angola",
+    "flag_url": "https://flagcdn.com/w320/ao.png",
+    "flag_emoji": "🇦🇴",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 46.9,
+        "male": 8752419,
+        "female": 8701422
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 50.7,
+        "male": 9076080,
+        "female": 9795035
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 2.4,
+        "male": 367559,
+        "female": 509546
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 37202061
+  },
+  {
+    "code": "AIA",
+    "name": "Anguilla",
+    "flag_url": "https://flagcdn.com/w320/ai.png",
+    "flag_emoji": "🇦🇮",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 20.8,
+        "male": 2056,
+        "female": 1992
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 67.5,
+        "male": 5958,
+        "female": 7147
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 11.7,
+        "male": 1093,
+        "female": 1170
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 19416
+  },
+  {
+    "code": "ATG",
+    "name": "Antigua and Barbuda",
+    "flag_url": "https://flagcdn.com/w320/ag.png",
+    "flag_emoji": "🇦🇬",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 21.8,
+        "male": 11384,
+        "female": 11034
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 67.6,
+        "male": 32312,
+        "female": 37094
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 10.5,
+        "male": 4615,
+        "female": 6195
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 102634
+  },
+  {
+    "code": "ARG",
+    "name": "Argentina",
+    "flag_url": "https://flagcdn.com/w320/ar.png",
+    "flag_emoji": "🇦🇷",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 23.3,
+        "male": 5632983,
+        "female": 5301778
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 63.9,
+        "male": 15071215,
+        "female": 14956069
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 12.8,
+        "male": 2570596,
+        "female": 3461743
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 46994384
+  },
+  {
+    "code": "ARM",
+    "name": "Armenia",
+    "flag_url": "https://flagcdn.com/w320/am.png",
+    "flag_emoji": "🇦🇲",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 17.7,
+        "male": 275589,
+        "female": 250630
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 67,
+        "male": 991490,
+        "female": 1004101
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 15.3,
+        "male": 189336,
+        "female": 265619
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 2976765
+  },
+  {
+    "code": "ABW",
+    "name": "Aruba",
+    "flag_url": "https://flagcdn.com/w320/aw.png",
+    "flag_emoji": "🇦🇼",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 17.2,
+        "male": 10815,
+        "female": 10747
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 65.7,
+        "male": 39621,
+        "female": 42487
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 17.1,
+        "male": 8665,
+        "female": 12728
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 125063
+  },
+  {
+    "code": "AUS",
+    "name": "Australia",
+    "flag_url": "https://flagcdn.com/w320/au.png",
+    "flag_emoji": "🇦🇺",
+    "region": "Oceania",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 18.3,
+        "male": 2526772,
+        "female": 2369425
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 64.7,
+        "male": 8688023,
+        "female": 8640671
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 17,
+        "male": 2090315,
+        "female": 2453392
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 26768598
+  },
+  {
+    "code": "AUT",
+    "name": "Austria",
+    "flag_url": "https://flagcdn.com/w320/at.png",
+    "flag_emoji": "🇦🇹",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 14.1,
+        "male": 648639,
+        "female": 616334
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 64.7,
+        "male": 2904587,
+        "female": 2898339
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 21.2,
+        "male": 839672,
+        "female": 1060411
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 8967982
+  },
+  {
+    "code": "AZE",
+    "name": "Azerbaijan",
+    "flag_url": "https://flagcdn.com/w320/az.png",
+    "flag_emoji": "🇦🇿",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 22.3,
+        "male": 1269241,
+        "female": 1104529
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 68.7,
+        "male": 3659441,
+        "female": 3656493
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 9,
+        "male": 401551,
+        "female": 558984
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 10650239
+  },
+  {
+    "code": "BHS",
+    "name": "Bahamas",
+    "flag_url": "https://flagcdn.com/w320/bs.png",
+    "flag_emoji": "🇧🇸",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 21.4,
+        "male": 41675,
+        "female": 46363
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 70,
+        "male": 132626,
+        "female": 154866
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 8.6,
+        "male": 15799,
+        "female": 19533
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 410862
+  },
+  {
+    "code": "BHR",
+    "name": "Bahrain",
+    "flag_url": "https://flagcdn.com/w320/bh.png",
+    "flag_emoji": "🇧🇭",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 18.1,
+        "male": 143399,
+        "female": 139667
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 77.7,
+        "male": 762190,
+        "female": 454616
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 4.3,
+        "male": 34433,
+        "female": 32583
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 1566888
+  },
+  {
+    "code": "BGD",
+    "name": "Bangladesh",
+    "flag_url": "https://flagcdn.com/w320/bd.png",
+    "flag_emoji": "🇧🇩",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 25.1,
+        "male": 21540493,
+        "female": 20800712
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 67.1,
+        "male": 55071592,
+        "female": 58180322
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 7.8,
+        "male": 6096167,
+        "female": 7007898
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 168697184
+  },
+  {
+    "code": "BRB",
+    "name": "Barbados",
+    "flag_url": "https://flagcdn.com/w320/bb.png",
+    "flag_emoji": "🇧🇧",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 16.6,
+        "male": 25273,
+        "female": 25284
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 67,
+        "male": 100328,
+        "female": 103536
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 16.3,
+        "male": 20986,
+        "female": 28732
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 304139
+  },
+  {
+    "code": "BLR",
+    "name": "Belarus",
+    "flag_url": "https://flagcdn.com/w320/by.png",
+    "flag_emoji": "🇧🇾",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 16.1,
+        "male": 787849,
+        "female": 741293
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 66.1,
+        "male": 3073507,
+        "female": 3204088
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 17.8,
+        "male": 572483,
+        "female": 1122231
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 9501451
+  },
+  {
+    "code": "BEL",
+    "name": "Belgium",
+    "flag_url": "https://flagcdn.com/w320/be.png",
+    "flag_emoji": "🇧🇪",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 16.9,
+        "male": 1038578,
+        "female": 990215
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 62.8,
+        "male": 3796844,
+        "female": 3730784
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 20.2,
+        "male": 1073635,
+        "female": 1347578
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 11977634
+  },
+  {
+    "code": "BLZ",
+    "name": "Belize",
+    "flag_url": "https://flagcdn.com/w320/bz.png",
+    "flag_emoji": "🇧🇿",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 27.7,
+        "male": 58529,
+        "female": 56811
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 66.7,
+        "male": 135903,
+        "female": 141503
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 5.5,
+        "male": 11463,
+        "female": 11580
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 415789
+  },
+  {
+    "code": "BEN",
+    "name": "Benin",
+    "flag_url": "https://flagcdn.com/w320/bj.png",
+    "flag_emoji": "🇧🇯",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 45.3,
+        "male": 3360027,
+        "female": 3294201
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 52.2,
+        "male": 3727040,
+        "female": 3951786
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 2.5,
+        "male": 166191,
+        "female": 197807
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 14697052
+  },
+  {
+    "code": "BMU",
+    "name": "Bermuda",
+    "flag_url": "https://flagcdn.com/w320/bm.png",
+    "flag_emoji": "🇧🇲",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 16.4,
+        "male": 6133,
+        "female": 5817
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 60.9,
+        "male": 22247,
+        "female": 22113
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 22.7,
+        "male": 7021,
+        "female": 9469
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 72800
+  },
+  {
+    "code": "BTN",
+    "name": "Bhutan",
+    "flag_url": "https://flagcdn.com/w320/bt.png",
+    "flag_emoji": "🇧🇹",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 23.1,
+        "male": 104771,
+        "female": 99981
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 70.2,
+        "male": 322497,
+        "female": 298324
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 6.7,
+        "male": 30397,
+        "female": 28576
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 884546
+  },
+  {
+    "code": "BOL",
+    "name": "Bolivia",
+    "flag_url": "https://flagcdn.com/w320/bo.png",
+    "flag_emoji": "🇧🇴",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 28.5,
+        "male": 1792803,
+        "female": 1718081
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 64.5,
+        "male": 4002587,
+        "female": 3937953
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 7,
+        "male": 397384,
+        "female": 463166
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 12311974
+  },
+  {
+    "code": "BIH",
+    "name": "Bosnia and Herzegovina",
+    "flag_url": "https://flagcdn.com/w320/ba.png",
+    "flag_emoji": "🇧🇦",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 13.1,
+        "male": 257444,
+        "female": 240209
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 68.3,
+        "male": 1305271,
+        "female": 1290920
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 18.6,
+        "male": 289449,
+        "female": 415378
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 3798671
+  },
+  {
+    "code": "BWA",
+    "name": "Botswana",
+    "flag_url": "https://flagcdn.com/w320/bw.png",
+    "flag_emoji": "🇧🇼",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 28.7,
+        "male": 355583,
+        "female": 348863
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 65.2,
+        "male": 759210,
+        "female": 837752
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 6.1,
+        "male": 59513,
+        "female": 89747
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 2450668
+  },
+  {
+    "code": "BRA",
+    "name": "Brazil",
+    "flag_url": "https://flagcdn.com/w320/br.png",
+    "flag_emoji": "🇧🇷",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 19.6,
+        "male": 22025593,
+        "female": 21088398
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 69.5,
+        "male": 75889089,
+        "female": 77118722
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 10.9,
+        "male": 10251809,
+        "female": 13677901
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 220051512
+  },
+  {
+    "code": "VGB",
+    "name": "British Virgin Islands",
+    "flag_url": "https://flagcdn.com/w320/vg.png",
+    "flag_emoji": "🇻🇬",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 16.6,
+        "male": 3298,
+        "female": 3351
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 71.3,
+        "male": 13455,
+        "female": 15152
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 12.1,
+        "male": 2289,
+        "female": 2557
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 40102
+  },
+  {
+    "code": "BRN",
+    "name": "Brunei",
+    "flag_url": "https://flagcdn.com/w320/bn.png",
+    "flag_emoji": "🇧🇳",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 21.7,
+        "male": 54924,
+        "female": 51710
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 70.8,
+        "male": 166289,
+        "female": 182011
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 7.5,
+        "male": 17927,
+        "female": 19039
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 491900
+  },
+  {
+    "code": "BGR",
+    "name": "Bulgaria",
+    "flag_url": "https://flagcdn.com/w320/bg.png",
+    "flag_emoji": "🇧🇬",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 13.8,
+        "male": 479586,
+        "female": 453423
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 65.2,
+        "male": 2250962,
+        "female": 2171279
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 21,
+        "male": 572943,
+        "female": 854466
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 6782659
+  },
+  {
+    "code": "BFA",
+    "name": "Burkina Faso",
+    "flag_url": "https://flagcdn.com/w320/bf.png",
+    "flag_emoji": "🇧🇫",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 41.6,
+        "male": 4868488,
+        "female": 4727316
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 55.1,
+        "male": 6116674,
+        "female": 6590775
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 3.2,
+        "male": 312587,
+        "female": 426359
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 23042199
+  },
+  {
+    "code": "BDI",
+    "name": "Burundi",
+    "flag_url": "https://flagcdn.com/w320/bi.png",
+    "flag_emoji": "🇧🇮",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 42.3,
+        "male": 2895275,
+        "female": 2848286
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 54.4,
+        "male": 3662688,
+        "female": 3727022
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 3.4,
+        "male": 197493,
+        "female": 259338
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 13590102
+  },
+  {
+    "code": "KHM",
+    "name": "Cambodia",
+    "flag_url": "https://flagcdn.com/w320/kh.png",
+    "flag_emoji": "🇰🇭",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 28.9,
+        "male": 2497056,
+        "female": 2436618
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 65.8,
+        "male": 5456941,
+        "female": 5765206
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 5.3,
+        "male": 323591,
+        "female": 584257
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 17063669
+  },
+  {
+    "code": "CMR",
+    "name": "Cameroon",
+    "flag_url": "https://flagcdn.com/w320/cm.png",
+    "flag_emoji": "🇨🇲",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 41.5,
+        "male": 6477438,
+        "female": 6364987
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 55.3,
+        "male": 8488522,
+        "female": 8638519
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 3.2,
+        "male": 463628,
+        "female": 533011
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 30966105
+  },
+  {
+    "code": "CAN",
+    "name": "Canada",
+    "flag_url": "https://flagcdn.com/w320/ca.png",
+    "flag_emoji": "🇨🇦",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 15.5,
+        "male": 3098478,
+        "female": 2929148
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 63.4,
+        "male": 12382422,
+        "female": 12227512
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 21,
+        "male": 3753829,
+        "female": 4403424
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 38794813
+  },
+  {
+    "code": "CPV",
+    "name": "Cape Verde",
+    "flag_url": "https://flagcdn.com/w320/cv.png",
+    "flag_emoji": "🇨🇻",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 26.4,
+        "male": 80973,
+        "female": 80129
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 67.2,
+        "male": 201084,
+        "female": 209676
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 6.4,
+        "male": 15049,
+        "female": 24103
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 611014
+  },
+  {
+    "code": "CYM",
+    "name": "Cayman Islands",
+    "flag_url": "https://flagcdn.com/w320/ky.png",
+    "flag_emoji": "🇰🇾",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 17.4,
+        "male": 5845,
+        "female": 5767
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 65.9,
+        "male": 21480,
+        "female": 22456
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 16.7,
+        "male": 5054,
+        "female": 6051
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 66653
+  },
+  {
+    "code": "CAF",
+    "name": "Central African Republic",
+    "flag_url": "https://flagcdn.com/w320/cf.png",
+    "flag_emoji": "🇨🇫",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 38.5,
+        "male": 1113795,
+        "female": 1063971
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 58,
+        "male": 1613770,
+        "female": 1662522
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 3.5,
+        "male": 86932,
+        "female": 109967
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 5650957
+  },
+  {
+    "code": "TCD",
+    "name": "Chad",
+    "flag_url": "https://flagcdn.com/w320/td.png",
+    "flag_emoji": "🇹🇩",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 45.8,
+        "male": 4428132,
+        "female": 4323398
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 51.7,
+        "male": 4831744,
+        "female": 5031383
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 2.5,
+        "male": 204823,
+        "female": 274115
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 19093595
+  },
+  {
+    "code": "CHL",
+    "name": "Chile",
+    "flag_url": "https://flagcdn.com/w320/cl.png",
+    "flag_emoji": "🇨🇱",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 19.2,
+        "male": 1822908,
+        "female": 1751528
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 67.3,
+        "male": 6274620,
+        "female": 6278467
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 13.6,
+        "male": 1072208,
+        "female": 1464921
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 18664652
+  },
+  {
+    "code": "CHN",
+    "name": "China",
+    "flag_url": "https://flagcdn.com/w320/cn.png",
+    "flag_emoji": "🇨🇳",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 16.3,
+        "male": 122644111,
+        "female": 107926176
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 69.3,
+        "male": 505412555,
+        "female": 476599793
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 14.4,
+        "male": 94144838,
+        "female": 109315797
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 1416043270
+  },
+  {
+    "code": "COL",
+    "name": "Colombia",
+    "flag_url": "https://flagcdn.com/w320/co.png",
+    "flag_emoji": "🇨🇴",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 22.3,
+        "male": 5643995,
+        "female": 5394147
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 66.5,
+        "male": 16127377,
+        "female": 16859161
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 11.2,
+        "male": 2434999,
+        "female": 3128678
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 49588357
+  },
+  {
+    "code": "COM",
+    "name": "Comoros",
+    "flag_url": "https://flagcdn.com/w320/km.png",
+    "flag_emoji": "🇰🇲",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 32.6,
+        "male": 146480,
+        "female": 146626
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 62.8,
+        "male": 271139,
+        "female": 294231
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 4.6,
+        "male": 18139,
+        "female": 23526
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 900141
+  },
+  {
+    "code": "COG",
+    "name": "Congo",
+    "flag_url": "https://flagcdn.com/w320/cg.png",
+    "flag_emoji": "🇨🇬",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 37.8,
+        "male": 1162298,
+        "female": 1143668
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 57.8,
+        "male": 1770337,
+        "female": 1756925
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 4.3,
+        "male": 113338,
+        "female": 151099
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 6097665
+  },
+  {
+    "code": "COK",
+    "name": "Cook Islands",
+    "flag_url": "https://flagcdn.com/w320/ck.png",
+    "flag_emoji": "🇨🇰",
+    "region": "Oceania",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 18.2,
+        "male": 738,
+        "female": 671
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 65.9,
+        "male": 2634,
+        "female": 2479
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 16,
+        "male": 608,
+        "female": 631
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 7761
+  },
+  {
+    "code": "CRI",
+    "name": "Costa Rica",
+    "flag_url": "https://flagcdn.com/w320/cr.png",
+    "flag_emoji": "🇨🇷",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 18.8,
+        "male": 506041,
+        "female": 482481
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 70.2,
+        "male": 1862872,
+        "female": 1832024
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 11.1,
+        "male": 266568,
+        "female": 315589
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 5265575
+  },
+  {
+    "code": "HRV",
+    "name": "Croatia",
+    "flag_url": "https://flagcdn.com/w320/hr.png",
+    "flag_emoji": "🇭🇷",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 13.8,
+        "male": 296527,
+        "female": 278236
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 63.1,
+        "male": 1307814,
+        "female": 1309394
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 23.1,
+        "male": 399090,
+        "female": 559055
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 4150116
+  },
+  {
+    "code": "CUB",
+    "name": "Cuba",
+    "flag_url": "https://flagcdn.com/w320/cu.png",
+    "flag_emoji": "🇨🇺",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 16.3,
+        "male": 918066,
+        "female": 866578
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 66.5,
+        "male": 3670531,
+        "female": 3623658
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 17.2,
+        "male": 852910,
+        "female": 1034295
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 10966038
+  },
+  {
+    "code": "CUW",
+    "name": "Curaçao",
+    "flag_url": "https://flagcdn.com/w320/cw.png",
+    "flag_emoji": "🇨🇼",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 19.2,
+        "male": 15069,
+        "female": 14337
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 62.3,
+        "male": 47258,
+        "female": 48217
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 18.5,
+        "male": 11428,
+        "female": 16980
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 153289
+  },
+  {
+    "code": "CYP",
+    "name": "Cyprus",
+    "flag_url": "https://flagcdn.com/w320/cy.png",
+    "flag_emoji": "🇨🇾",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 15.6,
+        "male": 105533,
+        "female": 100099
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 70,
+        "male": 486569,
+        "female": 437651
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 14.4,
+        "male": 83094,
+        "female": 107579
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 1320525
+  },
+  {
+    "code": "CZE",
+    "name": "Czechia",
+    "flag_url": "https://flagcdn.com/w320/cz.png",
+    "flag_emoji": "🇨🇿",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 15.7,
+        "male": 871303,
+        "female": 826896
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 63.8,
+        "male": 3542298,
+        "female": 3373127
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 20.5,
+        "male": 922136,
+        "female": 1302130
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 10837890
+  },
+  {
+    "code": "DNK",
+    "name": "Denmark",
+    "flag_url": "https://flagcdn.com/w320/dk.png",
+    "flag_emoji": "🇩🇰",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 16.2,
+        "male": 496793,
+        "female": 471018
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 62.9,
+        "male": 1903315,
+        "female": 1856615
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 20.8,
+        "male": 575153,
+        "female": 670242
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 5973136
+  },
+  {
+    "code": "DJI",
+    "name": "Djibouti",
+    "flag_url": "https://flagcdn.com/w320/dj.png",
+    "flag_emoji": "🇩🇯",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 28.4,
+        "male": 141829,
+        "female": 140696
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 67.4,
+        "male": 290654,
+        "female": 379778
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 4.2,
+        "male": 18313,
+        "female": 23704
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 994974
+  },
+  {
+    "code": "DMA",
+    "name": "Dominica",
+    "flag_url": "https://flagcdn.com/w320/dm.png",
+    "flag_emoji": "🇩🇲",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 20.7,
+        "male": 7891,
+        "female": 7530
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 65.6,
+        "male": 25000,
+        "female": 24009
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 13.7,
+        "male": 4862,
+        "female": 5369
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 74661
+  },
+  {
+    "code": "DOM",
+    "name": "Dominican Republic",
+    "flag_url": "https://flagcdn.com/w320/do.png",
+    "flag_emoji": "🇩🇴",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 25.5,
+        "male": 1402847,
+        "female": 1358833
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 66.9,
+        "male": 3667584,
+        "female": 3563848
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 7.6,
+        "male": 395345,
+        "female": 427400
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 10815857
+  },
+  {
+    "code": "COD",
+    "name": "DR Congo",
+    "flag_url": "https://flagcdn.com/w320/cd.png",
+    "flag_emoji": "🇨🇩",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 45.7,
+        "male": 26584268,
+        "female": 26208891
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 51.8,
+        "male": 29845450,
+        "female": 29884958
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 2.5,
+        "male": 1258442,
+        "female": 1621018
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 115403027
+  },
+  {
+    "code": "ECU",
+    "name": "Ecuador",
+    "flag_url": "https://flagcdn.com/w320/ec.png",
+    "flag_emoji": "🇪🇨",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 26.8,
+        "male": 2505729,
+        "female": 2395198
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 64.1,
+        "male": 5771234,
+        "female": 5972938
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 9.1,
+        "male": 746207,
+        "female": 918678
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 18309984
+  },
+  {
+    "code": "EGY",
+    "name": "Egypt",
+    "flag_url": "https://flagcdn.com/w320/eg.png",
+    "flag_emoji": "🇪🇬",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 33.8,
+        "male": 19349395,
+        "female": 18243571
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 60.6,
+        "male": 34646369,
+        "female": 32792151
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 5.6,
+        "male": 3146720,
+        "female": 3069042
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 111247248
+  },
+  {
+    "code": "SLV",
+    "name": "El Salvador",
+    "flag_url": "https://flagcdn.com/w320/sv.png",
+    "flag_emoji": "🇸🇻",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 25.3,
+        "male": 855841,
+        "female": 818642
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 66.3,
+        "male": 2077745,
+        "female": 2317416
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 8.4,
+        "male": 238658,
+        "female": 320400
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 6628702
+  },
+  {
+    "code": "GNQ",
+    "name": "Equatorial Guinea",
+    "flag_url": "https://flagcdn.com/w320/gq.png",
+    "flag_emoji": "🇬🇶",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 35.6,
+        "male": 330636,
+        "female": 309528
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 59.4,
+        "male": 585139,
+        "female": 481121
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 5,
+        "male": 46610,
+        "female": 42800
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 1795834
+  },
+  {
+    "code": "ERI",
+    "name": "Eritrea",
+    "flag_url": "https://flagcdn.com/w320/er.png",
+    "flag_emoji": "🇪🇷",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 35.7,
+        "male": 1138382,
+        "female": 1123925
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 60.3,
+        "male": 1882547,
+        "female": 1944266
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 4,
+        "male": 101504,
+        "female": 153332
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 6343956
+  },
+  {
+    "code": "EST",
+    "name": "Estonia",
+    "flag_url": "https://flagcdn.com/w320/ee.png",
+    "flag_emoji": "🇪🇪",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 15.2,
+        "male": 92980,
+        "female": 88753
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 62.2,
+        "male": 373989,
+        "female": 368113
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 22.6,
+        "male": 96110,
+        "female": 173846
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 1193791
+  },
+  {
+    "code": "SWZ",
+    "name": "Eswatini",
+    "flag_url": "https://flagcdn.com/w320/sz.png",
+    "flag_emoji": "🇸🇿",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 31.6,
+        "male": 180328,
+        "female": 179840
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 64.3,
+        "male": 341298,
+        "female": 390884
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 4,
+        "male": 16974,
+        "female": 28765
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 1138089
+  },
+  {
+    "code": "ETH",
+    "name": "Ethiopia",
+    "flag_url": "https://flagcdn.com/w320/et.png",
+    "flag_emoji": "🇪🇹",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 38.7,
+        "male": 23092496,
+        "female": 22765882
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 58,
+        "male": 34175328,
+        "female": 34536238
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 3.4,
+        "male": 1794269,
+        "female": 2186085
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 118550298
+  },
+  {
+    "code": "FRO",
+    "name": "Faroe Islands",
+    "flag_url": "https://flagcdn.com/w320/fo.png",
+    "flag_emoji": "🇫🇴",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 20,
+        "male": 5489,
+        "female": 5122
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 61.5,
+        "male": 17188,
+        "female": 15346
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 18.5,
+        "male": 4723,
+        "female": 5065
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 52933
+  },
+  {
+    "code": "FJI",
+    "name": "Fiji",
+    "flag_url": "https://flagcdn.com/w320/fj.png",
+    "flag_emoji": "🇫🇯",
+    "region": "Oceania",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 24.7,
+        "male": 119910,
+        "female": 114904
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 66.4,
+        "male": 323339,
+        "female": 308921
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 8.9,
+        "male": 39055,
+        "female": 45482
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 951611
+  },
+  {
+    "code": "FIN",
+    "name": "Finland",
+    "flag_url": "https://flagcdn.com/w320/fi.png",
+    "flag_emoji": "🇫🇮",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 16.2,
+        "male": 464939,
+        "female": 444585
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 60.3,
+        "male": 1725072,
+        "female": 1668604
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 23.5,
+        "male": 583645,
+        "female": 739569
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 5626414
+  },
+  {
+    "code": "FRA",
+    "name": "France",
+    "flag_url": "https://flagcdn.com/w320/fr.png",
+    "flag_emoji": "🇫🇷",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 17.3,
+        "male": 6060087,
+        "female": 5792805
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 60.7,
+        "male": 20875861,
+        "female": 20615847
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 22,
+        "male": 6621146,
+        "female": 8408845
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 68374591
+  },
+  {
+    "code": "PYF",
+    "name": "French Polynesia",
+    "flag_url": "https://flagcdn.com/w320/pf.png",
+    "flag_emoji": "🇵🇫",
+    "region": "Oceania",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 20.3,
+        "male": 31659,
+        "female": 30006
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 68.7,
+        "male": 107162,
+        "female": 101228
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 11,
+        "male": 16317,
+        "female": 17168
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 303540
+  },
+  {
+    "code": "GAB",
+    "name": "Gabon",
+    "flag_url": "https://flagcdn.com/w320/ga.png",
+    "flag_emoji": "🇬🇦",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 34.6,
+        "male": 429133,
+        "female": 421120
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 61.1,
+        "male": 787480,
+        "female": 711913
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 4.3,
+        "male": 53410,
+        "female": 52049
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 2455105
+  },
+  {
+    "code": "GMB",
+    "name": "Gambia",
+    "flag_url": "https://flagcdn.com/w320/gm.png",
+    "flag_emoji": "🇬🇲",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 38.2,
+        "male": 486472,
+        "female": 477309
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 58.1,
+        "male": 723360,
+        "female": 743127
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 3.7,
+        "male": 40658,
+        "female": 52401
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 2523327
+  },
+  {
+    "code": "GEO",
+    "name": "Georgia",
+    "flag_url": "https://flagcdn.com/w320/ge.png",
+    "flag_emoji": "🇬🇪",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 20.6,
+        "male": 520091,
+        "female": 489882
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 62.7,
+        "male": 1500036,
+        "female": 1572637
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 16.7,
+        "male": 322941,
+        "female": 495374
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 4900961
+  },
+  {
+    "code": "DEU",
+    "name": "Germany",
+    "flag_url": "https://flagcdn.com/w320/de.png",
+    "flag_emoji": "🇩🇪",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 13.8,
+        "male": 5925800,
+        "female": 5688603
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 62.5,
+        "male": 26705657,
+        "female": 25875865
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 23.7,
+        "male": 8941245,
+        "female": 10981930
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 84119100
+  },
+  {
+    "code": "GHA",
+    "name": "Ghana",
+    "flag_url": "https://flagcdn.com/w320/gh.png",
+    "flag_emoji": "🇬🇭",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 37.4,
+        "male": 6527386,
+        "female": 6400245
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 58.2,
+        "male": 9690498,
+        "female": 10444197
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 4.4,
+        "male": 684189,
+        "female": 842577
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 34589092
+  },
+  {
+    "code": "GIB",
+    "name": "Gibraltar",
+    "flag_url": "https://flagcdn.com/w320/gi.png",
+    "flag_emoji": "🇬🇮",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 20,
+        "male": 3045,
+        "female": 2895
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 62.5,
+        "male": 9383,
+        "female": 9179
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 17.5,
+        "male": 2491,
+        "female": 2690
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 29683
+  },
+  {
+    "code": "GRC",
+    "name": "Greece",
+    "flag_url": "https://flagcdn.com/w320/gr.png",
+    "flag_emoji": "🇬🇷",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 13.8,
+        "male": 742131,
+        "female": 699079
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 62.6,
+        "male": 3278906,
+        "female": 3267140
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 23.6,
+        "male": 1096825,
+        "female": 1377010
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 10461091
+  },
+  {
+    "code": "GRL",
+    "name": "Greenland",
+    "flag_url": "https://flagcdn.com/w320/gl.png",
+    "flag_emoji": "🇬🇱",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 20.4,
+        "male": 5964,
+        "female": 5798
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 67.1,
+        "male": 20050,
+        "female": 18711
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 12.5,
+        "male": 3829,
+        "female": 3399
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 57751
+  },
+  {
+    "code": "GRD",
+    "name": "Grenada",
+    "flag_url": "https://flagcdn.com/w320/gd.png",
+    "flag_emoji": "🇬🇩",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 21.9,
+        "male": 13095,
+        "female": 12003
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 65.3,
+        "male": 38129,
+        "female": 36726
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 12.8,
+        "male": 6944,
+        "female": 7724
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 114621
+  },
+  {
+    "code": "GUM",
+    "name": "Guam",
+    "flag_url": "https://flagcdn.com/w320/gu.png",
+    "flag_emoji": "🇬🇺",
+    "region": "Oceania",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 26.4,
+        "male": 23139,
+        "female": 21632
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 62.7,
+        "male": 55591,
+        "female": 50741
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 10.9,
+        "male": 8615,
+        "female": 9814
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 169532
+  },
+  {
+    "code": "GTM",
+    "name": "Guatemala",
+    "flag_url": "https://flagcdn.com/w320/gt.png",
+    "flag_emoji": "🇬🇹",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 31.5,
+        "male": 2925079,
+        "female": 2819927
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 63.2,
+        "male": 5688500,
+        "female": 5839958
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 5.4,
+        "male": 437105,
+        "female": 544647
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 18255216
+  },
+  {
+    "code": "GGY",
+    "name": "Guernsey",
+    "flag_url": "https://flagcdn.com/w320/gg.png",
+    "flag_emoji": "🇬🇬",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 14.3,
+        "male": 4999,
+        "female": 4717
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 64.1,
+        "male": 21937,
+        "female": 21547
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 21.5,
+        "male": 6776,
+        "female": 7811
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 67787
+  },
+  {
+    "code": "GIN",
+    "name": "Guinea",
+    "flag_url": "https://flagcdn.com/w320/gn.png",
+    "flag_emoji": "🇬🇳",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 40.9,
+        "male": 2884146,
+        "female": 2835794
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 55.1,
+        "male": 3846852,
+        "female": 3856366
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 4,
+        "male": 254608,
+        "female": 308413
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 13986179
+  },
+  {
+    "code": "GNB",
+    "name": "Guinea-Bissau",
+    "flag_url": "https://flagcdn.com/w320/gw.png",
+    "flag_emoji": "🇬🇼",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 42.3,
+        "male": 453513,
+        "female": 448514
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 54.6,
+        "male": 561868,
+        "female": 602280
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 3.1,
+        "male": 27529,
+        "female": 38621
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 2132325
+  },
+  {
+    "code": "GUY",
+    "name": "Guyana",
+    "flag_url": "https://flagcdn.com/w320/gy.png",
+    "flag_emoji": "🇬🇾",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 23.5,
+        "male": 95223,
+        "female": 91272
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 68.4,
+        "male": 281669,
+        "female": 261261
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 8.1,
+        "male": 28352,
+        "female": 36322
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 794099
+  },
+  {
+    "code": "HTI",
+    "name": "Haiti",
+    "flag_url": "https://flagcdn.com/w320/ht.png",
+    "flag_emoji": "🇭🇹",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 30.5,
+        "male": 1790061,
+        "female": 1794210
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 65.3,
+        "male": 3787782,
+        "female": 3887791
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 4.2,
+        "male": 214600,
+        "female": 279499
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 11753943
+  },
+  {
+    "code": "HND",
+    "name": "Honduras",
+    "flag_url": "https://flagcdn.com/w320/hn.png",
+    "flag_emoji": "🇭🇳",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 28.7,
+        "male": 1378026,
+        "female": 1353238
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 65.7,
+        "male": 2980393,
+        "female": 3282159
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 5.6,
+        "male": 232828,
+        "female": 302544
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 9529188
+  },
+  {
+    "code": "HKG",
+    "name": "Hong Kong",
+    "flag_url": "https://flagcdn.com/w320/hk.png",
+    "flag_emoji": "🇭🇰",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 13.2,
+        "male": 505718,
+        "female": 459956
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 64.8,
+        "male": 2123216,
+        "female": 2609102
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 21.9,
+        "male": 738878,
+        "female": 860951
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 7297821
+  },
+  {
+    "code": "HUN",
+    "name": "Hungary",
+    "flag_url": "https://flagcdn.com/w320/hu.png",
+    "flag_emoji": "🇭🇺",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 14.6,
+        "male": 753955,
+        "female": 683943
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 63.9,
+        "male": 3195761,
+        "female": 3104750
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 21.5,
+        "male": 862952,
+        "female": 1254384
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 9855745
+  },
+  {
+    "code": "ISL",
+    "name": "Iceland",
+    "flag_url": "https://flagcdn.com/w320/is.png",
+    "flag_emoji": "🇮🇸",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 19.8,
+        "male": 36692,
+        "female": 35239
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 63.2,
+        "male": 116210,
+        "female": 113810
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 17.1,
+        "male": 29366,
+        "female": 32719
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 364036
+  },
+  {
+    "code": "IND",
+    "name": "India",
+    "flag_url": "https://flagcdn.com/w320/in.png",
+    "flag_emoji": "🇮🇳",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 24.5,
+        "male": 181115052,
+        "female": 163647028
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 68.7,
+        "male": 500568593,
+        "female": 467593781
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 6.8,
+        "male": 44101180,
+        "female": 52102662
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 1409128296
+  },
+  {
+    "code": "IDN",
+    "name": "Indonesia",
+    "flag_url": "https://flagcdn.com/w320/id.png",
+    "flag_emoji": "🇮🇩",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 23.8,
+        "male": 34247218,
+        "female": 32701367
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 68.3,
+        "male": 96268201,
+        "female": 95961293
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 8,
+        "male": 10284628,
+        "female": 12099758
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 281562465
+  },
+  {
+    "code": "IRN",
+    "name": "Iran",
+    "flag_url": "https://flagcdn.com/w320/ir.png",
+    "flag_emoji": "🇮🇷",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 23.3,
+        "male": 10512797,
+        "female": 10040282
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 69.8,
+        "male": 31413125,
+        "female": 30267241
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 7,
+        "male": 2869617,
+        "female": 3283875
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 88386937
+  },
+  {
+    "code": "IRQ",
+    "name": "Iraq",
+    "flag_url": "https://flagcdn.com/w320/iq.png",
+    "flag_emoji": "🇮🇶",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 34.6,
+        "male": 7447266,
+        "female": 7130883
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 61.7,
+        "male": 13064516,
+        "female": 12907702
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 3.6,
+        "male": 681574,
+        "female": 851495
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 42083436
+  },
+  {
+    "code": "IRL",
+    "name": "Ireland",
+    "flag_url": "https://flagcdn.com/w320/ie.png",
+    "flag_emoji": "🇮🇪",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 18.6,
+        "male": 498124,
+        "female": 477848
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 65.5,
+        "male": 1701680,
+        "female": 1728041
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 15.8,
+        "male": 390738,
+        "female": 437030
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 5233461
+  },
+  {
+    "code": "IMN",
+    "name": "Isle of Man",
+    "flag_url": "https://flagcdn.com/w320/im.png",
+    "flag_emoji": "🇮🇲",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 16,
+        "male": 7701,
+        "female": 7100
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 61.9,
+        "male": 29035,
+        "female": 28044
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 22.1,
+        "male": 9595,
+        "female": 10794
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 92269
+  },
+  {
+    "code": "ISR",
+    "name": "Israel",
+    "flag_url": "https://flagcdn.com/w320/il.png",
+    "flag_emoji": "🇮🇱",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 27.5,
+        "male": 1320629,
+        "female": 1260977
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 60.3,
+        "male": 2885485,
+        "female": 2781777
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 12.3,
+        "male": 525161,
+        "female": 628588
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 9402617
+  },
+  {
+    "code": "ITA",
+    "name": "Italy",
+    "flag_url": "https://flagcdn.com/w320/it.png",
+    "flag_emoji": "🇮🇹",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 11.9,
+        "male": 3699167,
+        "female": 3531734
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 64.5,
+        "male": 19378160,
+        "female": 19958137
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 23.6,
+        "male": 6336738,
+        "female": 8060995
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 60964931
+  },
+  {
+    "code": "CIV",
+    "name": "Ivory Coast",
+    "flag_url": "https://flagcdn.com/w320/ci.png",
+    "flag_emoji": "🇨🇮",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 36.1,
+        "male": 5437108,
+        "female": 5390782
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 60.9,
+        "male": 9200957,
+        "female": 9060748
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 3,
+        "male": 401967,
+        "female": 490196
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 29981758
+  },
+  {
+    "code": "JAM",
+    "name": "Jamaica",
+    "flag_url": "https://flagcdn.com/w320/jm.png",
+    "flag_emoji": "🇯🇲",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 23.8,
+        "male": 342691,
+        "female": 329773
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 65.7,
+        "male": 914364,
+        "female": 941816
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 10.4,
+        "male": 140440,
+        "female": 154629
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 2823713
+  },
+  {
+    "code": "JPN",
+    "name": "Japan",
+    "flag_url": "https://flagcdn.com/w320/jp.png",
+    "flag_emoji": "🇯🇵",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 12.1,
+        "male": 7701196,
+        "female": 7239389
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 58.4,
+        "male": 36197840,
+        "female": 35777966
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 29.5,
+        "male": 15976233,
+        "female": 20309321
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 123201945
+  },
+  {
+    "code": "JEY",
+    "name": "Jersey",
+    "flag_url": "https://flagcdn.com/w320/je.png",
+    "flag_emoji": "🇯🇪",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 17,
+        "male": 9082,
+        "female": 8530
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 64.6,
+        "male": 33840,
+        "female": 32989
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 18.3,
+        "male": 8106,
+        "female": 10840
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 103387
+  },
+  {
+    "code": "JOR",
+    "name": "Jordan",
+    "flag_url": "https://flagcdn.com/w320/jo.png",
+    "flag_emoji": "🇯🇴",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 30.9,
+        "male": 1771840,
+        "female": 1678178
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 64.9,
+        "male": 3844575,
+        "female": 3409164
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 4.2,
+        "male": 228564,
+        "female": 241703
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 11174024
+  },
+  {
+    "code": "KAZ",
+    "name": "Kazakhstan",
+    "flag_url": "https://flagcdn.com/w320/kz.png",
+    "flag_emoji": "🇰🇿",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 27.6,
+        "male": 2883200,
+        "female": 2712772
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 62.8,
+        "male": 6233881,
+        "female": 6486019
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 9.6,
+        "male": 700091,
+        "female": 1244043
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 20260006
+  },
+  {
+    "code": "KEN",
+    "name": "Kenya",
+    "flag_url": "https://flagcdn.com/w320/ke.png",
+    "flag_emoji": "🇰🇪",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 35.8,
+        "male": 10464384,
+        "female": 10366997
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 60.9,
+        "male": 17731068,
+        "female": 17723012
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 3.4,
+        "male": 896348,
+        "female": 1064569
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 58246378
+  },
+  {
+    "code": "KIR",
+    "name": "Kiribati",
+    "flag_url": "https://flagcdn.com/w320/ki.png",
+    "flag_emoji": "🇰🇮",
+    "region": "Oceania",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 26.8,
+        "male": 15895,
+        "female": 15304
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 67.9,
+        "male": 38046,
+        "female": 41059
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 5.4,
+        "male": 2423,
+        "female": 3818
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 116545
+  },
+  {
+    "code": "UNK",
+    "name": "Kosovo",
+    "flag_url": "https://flagcdn.com/w320/xk.png",
+    "flag_emoji": "🇽🇰",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 22.7,
+        "male": 233010,
+        "female": 216304
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 68.9,
+        "male": 712403,
+        "female": 649932
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 8.4,
+        "male": 72579,
+        "female": 92865
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 1977093
+  },
+  {
+    "code": "KWT",
+    "name": "Kuwait",
+    "flag_url": "https://flagcdn.com/w320/kw.png",
+    "flag_emoji": "🇰🇼",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 23,
+        "male": 376415,
+        "female": 346190
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 73.4,
+        "male": 1386349,
+        "female": 917465
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 3.6,
+        "male": 47778,
+        "female": 64158
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 3138355
+  },
+  {
+    "code": "KGZ",
+    "name": "Kyrgyzstan",
+    "flag_url": "https://flagcdn.com/w320/kg.png",
+    "flag_emoji": "🇰🇬",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 29.1,
+        "male": 922086,
+        "female": 873245
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 64,
+        "male": 1935200,
+        "female": 2013733
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 6.9,
+        "male": 164032,
+        "female": 263805
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 6172101
+  },
+  {
+    "code": "LAO",
+    "name": "Laos",
+    "flag_url": "https://flagcdn.com/w320/la.png",
+    "flag_emoji": "🇱🇦",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 30.1,
+        "male": 1214429,
+        "female": 1181845
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 65,
+        "male": 2573668,
+        "female": 2599957
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 4.8,
+        "male": 178223,
+        "female": 205434
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 7953556
+  },
+  {
+    "code": "LVA",
+    "name": "Latvia",
+    "flag_url": "https://flagcdn.com/w320/lv.png",
+    "flag_emoji": "🇱🇻",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 14.7,
+        "male": 136482,
+        "female": 128492
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 63,
+        "male": 562754,
+        "female": 572850
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 22.2,
+        "male": 137746,
+        "female": 262922
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 1801246
+  },
+  {
+    "code": "LBN",
+    "name": "Lebanon",
+    "flag_url": "https://flagcdn.com/w320/lb.png",
+    "flag_emoji": "🇱🇧",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 18.9,
+        "male": 519352,
+        "female": 495591
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 71.6,
+        "male": 1939311,
+        "female": 1900574
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 9.5,
+        "male": 219880,
+        "female": 289774
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 5364482
+  },
+  {
+    "code": "LSO",
+    "name": "Lesotho",
+    "flag_url": "https://flagcdn.com/w320/ls.png",
+    "flag_emoji": "🇱🇸",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 32,
+        "male": 358137,
+        "female": 353618
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 62.7,
+        "male": 699197,
+        "female": 696626
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 5.4,
+        "male": 44625,
+        "female": 75345
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 2227548
+  },
+  {
+    "code": "LBR",
+    "name": "Liberia",
+    "flag_url": "https://flagcdn.com/w320/lr.png",
+    "flag_emoji": "🇱🇷",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 38.9,
+        "male": 1064100,
+        "female": 1052556
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 57.9,
+        "male": 1566263,
+        "female": 1579835
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 3.2,
+        "male": 80961,
+        "female": 93534
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 5437249
+  },
+  {
+    "code": "LBY",
+    "name": "Libya",
+    "flag_url": "https://flagcdn.com/w320/ly.png",
+    "flag_emoji": "🇱🇾",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 32.3,
+        "male": 1211087,
+        "female": 1165648
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 63.2,
+        "male": 2385152,
+        "female": 2263780
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 4.6,
+        "male": 151125,
+        "female": 184471
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 7361263
+  },
+  {
+    "code": "LIE",
+    "name": "Liechtenstein",
+    "flag_url": "https://flagcdn.com/w320/li.png",
+    "flag_emoji": "🇱🇮",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 15.3,
+        "male": 3412,
+        "female": 2732
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 63.9,
+        "male": 12814,
+        "female": 12921
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 20.8,
+        "male": 3846,
+        "female": 4547
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 40272
+  },
+  {
+    "code": "LTU",
+    "name": "Lithuania",
+    "flag_url": "https://flagcdn.com/w320/lt.png",
+    "flag_emoji": "🇱🇹",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 15.2,
+        "male": 205154,
+        "female": 194386
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 62.6,
+        "male": 808435,
+        "female": 837908
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 22.2,
+        "male": 201405,
+        "female": 380898
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 2628186
+  },
+  {
+    "code": "LUX",
+    "name": "Luxembourg",
+    "flag_url": "https://flagcdn.com/w320/lu.png",
+    "flag_emoji": "🇱🇺",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 16.7,
+        "male": 57921,
+        "female": 54484
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 67.1,
+        "male": 231214,
+        "female": 219497
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 16.1,
+        "male": 49567,
+        "female": 58571
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 671254
+  },
+  {
+    "code": "MAC",
+    "name": "Macau",
+    "flag_url": "https://flagcdn.com/w320/mo.png",
+    "flag_emoji": "🇲🇴",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 14.4,
+        "male": 47346,
+        "female": 45216
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 69.9,
+        "male": 210059,
+        "female": 240577
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 15.7,
+        "male": 47583,
+        "female": 53645
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 644426
+  },
+  {
+    "code": "MDG",
+    "name": "Madagascar",
+    "flag_url": "https://flagcdn.com/w320/mg.png",
+    "flag_emoji": "🇲🇬",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 37,
+        "male": 5507847,
+        "female": 5400551
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 59.1,
+        "male": 8720012,
+        "female": 8673880
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 3.9,
+        "male": 532642,
+        "female": 617782
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 29452714
+  },
+  {
+    "code": "MWI",
+    "name": "Malawi",
+    "flag_url": "https://flagcdn.com/w320/mw.png",
+    "flag_emoji": "🇲🇼",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 37.7,
+        "male": 4080567,
+        "female": 4132710
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 58.4,
+        "male": 6217761,
+        "female": 6487273
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 3.9,
+        "male": 376266,
+        "female": 468732
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 21763309
+  },
+  {
+    "code": "MYS",
+    "name": "Malaysia",
+    "flag_url": "https://flagcdn.com/w320/my.png",
+    "flag_emoji": "🇲🇾",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 22.2,
+        "male": 3947914,
+        "female": 3730319
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 69.4,
+        "male": 12308938,
+        "female": 11666947
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 8.4,
+        "male": 1409360,
+        "female": 1501332
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 34564810
+  },
+  {
+    "code": "MDV",
+    "name": "Maldives",
+    "flag_url": "https://flagcdn.com/w320/mv.png",
+    "flag_emoji": "🇲🇻",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 22.4,
+        "male": 44321,
+        "female": 42626
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 71.5,
+        "male": 143021,
+        "female": 135044
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 6.1,
+        "male": 10397,
+        "female": 13449
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 388858
+  },
+  {
+    "code": "MLI",
+    "name": "Mali",
+    "flag_url": "https://flagcdn.com/w320/ml.png",
+    "flag_emoji": "🇲🇱",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 46.8,
+        "male": 5175714,
+        "female": 5114128
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 50.1,
+        "male": 5178742,
+        "female": 5842456
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 3.1,
+        "male": 334299,
+        "female": 345268
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 21990607
+  },
+  {
+    "code": "MLT",
+    "name": "Malta",
+    "flag_url": "https://flagcdn.com/w320/mt.png",
+    "flag_emoji": "🇲🇹",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 14.5,
+        "male": 35034,
+        "female": 33181
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 62.4,
+        "male": 151836,
+        "female": 141248
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 23.1,
+        "male": 50153,
+        "female": 58278
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 469730
+  },
+  {
+    "code": "MHL",
+    "name": "Marshall Islands",
+    "flag_url": "https://flagcdn.com/w320/mh.png",
+    "flag_emoji": "🇲🇭",
+    "region": "Oceania",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 30,
+        "male": 12538,
+        "female": 12072
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 64.3,
+        "male": 26750,
+        "female": 25944
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 5.7,
+        "male": 2293,
+        "female": 2414
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 82011
+  },
+  {
+    "code": "MRT",
+    "name": "Mauritania",
+    "flag_url": "https://flagcdn.com/w320/mr.png",
+    "flag_emoji": "🇲🇷",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 35.7,
+        "male": 776035,
+        "female": 770132
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 59.9,
+        "male": 1227347,
+        "female": 1363938
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 4.4,
+        "male": 80308,
+        "female": 110280
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 4328040
+  },
+  {
+    "code": "MUS",
+    "name": "Mauritius",
+    "flag_url": "https://flagcdn.com/w320/mu.png",
+    "flag_emoji": "🇲🇺",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 15.1,
+        "male": 100973,
+        "female": 96711
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 71,
+        "male": 462833,
+        "female": 467509
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 13.9,
+        "male": 75464,
+        "female": 107014
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 1310504
+  },
+  {
+    "code": "MEX",
+    "name": "Mexico",
+    "flag_url": "https://flagcdn.com/w320/mx.png",
+    "flag_emoji": "🇲🇽",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 23.3,
+        "male": 15647805,
+        "female": 14754004
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 68.6,
+        "male": 43651105,
+        "female": 45983174
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 8.2,
+        "male": 4600228,
+        "female": 6103611
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 130739927
+  },
+  {
+    "code": "FSM",
+    "name": "Micronesia",
+    "flag_url": "https://flagcdn.com/w320/fm.png",
+    "flag_emoji": "🇫🇲",
+    "region": "Oceania",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 27,
+        "male": 13673,
+        "female": 13239
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 67.3,
+        "male": 32527,
+        "female": 34487
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 5.7,
+        "male": 2508,
+        "female": 3169
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 99603
+  },
+  {
+    "code": "MDA",
+    "name": "Moldova",
+    "flag_url": "https://flagcdn.com/w320/md.png",
+    "flag_emoji": "🇲🇩",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 14.8,
+        "male": 266493,
+        "female": 266166
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 70.2,
+        "male": 1225535,
+        "female": 1300640
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 15,
+        "male": 206221,
+        "female": 334473
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 3599528
+  },
+  {
+    "code": "MCO",
+    "name": "Monaco",
+    "flag_url": "https://flagcdn.com/w320/mc.png",
+    "flag_emoji": "🇲🇨",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 9.1,
+        "male": 1485,
+        "female": 1408
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 53.8,
+        "male": 8620,
+        "female": 8490
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 37.1,
+        "male": 5261,
+        "female": 6549
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 31813
+  },
+  {
+    "code": "MNG",
+    "name": "Mongolia",
+    "flag_url": "https://flagcdn.com/w320/mn.png",
+    "flag_emoji": "🇲🇳",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 25.7,
+        "male": 429867,
+        "female": 412943
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 68.4,
+        "male": 1087487,
+        "female": 1156547
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 5.9,
+        "male": 78242,
+        "female": 116590
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 3281676
+  },
+  {
+    "code": "MNE",
+    "name": "Montenegro",
+    "flag_url": "https://flagcdn.com/w320/me.png",
+    "flag_emoji": "🇲🇪",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 17.7,
+        "male": 54608,
+        "female": 51594
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 64.4,
+        "male": 192631,
+        "female": 193515
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 17.9,
+        "male": 47243,
+        "female": 60258
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 599849
+  },
+  {
+    "code": "MSR",
+    "name": "Montserrat",
+    "flag_url": "https://flagcdn.com/w320/ms.png",
+    "flag_emoji": "🇲🇸",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 15.8,
+        "male": 446,
+        "female": 420
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 76.1,
+        "male": 2062,
+        "female": 2101
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 8,
+        "male": 220,
+        "female": 219
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 5468
+  },
+  {
+    "code": "MAR",
+    "name": "Morocco",
+    "flag_url": "https://flagcdn.com/w320/ma.png",
+    "flag_emoji": "🇲🇦",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 25.7,
+        "male": 4898154,
+        "female": 4701786
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 65.9,
+        "male": 12236752,
+        "female": 12410567
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 8.4,
+        "male": 1529357,
+        "female": 1610969
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 37387585
+  },
+  {
+    "code": "MOZ",
+    "name": "Mozambique",
+    "flag_url": "https://flagcdn.com/w320/mz.png",
+    "flag_emoji": "🇲🇿",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 44.7,
+        "male": 7548247,
+        "female": 7350012
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 52.4,
+        "male": 8428457,
+        "female": 9061065
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 2.9,
+        "male": 473030,
+        "female": 490143
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 33350954
+  },
+  {
+    "code": "MMR",
+    "name": "Myanmar",
+    "flag_url": "https://flagcdn.com/w320/mm.png",
+    "flag_emoji": "🇲🇲",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 24.4,
+        "male": 7197177,
+        "female": 6843879
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 68.5,
+        "male": 19420361,
+        "female": 19998625
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 7.1,
+        "male": 1770293,
+        "female": 2296804
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 57527139
+  },
+  {
+    "code": "NAM",
+    "name": "Namibia",
+    "flag_url": "https://flagcdn.com/w320/na.png",
+    "flag_emoji": "🇳🇦",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 34.1,
+        "male": 482790,
+        "female": 473306
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 62,
+        "male": 846810,
+        "female": 890099
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 3.9,
+        "male": 47686,
+        "female": 62969
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 2803660
+  },
+  {
+    "code": "NRU",
+    "name": "Nauru",
+    "flag_url": "https://flagcdn.com/w320/nr.png",
+    "flag_emoji": "🇳🇷",
+    "region": "Oceania",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 29.6,
+        "male": 1493,
+        "female": 1433
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 66,
+        "male": 3220,
+        "female": 3309
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 4.4,
+        "male": 143,
+        "female": 294
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 9892
+  },
+  {
+    "code": "NPL",
+    "name": "Nepal",
+    "flag_url": "https://flagcdn.com/w320/np.png",
+    "flag_emoji": "🇳🇵",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 25.8,
+        "male": 4125244,
+        "female": 3909135
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 67.8,
+        "male": 10153682,
+        "female": 10957011
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 6.4,
+        "male": 961717,
+        "female": 1015598
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 31122387
+  },
+  {
+    "code": "NLD",
+    "name": "Netherlands",
+    "flag_url": "https://flagcdn.com/w320/nl.png",
+    "flag_emoji": "🇳🇱",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 15.2,
+        "male": 1384142,
+        "female": 1312455
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 64.1,
+        "male": 5750034,
+        "female": 5640691
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 20.7,
+        "male": 1709924,
+        "female": 1975132
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 17772378
+  },
+  {
+    "code": "NCL",
+    "name": "New Caledonia",
+    "flag_url": "https://flagcdn.com/w320/nc.png",
+    "flag_emoji": "🇳🇨",
+    "region": "Oceania",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 20.7,
+        "male": 32238,
+        "female": 30858
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 68.4,
+        "male": 104825,
+        "female": 103349
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 10.8,
+        "male": 14326,
+        "female": 18571
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 304167
+  },
+  {
+    "code": "NZL",
+    "name": "New Zealand",
+    "flag_url": "https://flagcdn.com/w320/nz.png",
+    "flag_emoji": "🇳🇿",
+    "region": "Oceania",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 19,
+        "male": 503120,
+        "female": 475490
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 64.2,
+        "male": 1674407,
+        "female": 1638276
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 16.9,
+        "male": 407080,
+        "female": 462838
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 5161211
+  },
+  {
+    "code": "NIC",
+    "name": "Nicaragua",
+    "flag_url": "https://flagcdn.com/w320/ni.png",
+    "flag_emoji": "🇳🇮",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 25.1,
+        "male": 855256,
+        "female": 818714
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 68.9,
+        "male": 2240297,
+        "female": 2360244
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 6,
+        "male": 178347,
+        "female": 224090
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 6676948
+  },
+  {
+    "code": "NER",
+    "name": "Niger",
+    "flag_url": "https://flagcdn.com/w320/ne.png",
+    "flag_emoji": "🇳🇪",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 49.5,
+        "male": 6567460,
+        "female": 6463877
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 47.8,
+        "male": 6146355,
+        "female": 6451574
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 2.7,
+        "male": 342388,
+        "female": 371130
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 26342784
+  },
+  {
+    "code": "NGA",
+    "name": "Nigeria",
+    "flag_url": "https://flagcdn.com/w320/ng.png",
+    "flag_emoji": "🇳🇬",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 40.4,
+        "male": 48856606,
+        "female": 46770810
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 56.2,
+        "male": 66897900,
+        "female": 66187584
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 3.4,
+        "male": 3759943,
+        "female": 4274287
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 236747130
+  },
+  {
+    "code": "PRK",
+    "name": "North Korea",
+    "flag_url": "https://flagcdn.com/w320/kp.png",
+    "flag_emoji": "🇰🇵",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 19.9,
+        "male": 2673822,
+        "female": 2548775
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 68.9,
+        "male": 9054771,
+        "female": 9066447
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 11.2,
+        "male": 1099676,
+        "female": 1855175
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 26298666
+  },
+  {
+    "code": "MKD",
+    "name": "North Macedonia",
+    "flag_url": "https://flagcdn.com/w320/mk.png",
+    "flag_emoji": "🇲🇰",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 16,
+        "male": 176423,
+        "female": 164945
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 68.4,
+        "male": 740649,
+        "female": 719627
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 15.6,
+        "male": 147655,
+        "female": 186323
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 2135622
+  },
+  {
+    "code": "MNP",
+    "name": "Northern Mariana Islands",
+    "flag_url": "https://flagcdn.com/w320/mp.png",
+    "flag_emoji": "🇲🇵",
+    "region": "Oceania",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 22.1,
+        "male": 6066,
+        "female": 5231
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 67.7,
+        "male": 18206,
+        "female": 16377
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 10.2,
+        "male": 2772,
+        "female": 2466
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 51118
+  },
+  {
+    "code": "NOR",
+    "name": "Norway",
+    "flag_url": "https://flagcdn.com/w320/no.png",
+    "flag_emoji": "🇳🇴",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 16.3,
+        "male": 461979,
+        "female": 438243
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 64.5,
+        "male": 1820692,
+        "female": 1734818
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 19.1,
+        "male": 498301,
+        "female": 555700
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 5509733
+  },
+  {
+    "code": "OMN",
+    "name": "Oman",
+    "flag_url": "https://flagcdn.com/w320/om.png",
+    "flag_emoji": "🇴🇲",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 29.8,
+        "male": 594909,
+        "female": 566682
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 66.2,
+        "male": 1428141,
+        "female": 1155438
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 4,
+        "male": 73076,
+        "female": 83746
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 3901992
+  },
+  {
+    "code": "PAK",
+    "name": "Pakistan",
+    "flag_url": "https://flagcdn.com/w320/pk.png",
+    "flag_emoji": "🇵🇰",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 34.4,
+        "male": 44330669,
+        "female": 42529007
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 60.7,
+        "male": 78321834,
+        "female": 74833003
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 4.9,
+        "male": 5735294,
+        "female": 6613764
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 252363571
+  },
+  {
+    "code": "PLW",
+    "name": "Palau",
+    "flag_url": "https://flagcdn.com/w320/pw.png",
+    "flag_emoji": "🇵🇼",
+    "region": "Oceania",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 17.5,
+        "male": 1976,
+        "female": 1849
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 71.3,
+        "male": 8647,
+        "female": 6935
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 11.2,
+        "male": 612,
+        "female": 1845
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 21864
+  },
+  {
+    "code": "PSE",
+    "name": "Palestine",
+    "flag_url": "https://flagcdn.com/w320/ps.png",
+    "flag_emoji": "🇵🇸",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 38.8,
+        "male": 427450,
+        "female": 404288
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 58.3,
+        "male": 627235,
+        "female": 620903
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 2.9,
+        "male": 31655,
+        "female": 30112
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 2141643
+  },
+  {
+    "code": "PAN",
+    "name": "Panama",
+    "flag_url": "https://flagcdn.com/w320/pa.png",
+    "flag_emoji": "🇵🇦",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 25,
+        "male": 574336,
+        "female": 544180
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 64.8,
+        "male": 1465907,
+        "female": 1433023
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 10.1,
+        "male": 211014,
+        "female": 241781
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 4470241
+  },
+  {
+    "code": "PNG",
+    "name": "Papua New Guinea",
+    "flag_url": "https://flagcdn.com/w320/pg.png",
+    "flag_emoji": "🇵🇬",
+    "region": "Oceania",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 37.1,
+        "male": 1902272,
+        "female": 1825471
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 58.9,
+        "male": 2991479,
+        "female": 2923410
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 4,
+        "male": 198511,
+        "female": 205090
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 10046233
+  },
+  {
+    "code": "PRY",
+    "name": "Paraguay",
+    "flag_url": "https://flagcdn.com/w320/py.png",
+    "flag_emoji": "🇵🇾",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 22.2,
+        "male": 850191,
+        "female": 821237
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 68.4,
+        "male": 2582021,
+        "female": 2561962
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 9.4,
+        "male": 337164,
+        "female": 369974
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 7522549
+  },
+  {
+    "code": "PER",
+    "name": "Peru",
+    "flag_url": "https://flagcdn.com/w320/pe.png",
+    "flag_emoji": "🇵🇪",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 25.8,
+        "male": 4293229,
+        "female": 4119269
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 66.2,
+        "male": 10546502,
+        "female": 11041106
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 8,
+        "male": 1112825,
+        "female": 1487318
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 32600249
+  },
+  {
+    "code": "PHL",
+    "name": "Philippines",
+    "flag_url": "https://flagcdn.com/w320/ph.png",
+    "flag_emoji": "🇵🇭",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 30.2,
+        "male": 18234279,
+        "female": 17462803
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 64.3,
+        "male": 38381583,
+        "female": 37613294
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 5.6,
+        "male": 2611230,
+        "female": 3973874
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 118277063
+  },
+  {
+    "code": "POL",
+    "name": "Poland",
+    "flag_url": "https://flagcdn.com/w320/pl.png",
+    "flag_emoji": "🇵🇱",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 14.2,
+        "male": 2830048,
+        "female": 2676300
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 65.9,
+        "male": 12513402,
+        "female": 13036977
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 19.8,
+        "male": 3097965,
+        "female": 4591618
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 38746310
+  },
+  {
+    "code": "PRT",
+    "name": "Portugal",
+    "flag_url": "https://flagcdn.com/w320/pt.png",
+    "flag_emoji": "🇵🇹",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 12.7,
+        "male": 662419,
+        "female": 631284
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 65,
+        "male": 3264766,
+        "female": 3371087
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 22.3,
+        "male": 908578,
+        "female": 1369043
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 10207177
+  },
+  {
+    "code": "PRI",
+    "name": "Puerto Rico",
+    "flag_url": "https://flagcdn.com/w320/pr.png",
+    "flag_emoji": "🇵🇷",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 12.5,
+        "male": 191649,
+        "female": 184597
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 62.6,
+        "male": 904406,
+        "female": 986778
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 24.9,
+        "male": 322698,
+        "female": 429322
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 3019450
+  },
+  {
+    "code": "QAT",
+    "name": "Qatar",
+    "flag_url": "https://flagcdn.com/w320/qa.png",
+    "flag_emoji": "🇶🇦",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 13.1,
+        "male": 168844,
+        "female": 165905
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 85.4,
+        "male": 1767294,
+        "female": 411977
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 1.5,
+        "male": 24997,
+        "female": 13071
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 2552088
+  },
+  {
+    "code": "ROU",
+    "name": "Romania",
+    "flag_url": "https://flagcdn.com/w320/ro.png",
+    "flag_emoji": "🇷🇴",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 15.4,
+        "male": 1441359,
+        "female": 1362304
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 62,
+        "male": 5618366,
+        "female": 5632718
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 22.6,
+        "male": 1688070,
+        "female": 2405338
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 18148155
+  },
+  {
+    "code": "RUS",
+    "name": "Russia",
+    "flag_url": "https://flagcdn.com/w320/ru.png",
+    "flag_emoji": "🇷🇺",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 16.5,
+        "male": 11956284,
+        "female": 11313829
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 65.7,
+        "male": 45007073,
+        "female": 47518221
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 17.8,
+        "male": 8533448,
+        "female": 16491955
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 140820810
+  },
+  {
+    "code": "RWA",
+    "name": "Rwanda",
+    "flag_url": "https://flagcdn.com/w320/rw.png",
+    "flag_emoji": "🇷🇼",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 37.2,
+        "male": 2561884,
+        "female": 2508218
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 59.7,
+        "male": 3954608,
+        "female": 4179844
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 3.1,
+        "male": 168163,
+        "female": 250585
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 13623302
+  },
+  {
+    "code": "SHN",
+    "name": "Saint Helena, Ascension and Tristan da Cunha",
+    "flag_url": "https://flagcdn.com/w320/sh.png",
+    "flag_emoji": "🇸🇭",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 14.3,
+        "male": 579,
+        "female": 556
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 66.5,
+        "male": 2626,
+        "female": 2655
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 19.2,
+        "male": 773,
+        "female": 754
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 7943
+  },
+  {
+    "code": "KNA",
+    "name": "Saint Kitts and Nevis",
+    "flag_url": "https://flagcdn.com/w320/kn.png",
+    "flag_emoji": "🇰🇳",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 19.2,
+        "male": 5314,
+        "female": 5277
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 68.1,
+        "male": 18944,
+        "female": 18575
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 12.7,
+        "male": 3341,
+        "female": 3682
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 55133
+  },
+  {
+    "code": "LCA",
+    "name": "Saint Lucia",
+    "flag_url": "https://flagcdn.com/w320/lc.png",
+    "flag_emoji": "🇱🇨",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 17.9,
+        "male": 15505,
+        "female": 14607
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 66.7,
+        "male": 54260,
+        "female": 57747
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 15.4,
+        "male": 11752,
+        "female": 14167
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 168038
+  },
+  {
+    "code": "MAF",
+    "name": "Saint Martin",
+    "flag_url": "https://flagcdn.com/w320/mf.png",
+    "flag_emoji": "🇲🇫",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 24.7,
+        "male": 4039,
+        "female": 4100
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 64.5,
+        "male": 10216,
+        "female": 11068
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 10.8,
+        "male": 1536,
+        "female": 2037
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 32996
+  },
+  {
+    "code": "SPM",
+    "name": "Saint Pierre and Miquelon",
+    "flag_url": "https://flagcdn.com/w320/pm.png",
+    "flag_emoji": "🇵🇲",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 13.1,
+        "male": 346,
+        "female": 328
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 61.6,
+        "male": 1559,
+        "female": 1600
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 25.3,
+        "male": 571,
+        "female": 728
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 5132
+  },
+  {
+    "code": "VCT",
+    "name": "Saint Vincent and the Grenadines",
+    "flag_url": "https://flagcdn.com/w320/vc.png",
+    "flag_emoji": "🇻🇨",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 18.8,
+        "male": 9527,
+        "female": 9353
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 68.2,
+        "male": 35401,
+        "female": 33288
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 13,
+        "male": 6321,
+        "female": 6757
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 100647
+  },
+  {
+    "code": "WSM",
+    "name": "Samoa",
+    "flag_url": "https://flagcdn.com/w320/ws.png",
+    "flag_emoji": "🇼🇸",
+    "region": "Oceania",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 26.9,
+        "male": 28952,
+        "female": 27173
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 65.9,
+        "male": 70225,
+        "female": 67427
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 7.2,
+        "male": 6743,
+        "female": 8333
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 208853
+  },
+  {
+    "code": "SMR",
+    "name": "San Marino",
+    "flag_url": "https://flagcdn.com/w320/sm.png",
+    "flag_emoji": "🇸🇲",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 14.2,
+        "male": 2614,
+        "female": 2387
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 64.3,
+        "male": 10916,
+        "female": 11648
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 21.5,
+        "male": 3414,
+        "female": 4116
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 35095
+  },
+  {
+    "code": "STP",
+    "name": "São Tomé and Príncipe",
+    "flag_url": "https://flagcdn.com/w320/st.png",
+    "flag_emoji": "🇸🇹",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 36.4,
+        "male": 41337,
+        "female": 40106
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 60.3,
+        "male": 67101,
+        "female": 67775
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 3.2,
+        "male": 3115,
+        "female": 4127
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 223561
+  },
+  {
+    "code": "SAU",
+    "name": "Saudi Arabia",
+    "flag_url": "https://flagcdn.com/w320/sa.png",
+    "flag_emoji": "🇸🇦",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 22.9,
+        "male": 4266720,
+        "female": 4097270
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 72.7,
+        "male": 15577133,
+        "female": 10994061
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 4.4,
+        "male": 856985,
+        "female": 752262
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 36544431
+  },
+  {
+    "code": "SEN",
+    "name": "Senegal",
+    "flag_url": "https://flagcdn.com/w320/sn.png",
+    "flag_emoji": "🇸🇳",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 40.7,
+        "male": 3907986,
+        "female": 3760594
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 55.9,
+        "male": 5098038,
+        "female": 5437195
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 3.4,
+        "male": 277290,
+        "female": 366416
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 18847519
+  },
+  {
+    "code": "SRB",
+    "name": "Serbia",
+    "flag_url": "https://flagcdn.com/w320/rs.png",
+    "flag_emoji": "🇷🇸",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 14.4,
+        "male": 492963,
+        "female": 463995
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 65.6,
+        "male": 2198591,
+        "female": 2168113
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 20,
+        "male": 551197,
+        "female": 777353
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 6652212
+  },
+  {
+    "code": "SYC",
+    "name": "Seychelles",
+    "flag_url": "https://flagcdn.com/w320/sc.png",
+    "flag_emoji": "🇸🇨",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 17.7,
+        "male": 8912,
+        "female": 8439
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 72.4,
+        "male": 37841,
+        "female": 33210
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 10,
+        "male": 4220,
+        "female": 5565
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 98187
+  },
+  {
+    "code": "SLE",
+    "name": "Sierra Leone",
+    "flag_url": "https://flagcdn.com/w320/sl.png",
+    "flag_emoji": "🇸🇱",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 40.1,
+        "male": 1843606,
+        "female": 1812304
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 57.4,
+        "male": 2557715,
+        "female": 2675418
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 2.5,
+        "male": 114405,
+        "female": 117601
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 9121049
+  },
+  {
+    "code": "SGP",
+    "name": "Singapore",
+    "flag_url": "https://flagcdn.com/w320/sg.png",
+    "flag_emoji": "🇸🇬",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 14.6,
+        "male": 455536,
+        "female": 424969
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 71.1,
+        "male": 2157441,
+        "female": 2126799
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 14.3,
+        "male": 400653,
+        "female": 463061
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 6028459
+  },
+  {
+    "code": "SXM",
+    "name": "Sint Maarten",
+    "flag_url": "https://flagcdn.com/w320/sx.png",
+    "flag_emoji": "🇸🇽",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 18.4,
+        "male": 4409,
+        "female": 4114
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 66.3,
+        "male": 15158,
+        "female": 15496
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 15.2,
+        "male": 3250,
+        "female": 3788
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 46215
+  },
+  {
+    "code": "SVK",
+    "name": "Slovakia",
+    "flag_url": "https://flagcdn.com/w320/sk.png",
+    "flag_emoji": "🇸🇰",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 15.3,
+        "male": 444033,
+        "female": 408902
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 66.5,
+        "male": 1834359,
+        "female": 1867158
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 18.1,
+        "male": 406355,
+        "female": 602842
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 5563649
+  },
+  {
+    "code": "SVN",
+    "name": "Slovenia",
+    "flag_url": "https://flagcdn.com/w320/si.png",
+    "flag_emoji": "🇸🇮",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 14.3,
+        "male": 153852,
+        "female": 146628
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 62.5,
+        "male": 683573,
+        "female": 627788
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 23.2,
+        "male": 213619,
+        "female": 272433
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 2097893
+  },
+  {
+    "code": "SLB",
+    "name": "Solomon Islands",
+    "flag_url": "https://flagcdn.com/w320/sb.png",
+    "flag_emoji": "🇸🇧",
+    "region": "Oceania",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 30.6,
+        "male": 114246,
+        "female": 108020
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 64.2,
+        "male": 238708,
+        "female": 227636
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 5.3,
+        "male": 18016,
+        "female": 20173
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 726799
+  },
+  {
+    "code": "SOM",
+    "name": "Somalia",
+    "flag_url": "https://flagcdn.com/w320/so.png",
+    "flag_emoji": "🇸🇴",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 41.4,
+        "male": 2689086,
+        "female": 2694372
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 55.8,
+        "male": 3699721,
+        "female": 3568163
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 2.8,
+        "male": 157505,
+        "female": 208426
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 13017273
+  },
+  {
+    "code": "ZAF",
+    "name": "South Africa",
+    "flag_url": "https://flagcdn.com/w320/za.png",
+    "flag_emoji": "🇿🇦",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 27.2,
+        "male": 8227690,
+        "female": 8194392
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 65.3,
+        "male": 19524873,
+        "female": 19947839
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 7.5,
+        "male": 1911825,
+        "female": 2636028
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 60442647
+  },
+  {
+    "code": "KOR",
+    "name": "South Korea",
+    "flag_url": "https://flagcdn.com/w320/kr.png",
+    "flag_emoji": "🇰🇷",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 11.3,
+        "male": 3024508,
+        "female": 2873523
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 69.4,
+        "male": 18653915,
+        "female": 17465817
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 19.3,
+        "male": 4440688,
+        "female": 5623348
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 52081799
+  },
+  {
+    "code": "SSD",
+    "name": "South Sudan",
+    "flag_url": "https://flagcdn.com/w320/ss.png",
+    "flag_emoji": "🇸🇸",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 42.1,
+        "male": 2725520,
+        "female": 2619035
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 55.3,
+        "male": 3568064,
+        "female": 3458804
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 2.6,
+        "male": 182757,
+        "female": 149534
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 12703714
+  },
+  {
+    "code": "ESP",
+    "name": "Spain",
+    "flag_url": "https://flagcdn.com/w320/es.png",
+    "flag_emoji": "🇪🇸",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 13,
+        "male": 3147019,
+        "female": 3012821
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 66.1,
+        "male": 15662492,
+        "female": 15585138
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 20.9,
+        "male": 4259816,
+        "female": 5613147
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 47280433
+  },
+  {
+    "code": "LKA",
+    "name": "Sri Lanka",
+    "flag_url": "https://flagcdn.com/w320/lk.png",
+    "flag_emoji": "🇱🇰",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 22.6,
+        "male": 2537918,
+        "female": 2423615
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 65,
+        "male": 6954869,
+        "female": 7336897
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 12.4,
+        "male": 1149256,
+        "female": 1580053
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 21982608
+  },
+  {
+    "code": "SDN",
+    "name": "Sudan",
+    "flag_url": "https://flagcdn.com/w320/sd.png",
+    "flag_emoji": "🇸🇩",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 40.1,
+        "male": 10278453,
+        "female": 9949343
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 56.7,
+        "male": 14211514,
+        "female": 14390486
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 3.2,
+        "male": 845125,
+        "female": 792357
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 50467278
+  },
+  {
+    "code": "SUR",
+    "name": "Suriname",
+    "flag_url": "https://flagcdn.com/w320/sr.png",
+    "flag_emoji": "🇸🇷",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 22.5,
+        "male": 73864,
+        "female": 71573
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 70,
+        "male": 226417,
+        "female": 226235
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 7.5,
+        "male": 20071,
+        "female": 28598
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 646758
+  },
+  {
+    "code": "SWE",
+    "name": "Sweden",
+    "flag_url": "https://flagcdn.com/w320/se.png",
+    "flag_emoji": "🇸🇪",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 17.1,
+        "male": 934668,
+        "female": 880310
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 62.1,
+        "male": 3365754,
+        "female": 3208248
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 20.8,
+        "male": 1032279,
+        "female": 1168576
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 10589835
+  },
+  {
+    "code": "CHE",
+    "name": "Switzerland",
+    "flag_url": "https://flagcdn.com/w320/ch.png",
+    "flag_emoji": "🇨🇭",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 15.1,
+        "male": 685221,
+        "female": 650802
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 64.6,
+        "male": 2887767,
+        "female": 2834842
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 20.3,
+        "male": 830117,
+        "female": 971825
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 8860574
+  },
+  {
+    "code": "SYR",
+    "name": "Syria",
+    "flag_url": "https://flagcdn.com/w320/sy.png",
+    "flag_emoji": "🇸🇾",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 33,
+        "male": 4037493,
+        "female": 3828777
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 62.8,
+        "male": 7475355,
+        "female": 7522797
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 4.2,
+        "male": 468730,
+        "female": 532271
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 23865423
+  },
+  {
+    "code": "TWN",
+    "name": "Taiwan",
+    "flag_url": "https://flagcdn.com/w320/tw.png",
+    "flag_emoji": "🇹🇼",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 12.1,
+        "male": 1472059,
+        "female": 1391031
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 69,
+        "male": 8132356,
+        "female": 8155582
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 18.8,
+        "male": 2002076,
+        "female": 2442170
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 23595274
+  },
+  {
+    "code": "TJK",
+    "name": "Tajikistan",
+    "flag_url": "https://flagcdn.com/w320/tj.png",
+    "flag_emoji": "🇹🇯",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 36.9,
+        "male": 1953472,
+        "female": 1877192
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 59.3,
+        "male": 3086964,
+        "female": 3071642
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 3.9,
+        "male": 181382,
+        "female": 223411
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 10394063
+  },
+  {
+    "code": "TZA",
+    "name": "Tanzania",
+    "flag_url": "https://flagcdn.com/w320/tz.png",
+    "flag_emoji": "🇹🇿",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 41.2,
+        "male": 14039292,
+        "female": 13740439
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 55.4,
+        "male": 18677388,
+        "female": 18708390
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 3.4,
+        "male": 975224,
+        "female": 1321388
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 67462121
+  },
+  {
+    "code": "THA",
+    "name": "Thailand",
+    "flag_url": "https://flagcdn.com/w320/th.png",
+    "flag_emoji": "🇹🇭",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 15.8,
+        "male": 5669592,
+        "female": 5394398
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 69,
+        "male": 23681528,
+        "female": 24597535
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 15.1,
+        "male": 4714191,
+        "female": 5863754
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 69920998
+  },
+  {
+    "code": "TLS",
+    "name": "Timor-Leste",
+    "flag_url": "https://flagcdn.com/w320/tl.png",
+    "flag_emoji": "🇹🇱",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 38.7,
+        "male": 299929,
+        "female": 283416
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 56.8,
+        "male": 418493,
+        "female": 437727
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 4.5,
+        "male": 32243,
+        "female": 35101
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 1506909
+  },
+  {
+    "code": "TGO",
+    "name": "Togo",
+    "flag_url": "https://flagcdn.com/w320/tg.png",
+    "flag_emoji": "🇹🇬",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 38.7,
+        "male": 1749533,
+        "female": 1699084
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 57,
+        "male": 2486142,
+        "female": 2597914
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 4.3,
+        "male": 159596,
+        "female": 225725
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 8917994
+  },
+  {
+    "code": "TON",
+    "name": "Tonga",
+    "flag_url": "https://flagcdn.com/w320/to.png",
+    "flag_emoji": "🇹🇴",
+    "region": "Oceania",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 29.3,
+        "male": 15627,
+        "female": 15142
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 63.2,
+        "male": 33445,
+        "female": 32867
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 7.4,
+        "male": 3534,
+        "female": 4274
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 104889
+  },
+  {
+    "code": "TTO",
+    "name": "Trinidad and Tobago",
+    "flag_url": "https://flagcdn.com/w320/tt.png",
+    "flag_emoji": "🇹🇹",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 18.7,
+        "male": 134508,
+        "female": 129180
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 67.2,
+        "male": 481606,
+        "female": 465150
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 14.1,
+        "male": 92146,
+        "female": 106376
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 1408966
+  },
+  {
+    "code": "TUN",
+    "name": "Tunisia",
+    "flag_url": "https://flagcdn.com/w320/tn.png",
+    "flag_emoji": "🇹🇳",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 24.4,
+        "male": 1516871,
+        "female": 1426522
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 65.2,
+        "male": 3861731,
+        "female": 3990802
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 10.4,
+        "male": 593640,
+        "female": 659281
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 12048847
+  },
+  {
+    "code": "TUR",
+    "name": "Türkiye",
+    "flag_url": "https://flagcdn.com/w320/tr.png",
+    "flag_emoji": "🇹🇷",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 21.7,
+        "male": 9358711,
+        "female": 8933673
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 68.6,
+        "male": 29219389,
+        "female": 28494315
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 9.6,
+        "male": 3669330,
+        "female": 4444113
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 84119531
+  },
+  {
+    "code": "TKM",
+    "name": "Turkmenistan",
+    "flag_url": "https://flagcdn.com/w320/tm.png",
+    "flag_emoji": "🇹🇲",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 24.5,
+        "male": 711784,
+        "female": 692967
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 68.6,
+        "male": 1956740,
+        "female": 1984333
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 6.9,
+        "male": 174346,
+        "female": 223981
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 5744151
+  },
+  {
+    "code": "TCA",
+    "name": "Turks and Caicos Islands",
+    "flag_url": "https://flagcdn.com/w320/tc.png",
+    "flag_emoji": "🇹🇨",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 20.4,
+        "male": 6288,
+        "female": 6056
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 73.2,
+        "male": 22232,
+        "female": 22011
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 6.4,
+        "male": 1869,
+        "female": 1983
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 60439
+  },
+  {
+    "code": "TUV",
+    "name": "Tuvalu",
+    "flag_url": "https://flagcdn.com/w320/tv.png",
+    "flag_emoji": "🇹🇻",
+    "region": "Oceania",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 29.2,
+        "male": 1754,
+        "female": 1672
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 63.2,
+        "male": 3736,
+        "female": 3675
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 7.6,
+        "male": 326,
+        "female": 570
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 11733
+  },
+  {
+    "code": "UGA",
+    "name": "Uganda",
+    "flag_url": "https://flagcdn.com/w320/ug.png",
+    "flag_emoji": "🇺🇬",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 47,
+        "male": 11747745,
+        "female": 11427932
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 50.6,
+        "male": 11788483,
+        "female": 13131051
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 2.4,
+        "male": 504332,
+        "female": 683498
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 49283041
+  },
+  {
+    "code": "UKR",
+    "name": "Ukraine",
+    "flag_url": "https://flagcdn.com/w320/ua.png",
+    "flag_emoji": "🇺🇦",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 12.3,
+        "male": 2278116,
+        "female": 2122500
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 67.8,
+        "male": 12784928,
+        "female": 11376460
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 19.9,
+        "male": 2447105,
+        "female": 4652717
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 35661826
+  },
+  {
+    "code": "ARE",
+    "name": "United Arab Emirates",
+    "flag_url": "https://flagcdn.com/w320/ae.png",
+    "flag_emoji": "🇦🇪",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 16.4,
+        "male": 842577,
+        "female": 802302
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 81.4,
+        "male": 5812470,
+        "female": 2353750
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 2.2,
+        "male": 169084,
+        "female": 52030
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 10032213
+  },
+  {
+    "code": "GBR",
+    "name": "United Kingdom",
+    "flag_url": "https://flagcdn.com/w320/gb.png",
+    "flag_emoji": "🇬🇧",
+    "region": "Europe",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 16.7,
+        "male": 5872937,
+        "female": 5592665
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 63.9,
+        "male": 22062643,
+        "female": 21702401
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 19.3,
+        "male": 6069865,
+        "female": 7158544
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 68459055
+  },
+  {
+    "code": "USA",
+    "name": "United States",
+    "flag_url": "https://flagcdn.com/w320/us.png",
+    "flag_emoji": "🇺🇸",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 18.1,
+        "male": 31618532,
+        "female": 30254223
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 63.4,
+        "male": 108553822,
+        "female": 108182491
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 18.5,
+        "male": 28426426,
+        "female": 34927914
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 341963408
+  },
+  {
+    "code": "VIR",
+    "name": "United States Virgin Islands",
+    "flag_url": "https://flagcdn.com/w320/vi.png",
+    "flag_emoji": "🇻🇮",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 18.7,
+        "male": 9983,
+        "female": 9547
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 59.8,
+        "male": 29519,
+        "female": 32899
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 21.5,
+        "male": 10018,
+        "female": 12411
+      }
+    ],
+    "shape": "constrictive",
+    "totalPopulation": 104377
+  },
+  {
+    "code": "URY",
+    "name": "Uruguay",
+    "flag_url": "https://flagcdn.com/w320/uy.png",
+    "flag_emoji": "🇺🇾",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 18.9,
+        "male": 329268,
+        "female": 317925
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 65.4,
+        "male": 1112622,
+        "female": 1128418
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 15.7,
+        "male": 218242,
+        "female": 318855
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 3425330
+  },
+  {
+    "code": "UZB",
+    "name": "Uzbekistan",
+    "flag_url": "https://flagcdn.com/w320/uz.png",
+    "flag_emoji": "🇺🇿",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 29.6,
+        "male": 5597947,
+        "female": 5213403
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 63.7,
+        "male": 11649017,
+        "female": 11617411
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 6.7,
+        "male": 1077849,
+        "female": 1364966
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 36520593
+  },
+  {
+    "code": "VUT",
+    "name": "Vanuatu",
+    "flag_url": "https://flagcdn.com/w320/vu.png",
+    "flag_emoji": "🇻🇺",
+    "region": "Oceania",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 31.1,
+        "male": 50584,
+        "female": 48475
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 63.8,
+        "male": 99496,
+        "female": 103425
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 5,
+        "male": 7852,
+        "female": 8175
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 318007
+  },
+  {
+    "code": "VEN",
+    "name": "Venezuela",
+    "flag_url": "https://flagcdn.com/w320/ve.png",
+    "flag_emoji": "🇻🇪",
+    "region": "Americas",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 25,
+        "male": 3987361,
+        "female": 3811307
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 65.9,
+        "male": 10264353,
+        "female": 10330376
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 9.1,
+        "male": 1303737,
+        "female": 1553172
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 31250306
+  },
+  {
+    "code": "VNM",
+    "name": "Vietnam",
+    "flag_url": "https://flagcdn.com/w320/vn.png",
+    "flag_emoji": "🇻🇳",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 23.2,
+        "male": 12953719,
+        "female": 11579690
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 68.5,
+        "male": 36591845,
+        "female": 35887201
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 8.3,
+        "male": 3563611,
+        "female": 5182909
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 105758975
+  },
+  {
+    "code": "WLF",
+    "name": "Wallis and Futuna",
+    "flag_url": "https://flagcdn.com/w320/wf.png",
+    "flag_emoji": "🇼🇫",
+    "region": "Oceania",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 19.8,
+        "male": 1643,
+        "female": 1511
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 67.5,
+        "male": 5535,
+        "female": 5247
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 12.7,
+        "male": 1023,
+        "female": 1005
+      }
+    ],
+    "shape": "stationary",
+    "totalPopulation": 15964
+  },
+  {
+    "code": "YEM",
+    "name": "Yemen",
+    "flag_url": "https://flagcdn.com/w320/ye.png",
+    "flag_emoji": "🇾🇪",
+    "region": "Asia",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 34.4,
+        "male": 5622998,
+        "female": 5430285
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 62.2,
+        "male": 10112603,
+        "female": 9865805
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 3.4,
+        "male": 485538,
+        "female": 623214
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 32140443
+  },
+  {
+    "code": "ZMB",
+    "name": "Zambia",
+    "flag_url": "https://flagcdn.com/w320/zm.png",
+    "flag_emoji": "🇿🇲",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 42.1,
+        "male": 4418980,
+        "female": 4337187
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 55.1,
+        "male": 5726265,
+        "female": 5736732
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 2.8,
+        "male": 262008,
+        "female": 317944
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 20799116
+  },
+  {
+    "code": "ZWE",
+    "name": "Zimbabwe",
+    "flag_url": "https://flagcdn.com/w320/zw.png",
+    "flag_emoji": "🇿🇼",
+    "region": "Africa",
+    "year": 2024,
+    "bands": [
+      {
+        "id": "0-14",
+        "label": "0–14 years",
+        "percent": 38.3,
+        "male": 3315075,
+        "female": 3254643
+      },
+      {
+        "id": "15-64",
+        "label": "15–64 years",
+        "percent": 57.8,
+        "male": 4758120,
+        "female": 5152773
+      },
+      {
+        "id": "65+",
+        "label": "65+ years",
+        "percent": 3.9,
+        "male": 270595,
+        "female": 399146
+      }
+    ],
+    "shape": "expansive",
+    "totalPopulation": 17150352
+  }
+]

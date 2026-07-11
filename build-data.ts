@@ -50,6 +50,7 @@ import path from 'path';
 import { pipeline } from 'stream/promises';
 import { Readable } from 'stream';
 import { execFileSync } from 'child_process';
+import { extractPyramidFromCountry } from './src/population-pyramid';
 
 // ---------------------------------------------------------------------------
 // Paths & configuration
@@ -904,6 +905,26 @@ function buildComparisonRow(c: CountryProfile): ComparisonRow {
 }
 
 // ---------------------------------------------------------------------------
+// Population pyramids (educational Age structure extract)
+// ---------------------------------------------------------------------------
+
+function buildPopulationPyramids(countries: CountryProfile[]) {
+  return countries
+    .map((c) =>
+      extractPyramidFromCountry({
+        code: c.code,
+        name_common: c.name_common,
+        flag_url: c.flag_url,
+        flag_emoji: c.flag_emoji,
+        region: c.region,
+        factbook: c.factbook,
+      })
+    )
+    .filter((p): p is NonNullable<typeof p> => p != null)
+    .sort((a, b) => a.name.localeCompare(b.name));
+}
+
+// ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
 
@@ -941,6 +962,12 @@ async function main() {
   writeFileSync(cmpPath, JSON.stringify(comparison, null, 2) + '\n');
   log(`💾 Wrote ${cmpPath} (${(statSync(cmpPath).size / 1e3).toFixed(0)} KB)`);
 
+  // Population pyramids (Age structure → structured bands for educational charts)
+  const pyramids = buildPopulationPyramids(countries);
+  const pyrPath = path.join(DATA_DIR, 'population-pyramids.json');
+  writeFileSync(pyrPath, JSON.stringify(pyramids, null, 2) + '\n');
+  log(`💾 Wrote ${pyrPath} (${pyramids.length} pyramids)`);
+
   // Coverage report
   const withPop = comparison.filter((c) => c.population != null).length;
   const withGdp = comparison.filter((c) => c.gdp_per_capita != null).length;
@@ -950,6 +977,7 @@ async function main() {
   log(`   population:       ${withPop}/${comparison.length}`);
   log(`   gdp_per_capita:   ${withGdp}/${comparison.length}`);
   log(`   life_expectancy:  ${withLe}/${comparison.length}`);
+  log(`   pyramids:         ${pyramids.length}/${countries.length}`);
   log('');
   log('Done. Next: npm run build  (or npm run dev)');
   log('Cache lives in .cache/ — delete it to force a full re-download.');

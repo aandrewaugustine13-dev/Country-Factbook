@@ -98,6 +98,13 @@ export function HomeClient({
               <span className="quick-link-title">Compare</span>
               <span className="quick-link-desc">Side-by-side stats & charts</span>
             </Link>
+            <Link href="/pyramids" className="quick-link">
+              <span className="quick-link-icon" aria-hidden="true">
+                📐
+              </span>
+              <span className="quick-link-title">Pyramids</span>
+              <span className="quick-link-desc">Age structure comparison</span>
+            </Link>
             <Link href="/quiz" className="quick-link">
               <span className="quick-link-icon" aria-hidden="true">
                 🎯
@@ -112,13 +119,6 @@ export function HomeClient({
               <span className="quick-link-title">Daily</span>
               <span className="quick-link-desc">Guess the country of the day</span>
             </Link>
-            <a href="#browse" className="quick-link">
-              <span className="quick-link-icon" aria-hidden="true">
-                🔎
-              </span>
-              <span className="quick-link-title">Search</span>
-              <span className="quick-link-desc">Find any nation or capital</span>
-            </a>
           </div>
         </div>
       </section>
