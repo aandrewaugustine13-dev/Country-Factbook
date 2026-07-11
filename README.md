@@ -14,6 +14,7 @@ This site provides authoritative country profiles and statistics for researchers
 - Full Factbook section profiles (Introduction through Transnational Issues)
 - Country comparison, quiz, and “country of the day”
 - **Population pyramid comparison** (`/pyramids`) for classroom age-structure analysis
+- **Interactive world map** (`/map`) — click a country for a fact card + full profile link
 - Individual country pages (`/countries/USA`, `/countries/CHN`, etc.)
 - Built with Next.js 15 + Tailwind — static export friendly
 
@@ -47,6 +48,21 @@ The script [`build-data.ts`](./build-data.ts) rebuilds both app datasets:
 | `data/all-countries.json` | Full profiles + nested Factbook sections |
 | `data/comparison-data.json` | Parsed numeric metrics for compare / quiz / daily |
 | `data/population-pyramids.json` | Age structure bands (0–14 / 15–64 / 65+) for pyramid charts |
+
+### Interactive map
+Open **`/map`**. Boundaries load from `public/geo/countries.geojson` (Natural Earth 110m, slimmed).
+
+- Click a country → modal with capital, population, region, short background
+- **View full profile** links to `/countries/[code]`
+- Matching uses ISO alpha-3 (`iso_a3` ↔ `code`); overrides live in `src/map-countries.ts` (e.g. `KOS` → `UNK`)
+
+To upgrade boundaries (more islands, higher detail):
+
+```bash
+# Example: replace with another GeoJSON that includes iso_a3 (or ISO_A3)
+# Then slim properties if the file is large, and re-check overrides.
+cp path/to/countries.geojson public/geo/countries.geojson
+```
 
 ### Population pyramids (classroom tool)
 Open **`/pyramids`** to compare 1–4 countries side by side (Recharts back-to-back bars).

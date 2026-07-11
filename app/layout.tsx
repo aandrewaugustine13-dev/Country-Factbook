@@ -93,6 +93,9 @@ export default function RootLayout({
               <Link href="/compare" className="nav-link nav-link-compare">
                 <CompareNavButton />
               </Link>
+              <Link href="/map" className="nav-link">
+                Map
+              </Link>
               <Link href="/pyramids" className="nav-link">
                 Pyramids
               </Link>

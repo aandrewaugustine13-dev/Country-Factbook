@@ -98,6 +98,13 @@ export function HomeClient({
               <span className="quick-link-title">Compare</span>
               <span className="quick-link-desc">Side-by-side stats & charts</span>
             </Link>
+            <Link href="/map" className="quick-link">
+              <span className="quick-link-icon" aria-hidden="true">
+                🗺️
+              </span>
+              <span className="quick-link-title">Map</span>
+              <span className="quick-link-desc">Click countries to explore</span>
+            </Link>
             <Link href="/pyramids" className="quick-link">
               <span className="quick-link-icon" aria-hidden="true">
                 📐
