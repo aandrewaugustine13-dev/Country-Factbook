@@ -33,36 +33,96 @@ const REGION_MARKS: Record<string, string> = {
   Antarctic: 'AN',
 };
 
+/** Compact line icons for tool tiles — institutional, not emoji */
+function ToolIcon({ name }: { name: string }) {
+  const common = {
+    fill: 'none',
+    stroke: 'currentColor',
+    strokeWidth: 1.75,
+    strokeLinecap: 'round' as const,
+    strokeLinejoin: 'round' as const,
+  };
+  switch (name) {
+    case 'compare':
+      return (
+        <svg viewBox="0 0 24 24" className="home-tool-icon" aria-hidden>
+          <path {...common} d="M5 19V9M10 19V5M15 19v-7M20 19V11" />
+        </svg>
+      );
+    case 'map':
+      return (
+        <svg viewBox="0 0 24 24" className="home-tool-icon" aria-hidden>
+          <circle {...common} cx="12" cy="12" r="8" />
+          <path {...common} d="M4 12h16M12 4c2.5 2.8 2.5 13.2 0 16M12 4c-2.5 2.8-2.5 13.2 0 16" />
+        </svg>
+      );
+    case 'pyramids':
+      return (
+        <svg viewBox="0 0 24 24" className="home-tool-icon" aria-hidden>
+          <path {...common} d="M4 18h7M13 18h7M5.5 15h4M14.5 15h4M7 12h1M16 12h1M7.5 9h0.5" />
+          <path {...common} d="M3 20h8V8L7 20M13 20h8V6l-4 14" />
+        </svg>
+      );
+    case 'quiz':
+      return (
+        <svg viewBox="0 0 24 24" className="home-tool-icon" aria-hidden>
+          <circle {...common} cx="12" cy="12" r="8" />
+          <path {...common} d="M9.5 9.5a2.5 2.5 0 1 1 3.6 2.2c-.7.4-1.1.9-1.1 1.8V14" />
+          <circle cx="12" cy="17" r="0.8" fill="currentColor" stroke="none" />
+        </svg>
+      );
+    case 'daily':
+      return (
+        <svg viewBox="0 0 24 24" className="home-tool-icon" aria-hidden>
+          <rect {...common} x="4" y="5" width="16" height="15" rx="2" />
+          <path {...common} d="M8 3v4M16 3v4M4 10h16" />
+        </svg>
+      );
+    default:
+      return null;
+  }
+}
+
 const TOOLS = [
-  {
-    href: '/compare',
-    title: 'Compare',
-    desc: 'Side-by-side metrics and charts',
-    mark: '01',
-  },
   {
     href: '/map',
     title: 'Map',
-    desc: 'Click the world to explore',
+    desc: 'Thematic layers',
+    mark: '01',
+    icon: 'map',
+    featured: true,
+  },
+  {
+    href: '/compare',
+    title: 'Compare',
+    desc: 'Side-by-side stats',
     mark: '02',
+    icon: 'compare',
+    featured: true,
   },
   {
     href: '/pyramids',
     title: 'Pyramids',
-    desc: 'Age structure for the classroom',
+    desc: 'Age structure',
     mark: '03',
+    icon: 'pyramids',
+    featured: true,
   },
   {
     href: '/quiz',
     title: 'Quiz',
-    desc: 'Which country ranks higher?',
+    desc: 'Higher or lower',
     mark: '04',
+    icon: 'quiz',
+    featured: false,
   },
   {
     href: '/daily',
     title: 'Daily',
-    desc: 'Guess the country of the day',
+    desc: 'Mystery country',
     mark: '05',
+    icon: 'daily',
+    featured: false,
   },
 ] as const;
 
@@ -93,59 +153,52 @@ export function HomeClient({
 
   function selectRegion(r: string) {
     setRegion(r === region ? 'All Regions' : r);
+    // Scroll to directory when filtering from atlas
+    if (typeof document !== 'undefined') {
+      document.getElementById('browse')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
   return (
     <>
-      {/* Hero — institutional panel */}
+      {/* Hero */}
       <section className="home-hero" aria-label="Overview">
         <div className="home-hero-panel">
           <div className="home-hero-rule" aria-hidden="true" />
-
           <div className="home-hero-grid">
             <div className="home-hero-copy">
               <p className="home-hero-kicker">
                 <span className="home-hero-kicker-line" aria-hidden="true" />
-                The World Factbook
-                <span className="home-hero-kicker-sep" aria-hidden="true">
-                  ·
-                </span>
                 Reference Edition 2026
               </p>
 
-              <h1 className="home-hero-title">
-                An atlas of nations
-                <span className="home-hero-title-sub">for study and reference</span>
-              </h1>
+              <h1 className="home-hero-title">The World Factbook</h1>
+              <p className="home-hero-tagline">A classroom atlas of nations</p>
 
               <p className="home-hero-lead">
-                Authoritative country profiles, clear comparisons, and classroom tools — designed
-                with institutional clarity and quiet optimism.
+                Profiles, maps, and comparisons — built for World Geography.
               </p>
 
               <div className="home-hero-actions">
-                <a href="#browse" className="btn btn-primary">
+                <Link href="/map" className="btn btn-primary">
+                  Open map
+                </Link>
+                <a href="#browse" className="btn btn-ghost">
                   Browse countries
                 </a>
-                <Link href="/map" className="btn btn-ghost">
-                  Explore the map
-                </Link>
-                <Link href="/compare" className="btn btn-ghost">
-                  Compare
-                </Link>
               </div>
 
               <dl className="home-hero-stats">
                 <div>
-                  <dt>Entries</dt>
+                  <dt>Countries</dt>
                   <dd>{stats.total}</dd>
                 </div>
                 <div>
-                  <dt>Full profiles</dt>
+                  <dt>Profiles</dt>
                   <dd>{stats.withFactbook}</dd>
                 </div>
                 <div>
-                  <dt>With metrics</dt>
+                  <dt>Metrics</dt>
                   <dd>{stats.withPopulation}</dd>
                 </div>
               </dl>
@@ -154,47 +207,57 @@ export function HomeClient({
             <div className="home-hero-emblem" aria-hidden="true">
               <div className="home-hero-emblem-frame">
                 <InstitutionalGlobe variant="hero" className="home-hero-globe" />
-                <p className="home-hero-emblem-caption">Nations of the world</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Tools — numbered institutional index */}
-      <section className="home-tools" aria-label="Reference tools">
-        <div className="home-section-head">
-          <div>
-            <p className="home-section-eyebrow">Index</p>
-            <h2 className="home-section-title">Reference tools</h2>
-          </div>
-          <p className="home-section-note">Study, compare, and explore</p>
+      {/* Featured tools — visual-first */}
+      <section className="home-featured" aria-label="Primary tools">
+        <div className="home-section-head home-section-head-tight">
+          <h2 className="home-section-title">Explore</h2>
         </div>
-
-        <ul className="home-tools-grid">
-          {TOOLS.map((tool) => (
+        <ul className="home-featured-grid">
+          {TOOLS.filter((t) => t.featured).map((tool) => (
             <li key={tool.href}>
-              <Link href={tool.href} className="home-tool-card">
-                <span className="home-tool-mark">{tool.mark}</span>
-                <span className="home-tool-title">{tool.title}</span>
-                <span className="home-tool-desc">{tool.desc}</span>
-                <span className="home-tool-arrow" aria-hidden="true">
+              <Link href={tool.href} className={`home-feature-card home-feature-${tool.icon}`}>
+                <span className="home-feature-icon-wrap">
+                  <ToolIcon name={tool.icon} />
+                </span>
+                <span className="home-feature-copy">
+                  <span className="home-feature-title">{tool.title}</span>
+                  <span className="home-feature-desc">{tool.desc}</span>
+                </span>
+                <span className="home-feature-go" aria-hidden>
                   →
                 </span>
               </Link>
             </li>
           ))}
         </ul>
+        <ul className="home-secondary-tools">
+          {TOOLS.filter((t) => !t.featured).map((tool) => (
+            <li key={tool.href}>
+              <Link href={tool.href} className="home-secondary-link">
+                <ToolIcon name={tool.icon} />
+                <span>{tool.title}</span>
+                <span className="home-secondary-desc">{tool.desc}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </section>
 
-      {/* Regions */}
+      {/* Regions — compact atlas strip */}
       <section className="home-regions" aria-label="Regions">
-        <div className="home-section-head">
-          <div>
-            <p className="home-section-eyebrow">Atlas</p>
-            <h2 className="home-section-title">Regions of the world</h2>
-          </div>
-          <p className="home-section-note">Filter the directory below</p>
+        <div className="home-section-head home-section-head-tight">
+          <h2 className="home-section-title">Regions</h2>
+          {region !== 'All Regions' && (
+            <button type="button" className="home-clear-region" onClick={() => setRegion('All Regions')}>
+              Clear filter
+            </button>
+          )}
         </div>
 
         <div className="home-region-grid" role="group" aria-label="Filter by region">
@@ -211,22 +274,17 @@ export function HomeClient({
               >
                 <span className="home-region-mark">{REGION_MARKS[r]}</span>
                 <span className="home-region-name">{r}</span>
-                <span className="home-region-count">
-                  {count} {count === 1 ? 'entry' : 'entries'}
-                </span>
+                <span className="home-region-count">{count}</span>
               </button>
             );
           })}
         </div>
       </section>
 
-      {/* Browse directory */}
+      {/* Directory */}
       <section id="browse" className="home-browse" aria-label="Browse countries">
-        <div className="home-section-head">
-          <div>
-            <p className="home-section-eyebrow">Directory</p>
-            <h2 className="home-section-title">Browse countries</h2>
-          </div>
+        <div className="home-section-head home-section-head-tight">
+          <h2 className="home-section-title">Countries</h2>
           <span className="home-browse-count">
             {filtered.length}
             <span className="home-browse-count-total"> / {countries.length}</span>
@@ -234,7 +292,7 @@ export function HomeClient({
         </div>
 
         <div className="browse-panel home-browse-panel">
-          <div className="controls">
+          <div className="controls home-browse-controls">
             <div className="search-wrap home-search-wrap">
               <label htmlFor="search" className="sr-only">
                 Search countries
@@ -245,13 +303,13 @@ export function HomeClient({
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search by country, code, or capital…"
+                placeholder="Search country, capital, or code…"
                 autoComplete="off"
               />
             </div>
 
             <div className="controls-row">
-              <div className="region-tabs">
+              <div className="region-tabs" aria-label="Region filter">
                 {REGIONS.map((r) => (
                   <button
                     key={r}
@@ -259,7 +317,7 @@ export function HomeClient({
                     className={`region-tab ${region === r ? 'active' : ''}`}
                     onClick={() => setRegion(r)}
                   >
-                    {r}
+                    {r === 'All Regions' ? 'All' : r}
                   </button>
                 ))}
               </div>
@@ -282,12 +340,6 @@ export function HomeClient({
             </div>
           </div>
 
-          <p className="result-count">
-            {filtered.length} {filtered.length === 1 ? 'country' : 'countries'}
-            {region !== 'All Regions' ? ` in ${region}` : ''}
-            {query.trim() ? ` matching “${query.trim()}”` : ''}
-          </p>
-
           <ul
             className={`country-grid ${view === 'list' ? 'list-view' : ''}`}
             aria-label="Country list"
@@ -303,21 +355,22 @@ export function HomeClient({
                     height={40}
                     loading="lazy"
                   />
-                  <div>
+                  <div className="country-card-body">
                     <h2>{country.name_common}</h2>
-                    <p>{country.capital !== 'N/A' ? country.capital : country.region}</p>
-                    <div className="country-card-meta">
-                      <span className="pill">{country.region}</span>
-                      <span className="pill pill-gold">{country.code}</span>
-                    </div>
+                    <p>
+                      {country.capital !== 'N/A' ? country.capital : '—'}
+                      <span className="country-card-sep">·</span>
+                      {country.region}
+                    </p>
                   </div>
+                  <span className="country-card-code">{country.code}</span>
                 </Link>
               </li>
             ))}
           </ul>
 
           {filtered.length === 0 && (
-            <p className="no-results">No countries match your search. Try another term or region.</p>
+            <p className="no-results">No matches. Try another search or region.</p>
           )}
         </div>
       </section>

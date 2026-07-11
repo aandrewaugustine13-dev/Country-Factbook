@@ -37,14 +37,11 @@ export default function RootLayout({
             </Link>
 
             <nav className="site-nav" aria-label="Primary">
-              <Link href="/" className="nav-link">
-                Dashboard
+              <Link href="/map" className="nav-link">
+                Map
               </Link>
               <Link href="/compare" className="nav-link nav-link-compare">
                 <CompareNavButton />
-              </Link>
-              <Link href="/map" className="nav-link">
-                Map
               </Link>
               <Link href="/pyramids" className="nav-link">
                 Pyramids
@@ -64,8 +61,7 @@ export default function RootLayout({
         <footer className="site-footer">
           <div className="site-footer-inner">
             <p>
-              Open reference data from the CIA World Factbook archive and mledoze/countries.
-              Independent project — not affiliated with any government agency.
+              Public-domain Factbook data · Independent classroom reference · Not a government site
             </p>
           </div>
         </footer>

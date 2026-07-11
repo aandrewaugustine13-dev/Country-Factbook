@@ -48,10 +48,9 @@ export default function MapPage() {
       <Link href="/" className="back-link">
         ← Back to dashboard
       </Link>
-      <h1 className="page-title">Thematic world map</h1>
+      <h1 className="page-title">World map</h1>
       <p className="page-lead">
-        Toggle a data layer to color the world, then click a country. The fact card highlights values
-        for the layer you chose — built for exploring geographic patterns in class.
+        Pick a layer, read the patterns, click a country for details.
       </p>
       <MapPageClient countries={countries} />
     </div>
