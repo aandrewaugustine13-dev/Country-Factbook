@@ -1,3 +1,12 @@
+/**
+ * Lightweight safety-net sanitizer for data/all-countries.json.
+ *
+ * The full pipeline (npm run build:data / build-data.ts) already attaches
+ * Factbook sections carefully and rejects mismatches. This script runs on
+ * `prebuild` so a bad manual edit cannot ship poisoned profiles.
+ *
+ * Prefer fixing upstream matching in build-data.ts rather than growing rules here.
+ */
 const fs = require('fs');
 const path = require('path');
 
@@ -29,6 +38,9 @@ const NAME_ALIASES = {
   FLK: ['falkland', 'falkland islands', 'islas malvinas'],
   SJM: ['svalbard', 'jan mayen', 'svalbard and jan mayen'],
   UMI: ['minor outlying islands', 'u.s. minor outlying islands', 'united states minor outlying islands'],
+  CCK: ['cocos', 'keeling'],
+  SHN: ['saint helena', 'ascension', 'tristan'],
+  VIR: ['virgin islands'],
 };
 
 function flattenFactbook(fb) {

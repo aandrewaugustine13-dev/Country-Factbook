@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# Static export artifacts accidentally committed to repo root
+# (next.config uses output:'export'; builds belong in out/, not the source tree)
+_next/
+/*.html
+/*.txt
+/comparison-data.json
+
+# Data pipeline download cache
+.cache/
+
+# Env / OS / IDE
+.env
+.env*.local
+.DS_Store
+*.log
+.idea/
+.vscode/
+*.tsbuildinfo

@@ -4,17 +4,17 @@ import allCountries from '@/data/all-countries.json';
 import { CountryContent } from '@/components/CountryContent';
 import { AddToCompareButton } from '@/components/AddToCompareButton';
 import { CountryMap } from '@/components/CountryMap';
+import type { CountryProfile, FactbookSections } from '@/src/types';
 
 export function generateStaticParams() {
   return allCountries.map((c) => ({ code: c.code }));
 }
 
-function getCountry(code: string) {
-  return (
-    allCountries.find(
-      (c) => c.code.toUpperCase() === code.toUpperCase()
-    ) || null
+function getCountry(code: string): CountryProfile | null {
+  const found = (allCountries as CountryProfile[]).find(
+    (c) => c.code.toUpperCase() === code.toUpperCase()
   );
+  return found || null;
 }
 
 function fmt(n: number) {
@@ -46,10 +46,7 @@ export default async function CountryPage({
   const country = getCountry(code);
   if (!country) notFound();
 
-  const fb = (country as any).factbook as Record<
-    string,
-    Array<{ label: string; value: string }>
-  > | null;
+  const fb = country.factbook as FactbookSections | null;
 
   const activeSections = fb
     ? SECTION_ORDER.filter((s) => fb[s] && fb[s].length > 0)
@@ -139,9 +136,16 @@ export default async function CountryPage({
 
       <footer className="country-footer">
         <p>
-          Data sourced from the <a href="https://github.com/factbook/factbook.json" style={{ color: '#4AADE0' }}>CIA World Factbook open archive</a> (public domain) and{' '}
-          <a href="https://github.com/mledoze/countries" style={{ color: '#4AADE0' }}>mledoze/countries</a>.
-          This is an open-source reference tool, not affiliated with any government agency.
+          Data sourced from the{' '}
+          <a href="https://github.com/factbook/factbook.json" style={{ color: '#4AADE0' }}>
+            CIA World Factbook open archive
+          </a>{' '}
+          (public domain) and{' '}
+          <a href="https://github.com/mledoze/countries" style={{ color: '#4AADE0' }}>
+            mledoze/countries
+          </a>
+          . Rebuilt via <code>npm run build:data</code>. This is an open-source reference tool, not
+          affiliated with any government agency.
         </p>
       </footer>
     </div>
