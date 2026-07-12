@@ -1,6 +1,7 @@
 export const COMPARE_QUERY_KEY = 'c';
 export const COMPARE_STORAGE_KEY = 'factbook.compare.codes';
-export const MAX_COMPARE = 10;
+/** Higher ceiling for research multi-country analysis (URL + localStorage). */
+export const MAX_COMPARE = 20;
 
 function normalizeCode(code: string): string {
   return code.trim().toUpperCase();

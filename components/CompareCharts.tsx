@@ -119,92 +119,160 @@ export function CompareBarChart({ countries }: { countries: Country[] }) {
 }
 
 /* ============================
-   SCATTER PLOT: Wealth vs Health
+   SCATTER: any two numeric metrics
    ============================ */
-export function WealthHealthScatter({ countries }: { countries: Country[] }) {
-  const data = useMemo(() =>
-    countries
-      .filter(c => c.gdp_per_capita != null && c.life_expectancy != null)
-      .map(c => ({
-        x: c.gdp_per_capita,
-        y: c.life_expectancy,
-        name: c.name || c.name_common,
-        region: c.region,
-        emoji: c.flag_emoji,
-        pop: c.population || 0,
-      })),
-    [countries]
-  );
+export function MetricScatter({ countries }: { countries: Country[] }) {
+  const [xKey, setXKey] = useState('gdp_per_capita');
+  const [yKey, setYKey] = useState('life_expectancy');
+  const xMetric = CHART_METRICS.find((m) => m.key === xKey) || CHART_METRICS[0];
+  const yMetric = CHART_METRICS.find((m) => m.key === yKey) || CHART_METRICS[1];
 
-  if (data.length < 2) return null;
+  const data = useMemo(
+    () =>
+      countries
+        .filter((c) => c[xKey] != null && c[yKey] != null)
+        .map((c) => ({
+          x: Number(c[xKey]),
+          y: Number(c[yKey]),
+          name: c.name || c.name_common,
+          region: c.region,
+          emoji: c.flag_emoji,
+          pop: c.population || 0,
+        })),
+    [countries, xKey, yKey]
+  );
 
   return (
     <div className="compare-chart">
-      <h3 className="chart-title">
-        Wealth vs. Health
-        <GlossaryTip text="Shows the relationship between GDP per capita and life expectancy. Richer countries tend to live longer, but not always — some countries punch above their weight." />
-      </h3>
-      <p className="chart-subtitle">GDP per capita vs life expectancy · dot size = population</p>
+      <div className="chart-header">
+        <h3 className="chart-title">Scatter</h3>
+        <div className="scatter-metric-picks">
+          <label>
+            X{' '}
+            <select
+              className="chart-metric-select"
+              value={xKey}
+              onChange={(e) => setXKey(e.target.value)}
+            >
+              {CHART_METRICS.map((m) => (
+                <option key={m.key} value={m.key}>
+                  {m.label}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label>
+            Y{' '}
+            <select
+              className="chart-metric-select"
+              value={yKey}
+              onChange={(e) => setYKey(e.target.value)}
+            >
+              {CHART_METRICS.map((m) => (
+                <option key={m.key} value={m.key}>
+                  {m.label}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
+      </div>
+      <p className="chart-subtitle">
+        {xMetric.label} vs {yMetric.label}
+        {data.some((d) => d.pop > 0) ? ' · dot size ≈ population' : ''}
+      </p>
 
-      <ResponsiveContainer width="100%" height={320}>
-        <ScatterChart margin={{ bottom: 24, left: 12, right: 24, top: 8 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#E5DFD4" />
-          <XAxis
-            type="number"
-            dataKey="x"
-            name="GDP/capita"
-            tick={{ fill: '#5A6A7A', fontSize: 11 }}
-            tickFormatter={v => `$${(v / 1000).toFixed(0)}K`}
-            label={{ value: 'GDP per Capita', position: 'bottom', offset: 4, style: { fill: '#5A6A7A', fontSize: 11 } }}
-            axisLine={{ stroke: '#E5DFD4' }}
-          />
-          <YAxis
-            type="number"
-            dataKey="y"
-            name="Life Exp."
-            tick={{ fill: '#5A6A7A', fontSize: 11 }}
-            domain={['auto', 'auto']}
-            label={{ value: 'Life Expectancy', angle: -90, position: 'insideLeft', style: { fill: '#5A6A7A', fontSize: 11 } }}
-            axisLine={{ stroke: '#E5DFD4' }}
-          />
-          <Tooltip
-            content={({ payload }) => {
-              if (!payload?.length) return null;
-              const d = payload[0].payload;
-              return (
-                <div style={{
-                  background: '#FFFFFF', border: '1px solid #E5DFD4',
-                  borderRadius: '0.5rem', padding: '0.55rem 0.8rem', fontSize: '0.85rem',
-                  boxShadow: '0 8px 24px rgba(13, 43, 69, 0.1)',
-                }}>
-                  <div style={{ fontWeight: 600, color: '#0D2B45' }}>{d.emoji} {d.name}</div>
-                  <div style={{ color: '#5A6A7A' }}>GDP/capita: ${d.x?.toLocaleString()}</div>
-                  <div style={{ color: '#5A6A7A' }}>Life exp: {d.y} years</div>
-                  <div style={{ color: '#5A6A7A' }}>Pop: {d.pop >= 1e6 ? `${(d.pop / 1e6).toFixed(1)}M` : d.pop.toLocaleString()}</div>
-                </div>
-              );
-            }}
-          />
-          <Scatter data={data}>
-            {data.map((entry, i) => (
-              <Cell
-                key={i}
-                fill={REGION_COLORS[entry.region] || '#B8860B'}
-                r={Math.max(5, Math.min(18, Math.sqrt(entry.pop / 4000000)))}
-              />
-            ))}
-          </Scatter>
-        </ScatterChart>
-      </ResponsiveContainer>
+      {data.length >= 2 ? (
+        <ResponsiveContainer width="100%" height={320}>
+          <ScatterChart margin={{ bottom: 28, left: 12, right: 24, top: 8 }}>
+            <CartesianGrid strokeDasharray="3 3" stroke="#E5DFD4" />
+            <XAxis
+              type="number"
+              dataKey="x"
+              name={xMetric.label}
+              tick={{ fill: '#5A6A7A', fontSize: 11 }}
+              tickFormatter={(v) => formatMetricValue(v, xMetric.format)}
+              label={{
+                value: xMetric.label,
+                position: 'bottom',
+                offset: 8,
+                style: { fill: '#5A6A7A', fontSize: 11 },
+              }}
+              axisLine={{ stroke: '#E5DFD4' }}
+            />
+            <YAxis
+              type="number"
+              dataKey="y"
+              name={yMetric.label}
+              tick={{ fill: '#5A6A7A', fontSize: 11 }}
+              domain={['auto', 'auto']}
+              tickFormatter={(v) => formatMetricValue(v, yMetric.format)}
+              label={{
+                value: yMetric.label,
+                angle: -90,
+                position: 'insideLeft',
+                style: { fill: '#5A6A7A', fontSize: 11 },
+              }}
+              axisLine={{ stroke: '#E5DFD4' }}
+            />
+            <Tooltip
+              content={({ payload }) => {
+                if (!payload?.length) return null;
+                const d = payload[0].payload;
+                return (
+                  <div
+                    style={{
+                      background: '#FFFFFF',
+                      border: '1px solid #E5DFD4',
+                      borderRadius: '0.5rem',
+                      padding: '0.55rem 0.8rem',
+                      fontSize: '0.85rem',
+                      boxShadow: '0 8px 24px rgba(13, 43, 69, 0.1)',
+                    }}
+                  >
+                    <div style={{ fontWeight: 600, color: '#0D2B45' }}>
+                      {d.emoji} {d.name}
+                    </div>
+                    <div style={{ color: '#5A6A7A' }}>
+                      {xMetric.label}: {formatMetricValue(d.x, xMetric.format)}
+                    </div>
+                    <div style={{ color: '#5A6A7A' }}>
+                      {yMetric.label}: {formatMetricValue(d.y, yMetric.format)}
+                    </div>
+                  </div>
+                );
+              }}
+            />
+            <Scatter data={data}>
+              {data.map((entry, i) => (
+                <Cell
+                  key={i}
+                  fill={REGION_COLORS[entry.region] || '#B8860B'}
+                  r={Math.max(5, Math.min(18, Math.sqrt((entry.pop || 1e6) / 4000000)))}
+                />
+              ))}
+            </Scatter>
+          </ScatterChart>
+        </ResponsiveContainer>
+      ) : (
+        <p className="no-chart-data">Need at least two countries with both metrics available.</p>
+      )}
 
       <div className="chart-legend">
-        {Object.entries(REGION_COLORS).filter(([r]) => r !== 'Antarctic').map(([region, color]) => (
-          <span key={region} className="chart-legend-item">
-            <span className="chart-legend-dot" style={{ background: color }} />
-            {region}
-          </span>
-        ))}
+        {Object.entries(REGION_COLORS)
+          .filter(([r]) => r !== 'Antarctic')
+          .map(([region, color]) => (
+            <span key={region} className="chart-legend-item">
+              <span className="chart-legend-dot" style={{ background: color }} />
+              {region}
+            </span>
+          ))}
       </div>
     </div>
   );
+}
+
+/** @deprecated Use MetricScatter — kept for any external imports */
+export function WealthHealthScatter({ countries }: { countries: Country[] }) {
+  return <MetricScatter countries={countries} />;
 }

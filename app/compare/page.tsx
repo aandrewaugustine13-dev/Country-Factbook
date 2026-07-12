@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import comparisonData from '@/data/comparison-data.json';
 import allCountries from '@/data/all-countries.json';
 import CompareClient from './CompareClient';
+import { MAX_COMPARE } from '@/src/compare-state';
 
 function extractFactbookValue(country: any, section: string, labelNeedle: string) {
   const entries = country.factbook?.[section] as Array<{ label: string; value: string }> | undefined;
@@ -29,9 +30,10 @@ export default function ComparePage() {
       <Link href="/" className="back-link">
         ← Back to dashboard
       </Link>
-      <h1 className="page-title">Compare countries</h1>
+      <h1 className="page-title">Compare</h1>
       <p className="page-lead">
-        Select up to 10 countries, share the URL, and explore side-by-side charts and metrics.
+        Filter the world, select up to {MAX_COMPARE} countries, sort by any metric, and inspect
+        charts or a data grid.
       </p>
       <Suspense fallback={<div className="compare-empty">Loading comparison…</div>}>
         <CompareClient countries={countries} />
